@@ -66,7 +66,7 @@ export default async function ClientsPage({
           type="text"
           defaultValue={search}
           placeholder="Pretraži po imenu ili emailu..."
-          className="w-full max-w-sm rounded-lg border border-border px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
+          className="w-full rounded-lg border border-border px-4 py-2.5 text-sm text-foreground sm:max-w-sm outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
         />
       </form>
 
@@ -78,8 +78,8 @@ export default async function ClientsPage({
         </div>
       ) : (
         <>
-          <div className="overflow-hidden rounded-xl border border-border bg-white shadow-sm">
-            <table className="w-full text-sm">
+          <div className="overflow-x-auto rounded-xl border border-border bg-white shadow-sm">
+            <table className="w-full min-w-[600px] text-sm">
               <thead>
                 <tr className="border-b border-border bg-slate-50 text-left">
                   <th className="px-5 py-3 font-medium text-muted">Ime</th>

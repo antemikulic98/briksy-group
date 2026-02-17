@@ -28,7 +28,7 @@ export default async function ClientDetailPage({
         &larr; Natrag na klijente
       </Link>
 
-      <div className="mb-8 flex items-start justify-between">
+      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">{client.name}</h1>
           <p className="mt-1 text-sm text-muted">{client.email}</p>

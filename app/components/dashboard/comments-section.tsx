@@ -86,12 +86,12 @@ export default function ClientCommentsSection({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Napišite komentar..."
-          className="flex-1 rounded-lg border border-border px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
+          className="min-w-0 flex-1 rounded-lg border border-border px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
         />
         <button
           type="submit"
           disabled={loading || !content.trim()}
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-dark disabled:opacity-50"
+          className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-dark disabled:opacity-50"
         >
           {loading ? "..." : "Pošalji"}
         </button>

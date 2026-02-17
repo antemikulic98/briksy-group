@@ -94,16 +94,16 @@ export default function DocumentsSection({
           {documents.map((doc) => (
             <div
               key={doc.id}
-              className="flex items-center justify-between rounded-lg border border-border p-3"
+              className="flex items-center justify-between gap-3 rounded-lg border border-border p-3"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex min-w-0 items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-xs font-bold text-slate-500">
                   {getFileIcon(doc.type)}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <button
                     onClick={() => handleDownload(doc.id, doc.name)}
-                    className="text-sm font-medium text-foreground hover:text-accent hover:underline"
+                    className="block truncate text-sm font-medium text-foreground hover:text-accent hover:underline"
                   >
                     {doc.name}
                   </button>
@@ -113,7 +113,7 @@ export default function DocumentsSection({
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex shrink-0 gap-2">
                 <button
                   onClick={() => handleDownload(doc.id, doc.name)}
                   className="rounded-lg border border-border px-3 py-1.5 text-xs text-muted hover:bg-slate-50 hover:text-foreground"

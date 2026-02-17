@@ -78,14 +78,14 @@ export default async function ProjectsPage({
       </div>
 
       {/* Search + Filter */}
-      <div className="mb-4 flex flex-wrap items-center gap-3">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <form>
           <input
             name="search"
             type="text"
             defaultValue={search}
             placeholder="Pretraži projekt ili klijenta..."
-            className="w-64 rounded-lg border border-border px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
+            className="w-full rounded-lg border border-border px-4 py-2.5 text-sm text-foreground sm:w-64 outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
           />
           {statusFilter && (
             <input type="hidden" name="status" value={statusFilter} />
@@ -126,8 +126,8 @@ export default async function ProjectsPage({
         </div>
       ) : (
         <>
-          <div className="overflow-hidden rounded-xl border border-border bg-white shadow-sm">
-            <table className="w-full text-sm">
+          <div className="overflow-x-auto rounded-xl border border-border bg-white shadow-sm">
+            <table className="w-full min-w-[700px] text-sm">
               <thead>
                 <tr className="border-b border-border bg-slate-50 text-left">
                   <th className="px-5 py-3 font-medium text-muted">Projekt</th>

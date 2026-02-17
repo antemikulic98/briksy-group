@@ -62,14 +62,14 @@ export default async function InquiriesPage({
       </div>
 
       {/* Search + Filter */}
-      <div className="mb-4 flex flex-wrap items-center gap-3">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <form>
           <input
             name="search"
             type="text"
             defaultValue={search}
             placeholder="Pretraži po firmi, imenu ili emailu..."
-            className="w-72 rounded-lg border border-border px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
+            className="w-full rounded-lg border border-border px-4 py-2.5 text-sm text-foreground sm:w-72 outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
           />
           {filter && <input type="hidden" name="filter" value={filter} />}
         </form>

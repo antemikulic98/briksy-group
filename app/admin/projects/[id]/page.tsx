@@ -38,7 +38,7 @@ export default async function AdminProjectDetailPage({
         &larr; Natrag na projekte
       </Link>
 
-      <div className="mb-8 flex items-start justify-between">
+      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">{project.name}</h1>
           <p className="mt-1 text-sm text-muted">
@@ -49,7 +49,7 @@ export default async function AdminProjectDetailPage({
           <button
             type="submit"
             onClick={() => {}}
-            className="rounded-lg border border-red-200 px-4 py-2 text-sm text-red-500 transition-colors hover:bg-red-50"
+            className="shrink-0 rounded-lg border border-red-200 px-4 py-2 text-sm text-red-500 transition-colors hover:bg-red-50"
           >
             Obriši projekt
           </button>

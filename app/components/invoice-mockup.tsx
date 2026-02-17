@@ -97,8 +97,8 @@ export default function InvoiceMockup() {
             <div className="mb-2 text-xs font-medium uppercase tracking-wider text-accent">
               Stavke (2)
             </div>
-            <div className="overflow-hidden rounded-lg border border-border">
-              <table className="w-full text-xs">
+            <div className="overflow-x-auto rounded-lg border border-border">
+              <table className="w-full min-w-[400px] text-xs">
                 <thead>
                   <tr className="border-b border-border bg-slate-50 text-left">
                     <th className="px-3 py-2 font-medium text-muted">Opis</th>

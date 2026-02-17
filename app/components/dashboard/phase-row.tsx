@@ -25,9 +25,9 @@ export default function PhaseRow({
 }: PhaseRowProps) {
   return (
     <div className="rounded-lg border border-border bg-white p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h4 className="font-medium text-foreground">{name}</h4>
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex min-w-0 items-center gap-2">
+          <h4 className="truncate font-medium text-foreground">{name}</h4>
           <PhaseStatusBadge status={status} />
         </div>
         <span className="text-sm font-semibold text-foreground">

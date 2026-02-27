@@ -81,6 +81,11 @@ export default function BoatSupplyPage() {
                         </p>
                       )}
                     </div>
+                    {pkg.badge && (
+                      <span className="absolute left-3 top-3 rounded-full bg-amber-400 px-2.5 py-1 text-[10px] font-bold text-amber-950 shadow-sm sm:left-4 sm:top-4 sm:px-3 sm:text-xs">
+                        {pkg.badge}
+                      </span>
+                    )}
                     {isCustom && (
                       <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold text-slate-700 backdrop-blur-sm sm:right-4 sm:top-4 sm:px-3 sm:text-xs">
                         Build Your Own

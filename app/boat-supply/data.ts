@@ -16,6 +16,7 @@ export type Package = {
   name: string;
   description: string;
   image: string;
+  badge?: string;
   items: PackageItem[];
 };
 
@@ -334,6 +335,7 @@ export const packages: Package[] = [
     description:
       "Complete provisioning for a week-long sailing trip. Everything your crew needs — from breakfast essentials to evening drinks.",
     image: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800&h=500&fit=crop",
+    badge: "Most Popular",
     items: [
       { productId: "lagano-jutro-1l", defaultQty: 4 },
       { productId: "dukat-mlijeko-1l", defaultQty: 2 },
@@ -375,6 +377,7 @@ export const packages: Package[] = [
     description:
       "Perfect for a 2-3 day trip. Light essentials, refreshing drinks, and easy snacks for a short coastal adventure.",
     image: "https://images.unsplash.com/photo-1514649923863-ceaf75b7ec00?w=800&h=500&fit=crop",
+    badge: "Best Value",
     items: [
       { productId: "dukat-mlijeko-1l", defaultQty: 2 },
       { productId: "jogurt-natur-180g", defaultQty: 4 },

@@ -1,15 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "O nama — Kako radimo | Briksy Group",
+  title: "O nama — Naš pristup digitalizaciji poslovanja",
   description:
-    "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja. Naš pristup digitalizaciji se temelji na razumijevanju vašeg poslovanja iznutra.",
+    "Dolazimo u vašu kompaniju, učimo kako zaista radite i tek onda gradimo digitalna rješenja. Pristup temeljen na razumijevanju vašeg poslovanja iznutra.",
+  alternates: { canonical: "https://briksygroup.com/o-nama" },
+  openGraph: {
+    title: "O nama — Naš pristup digitalizaciji poslovanja",
+    description: "Dolazimo u vašu kompaniju, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+    url: "https://briksygroup.com/o-nama",
+  },
 };
 
 function HeroSection() {
   return (
-    <section className="border-b border-border bg-slate-50 pt-20">
+    <section className="border-b border-border bg-slate-50 pt-16">
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
@@ -17,7 +24,7 @@ function HeroSection() {
               Naš pristup
             </p>
             <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-              Dolazimo u vašu firmu i učimo
+              Dolazimo u vašu kompaniju i učimo
               <br />
               kako zaista radite.
             </h1>
@@ -29,16 +36,15 @@ function HeroSection() {
               gotovo uvijek završi kao još jedan nekorišten alat.
             </p>
           </div>
-          <div className="flex items-center">
-            <p className="text-lg leading-relaxed text-muted">
-              Naš tim fizički dolazi u vašu firmu. Sjedimo s vašim ljudima,
-              gledamo kako rade, postavljamo pitanja, razumijemo frustracije.
-              Pratimo tok dokumenta od ulaza do izlaza. Vidimo gdje se gubi
-              vrijeme, gdje nastaju greške, gdje se informacije zaglavljuju.
-              Tek kada zaista razumijemo vaše poslovanje iz dana u dan — onda
-              predlažemo rješenja. To je jedini način da digitalizacija zaista
-              funkcionira.
-            </p>
+          <div className="relative min-h-[300px] overflow-hidden rounded-2xl lg:min-h-[400px]">
+            <Image
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80"
+              alt="Tim stručnjaka zajedno analizira poslovne procese"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5" />
           </div>
         </div>
       </div>
@@ -67,15 +73,15 @@ function PhaseCards() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
             <div className="bg-white p-8">
               <div className="text-sm font-bold text-accent">Faza 1</div>
-            <h3 className="mt-2 text-lg font-semibold">Dolazak u firmu</h3>
+            <h3 className="mt-2 text-lg font-semibold">Dolazak u kompaniju</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              Naš tim provodi dane u vašoj firmi. Upoznajemo vaše zaposlenike,
+              Naš tim provodi dane u vašoj kompaniji. Upoznajemo vaše zaposlenike,
               procese, alate, probleme. Gledamo kako teče radni dan — od prvog
               maila do zadnjeg potpisa. Ovo nije formalna analiza s upitnicima —
               to je stvarno upoznavanje vašeg poslovanja iznutra.
             </p>
             <p className="mt-4 text-xs text-muted">
-              Trajanje ovisi o veličini firme
+              Trajanje ovisi o veličini kompanije
             </p>
           </div>
 
@@ -89,7 +95,7 @@ function PhaseCards() {
               rokovima i cijenama. Vi odobravate svaki korak.
             </p>
             <p className="mt-4 text-xs text-muted">
-              Trajanje ovisi o veličini firme
+              Trajanje ovisi o veličini kompanije
             </p>
           </div>
 
@@ -102,7 +108,7 @@ function PhaseCards() {
               tjedan dobivate izvještaj o napretku. Nema iznenađenja.
             </p>
             <p className="mt-4 text-xs text-muted">
-              Trajanje ovisi o veličini firme
+              Trajanje ovisi o veličini kompanije
             </p>
           </div>
 
@@ -112,7 +118,7 @@ function PhaseCards() {
               Podrška i optimizacija
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              Ne nestajemo nakon implementacije. Vraćamo se u firmu, pratimo
+              Ne nestajemo nakon implementacije. Vraćamo se u kompaniju, pratimo
               kako se sustav koristi, slušamo feedback vaših zaposlenika i
               kontinuirano poboljšavamo. Digitalizacija je proces, ne jednokratan
               projekt.
@@ -135,10 +141,10 @@ function InfoBox() {
             <div className="grid gap-8 lg:grid-cols-3">
               <div>
                 <h3 className="font-semibold">
-                  Zašto je dolazak u firmu bitan?
+                  Zašto je dolazak u kompaniju bitan?
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                Jer ono što vlasnik misli da se događa u firmi i ono što se
+                Jer ono što vlasnik misli da se događa u kompaniji i ono što se
                 zaista događa — često su dvije potpuno različite stvari. Mi ne
                 pitamo &ldquo;kako radite&rdquo; — mi gledamo kako radite. I tu
                 je razlika između digitalizacije koja funkcionira i one koja
@@ -157,7 +163,7 @@ function InfoBox() {
             <div>
               <h3 className="font-semibold">Bez šablonskih rješenja</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                Svaka firma je drugačija. Zato ne dolazimo s gotovim rješenjem
+                Svaka kompanija je drugačija. Zato ne dolazimo s gotovim rješenjem
                 koje pokušavamo ugurati u vaše poslovanje. Prvo učimo, pa tek
                 onda gradimo. To traje malo duže, ali rezultati su nesporedivo
                 bolji.
@@ -171,37 +177,37 @@ function InfoBox() {
   );
 }
 
-function ZastoMi() {
-  const reasons = [
+function NaseVrijednosti() {
+  const values = [
     {
-      title: "Dolazimo k vama i učimo vaš posao",
+      title: "Iskrenost iznad svega",
       description:
-        "Ne radimo na daljinu od prvog dana. Fizički dolazimo u vašu firmu, sjedimo s vašim zaposlenicima, gledamo kako rade. Tek kad razumijemo vaš posao iznutra — predlažemo rješenja.",
+        "Ako vidimo da vam digitalizacija neće donijeti rezultate — reći ćemo vam. Ne prodajemo rješenja koja vam ne trebaju. Naš posao je da vam pomognemo, ne da vam uzmemo novac.",
     },
     {
-      title: "Radimo s vama, ne za vas",
+      title: "Ljudi, ne samo tehnologija",
       description:
-        "Uključujemo vaš tim u svaki korak jer oni najbolje znaju kako posao zaista funkcionira. Mi donosimo tehnologiju i AI, vi donosite znanje o industriji. Zajedno gradimo nešto što ima smisla.",
+        "Svaka transformacija počinje i završava s ljudima. Zato posvećujemo toliko vremena razumijevanju vaših zaposlenika, njihovih navika i frustracija. Tehnologija je samo alat.",
     },
     {
-      title: "Dokazani rezultati u praksi",
+      title: "Mjerljivi rezultati",
       description:
-        "Više od 50 kompanija je prošlo kroz naš proces. Prosječno smanjenje operativnih troškova je 40%, ubrzanje procesa 3x. Realni podaci, ne marketinški slogani.",
+        "Ne radimo projekte na slijepo. Prije implementacije definiramo jasne metrike uspjeha — koliko vremena štedite, koliko grešaka nestaje, koliki je ROI. I onda mjerimo.",
     },
     {
-      title: "AI kao alat, ne kao buzzword",
+      title: "Bez tehničkog žargona",
       description:
-        "Implementiramo umjetnu inteligenciju tamo gdje donosi stvarnu vrijednost — ne da bismo bili moderni, nego da bismo vam uštedjeli vrijeme i novac na konkretnim zadacima.",
+        "Govorimo vaš jezik. Ne koristimo buzzwordove da bismo zvučali pametno. Objašnjavamo jednostavno što radimo, zašto i kakve rezultate možete očekivati.",
     },
     {
-      title: "Fer i transparentne cijene",
+      title: "Odgovornost za rezultat",
       description:
-        "Nema skrivenih troškova. Prije početka točno znate koliko košta svaka faza. Plaćate samo za ono što je dogovoreno. Početna analiza je besplatna.",
+        "Ne predajemo softver i nestajemo. Svaki projekt ima jasno definiran uspjeh i mi stojimo iza njega. Ako nešto ne radi kako treba — popravljamo dok ne bude.",
     },
     {
-      title: "Dugoročno partnerstvo",
+      title: "Kontinuirani rast zajedno",
       description:
-        "Ne radimo projekte i odlazimo. Ostajemo s vama kao tehnološki partner — pratimo razvoj firme, predlažemo poboljšanja, osiguravamo da sustavi rastu zajedno s vama.",
+        "Vaša kompanija se mijenja, a sustavi moraju pratiti. Zato ne radimo jednokratne projekte — gradimo partnerstva u kojima sustavi rastu i prilagođavaju se zajedno s vama.",
     },
   ];
 
@@ -210,20 +216,20 @@ function ZastoMi() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Zašto Briksy Group
+            Naše vrijednosti
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Što nas razlikuje od svih ostalih koji obećavaju digitalizaciju.
+            Principi po kojima radimo svaki dan.
           </h2>
         </div>
 
         <AnimateOnScroll>
           <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-            {reasons.map((reason) => (
-              <div key={reason.title}>
-                <h3 className="font-semibold">{reason.title}</h3>
+            {values.map((value) => (
+              <div key={value.title}>
+                <h3 className="font-semibold">{value.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {reason.description}
+                  {value.description}
                 </p>
               </div>
             ))}
@@ -270,15 +276,26 @@ function CTASection() {
 export default function ONamaPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "O nama — Briksy Group",
-    description:
-      "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
-    url: "https://briksy.group/o-nama",
-    mainEntity: {
-      "@type": "Organization",
-      "@id": "https://briksy.group/#organization",
-    },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
+          { "@type": "ListItem", position: 2, name: "O nama", item: "https://briksygroup.com/o-nama" },
+        ],
+      },
+      {
+        "@type": "AboutPage",
+        name: "O nama — Briksy Group",
+        description:
+          "Dolazimo u vašu kompaniju, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+        url: "https://briksygroup.com/o-nama",
+        mainEntity: {
+          "@type": "Organization",
+          "@id": "https://briksygroup.com/#organization",
+        },
+      },
+    ],
   };
 
   return (
@@ -290,7 +307,7 @@ export default function ONamaPage() {
       <HeroSection />
       <PhaseCards />
       <InfoBox />
-      <ZastoMi />
+      <NaseVrijednosti />
       <CTASection />
     </>
   );

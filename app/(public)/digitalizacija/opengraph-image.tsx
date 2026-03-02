@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Briksy Group — Digitalizacija poslovanja u Hrvatskoj";
+export const alt = "Digitalizacija poslovanja — Briksy Group";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,29 +45,29 @@ export default function OGImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
-              fontSize: "64px",
+              fontSize: "56px",
               fontWeight: 700,
               color: "#111827",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
             }}
           >
-            Digitaliziramo kompanije
+            Što zapravo znači
             <br />
-            koje žele rasti.
+            <span style={{ color: "#2563eb" }}>digitalizirati kompaniju?</span>
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Dolazimo u vašu kompaniju, učimo kako radite i gradimo digitalne sustave
-            koji donose rezultate.
+            Zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže,
+            točnije i bez ljudske pogreške.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: "40px" }}>
           {[
-            { n: "50+", d: "kompanija" },
-            { n: "8+", d: "godina iskustva" },
-            { n: "3x", d: "ubrzanje procesa" },
-            { n: "40%", d: "ušteda troškova" },
+            { n: "67%", d: "veći prihodi" },
+            { n: "72%", d: "zadovoljniji zaposlenici" },
+            { n: "89%", d: "bi ponovili odluku" },
+            { n: "6-12", d: "mj. za povrat ulaganja" },
           ].map((s) => (
             <div key={s.n} style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "36px", fontWeight: 700, color: "#2563eb" }}>
@@ -79,6 +79,6 @@ export default function OGImage() {
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

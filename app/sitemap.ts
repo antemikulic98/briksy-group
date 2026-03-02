@@ -1,48 +1,48 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://briksy.group";
+  const baseUrl = "https://briksygroup.com";
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${baseUrl}/usluge`,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/o-nama`,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/digitalizacija`,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/briksy`,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/ai`,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/kontakt`,
-      lastModified: new Date(),
+      lastModified: "2026-03-02",
       changeFrequency: "monthly",
       priority: 0.7,
     },

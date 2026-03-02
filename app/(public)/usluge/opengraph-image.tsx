@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Briksy Group — Digitalizacija poslovanja u Hrvatskoj";
+export const alt = "Usluge — Briksy Group";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,40 +45,50 @@ export default function OGImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
-              fontSize: "64px",
+              fontSize: "56px",
               fontWeight: 700,
               color: "#111827",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
             }}
           >
-            Digitaliziramo kompanije
+            Od analize do potpune
             <br />
-            koje žele rasti.
+            <span style={{ color: "#2563eb" }}>transformacije.</span>
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Dolazimo u vašu kompaniju, učimo kako radite i gradimo digitalne sustave
-            koji donose rezultate.
+            Analiza, razvoj prilagođenih rješenja, AI implementacija i
+            kontinuirana podrška za vaše poslovanje.
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: "40px" }}>
+        <div style={{ display: "flex", gap: "32px" }}>
           {[
-            { n: "50+", d: "kompanija" },
-            { n: "8+", d: "godina iskustva" },
-            { n: "3x", d: "ubrzanje procesa" },
-            { n: "40%", d: "ušteda troškova" },
+            { n: "Analiza", d: "Besplatna" },
+            { n: "Razvoj", d: "Po mjeri" },
+            { n: "AI", d: "Implementacija" },
+            { n: "Podrška", d: "Kontinuirana" },
           ].map((s) => (
-            <div key={s.n} style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: "36px", fontWeight: 700, color: "#2563eb" }}>
+            <div
+              key={s.n}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "16px 24px",
+                backgroundColor: "white",
+                borderRadius: "12px",
+                border: "1px solid #e5e7eb",
+              }}
+            >
+              <span style={{ fontSize: "20px", fontWeight: 700, color: "#111827" }}>
                 {s.n}
               </span>
-              <span style={{ fontSize: "16px", color: "#6b7280" }}>{s.d}</span>
+              <span style={{ fontSize: "14px", color: "#6b7280" }}>{s.d}</span>
             </div>
           ))}
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

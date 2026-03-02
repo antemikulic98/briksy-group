@@ -1,22 +1,41 @@
+import Image from "next/image";
 import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "Digitalizacija poslovanja — Briksy Group",
+  title: "Digitalizacija poslovanja — Što znači i kako početi",
   description:
-    "Što znači digitalizirati firmu? Briksy Group objašnjava proces digitalne transformacije. Primjeri iz prakse, statistike i konkretne koristi digitalizacije.",
+    "Što znači digitalizirati kompaniju? Primjeri iz prakse, konkretne statistike i koristi digitalne transformacije. Besplatna analiza vašeg poslovanja.",
+  alternates: { canonical: "https://briksygroup.com/digitalizacija" },
+  openGraph: {
+    title: "Digitalizacija poslovanja — Što znači i kako početi",
+    description: "Primjeri iz prakse, statistike i konkretne koristi digitalne transformacije za vašu kompaniju.",
+    url: "https://briksygroup.com/digitalizacija",
+  },
 };
 
 export default function DigitalizacijaPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Digitalizacija poslovanja",
-    provider: { "@id": "https://briksy.group/#organization" },
-    description:
-      "Kompletna digitalizacija poslovnih procesa — zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže, točnije i bez ljudske pogreške.",
-    areaServed: { "@type": "Country", name: "Croatia" },
-    serviceType: "Digitalna transformacija",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
+          { "@type": "ListItem", position: 2, name: "Usluge", item: "https://briksygroup.com/usluge" },
+          { "@type": "ListItem", position: 3, name: "Digitalizacija", item: "https://briksygroup.com/digitalizacija" },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Digitalizacija poslovanja",
+        provider: { "@id": "https://briksygroup.com/#organization" },
+        description:
+          "Kompletna digitalizacija poslovnih procesa — zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže, točnije i bez ljudske pogreške.",
+        areaServed: { "@type": "Country", name: "Croatia" },
+        serviceType: "Digitalna transformacija",
+      },
+    ],
   };
 
   return (
@@ -26,7 +45,7 @@ export default function DigitalizacijaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Digitalizacija */}
-      <section className="border-b border-border bg-blue-50/50 pt-20">
+      <section className="border-b border-border bg-blue-50/50 pt-16">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-16 lg:grid-cols-5">
             <div className="lg:col-span-2">
@@ -34,13 +53,13 @@ export default function DigitalizacijaPage() {
                 Digitalizacija — objašnjeno jednostavno
               </p>
               <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-                Što zapravo znači digitalizirati firmu?
+                Što zapravo znači digitalizirati kompaniju?
               </h1>
               <p className="mt-6 leading-relaxed text-muted">
                 Digitalizacija znači zamijeniti ručne, spore i nepouzdane poslovne
                 procese digitalnim sustavima koji rade brže, točnije i bez ljudske
                 pogreške. Ali to nije samo &ldquo;staviti sve u kompjuter&rdquo; — to je potpuna
-                promjena načina na koji vaša firma funkcionira.
+                promjena načina na koji vaša kompanija funkcionira.
               </p>
               <p className="mt-4 leading-relaxed text-muted">
                 Zamislite da svaki papir koji danas prođe kroz vaše ruke, svaki
@@ -54,7 +73,7 @@ export default function DigitalizacijaPage() {
               <div className="rounded-lg border border-accent/20 bg-accent/5 p-6">
                 <h3 className="font-semibold">Primjer iz prakse</h3>
                 <p className="mt-2 leading-relaxed text-muted">
-                  Građevinska firma koja vodi projekte na papiru troši prosječno{" "}
+                  Građevinska kompanija koja vodi projekte na papiru troši prosječno{" "}
                   <strong className="text-foreground">15 sati tjedno</strong> samo na
                   administraciju — ručno kreiranje ponuda, traženje dokumenata,
                   telefonsko usklađivanje s gradilištem. S digitalnim sustavom, taj
@@ -116,9 +135,19 @@ export default function DigitalizacijaPage() {
             </div>
           </AnimateOnScroll>
 
+          <div className="mt-16 overflow-hidden rounded-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80"
+              alt="Moderan ured s timom koji koristi digitalne alate"
+              width={1200}
+              height={500}
+              className="h-64 w-full object-cover md:h-80"
+            />
+          </div>
+
           <div className="mt-12 rounded-lg border border-border bg-white p-8">
             <h3 className="text-xl font-semibold">
-              Zašto firme odgađaju digitalizaciju — i zašto to ne bi trebale
+              Zašto kompanije odgađaju digitalizaciju — i zašto to ne bi trebale
             </h3>
             <div className="mt-6 grid gap-8 lg:grid-cols-3">
               <div>

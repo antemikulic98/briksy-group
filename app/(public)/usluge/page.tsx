@@ -1,10 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "Usluge — Analiza, razvoj, AI implementacija i podrška",
+  title: "Usluge — Analiza, razvoj, AI i podrška",
   description:
     "Briksy Group nudi kompletne usluge digitalizacije — od besplatne analize poslovanja, razvoja prilagođenih rješenja i AI implementacije do edukacije i kontinuirane podrške.",
+  alternates: { canonical: "https://briksygroup.com/usluge" },
+  openGraph: {
+    title: "Usluge — Analiza, razvoj, AI i podrška",
+    description: "Kompletne usluge digitalizacije — od besplatne analize do implementacije i podrške.",
+    url: "https://briksygroup.com/usluge",
+  },
 };
 
 function Usluge() {
@@ -12,9 +19,9 @@ function Usluge() {
     {
       title: "Analiza i konzalting",
       description:
-        "Dolazimo u vašu firmu, upoznajemo vaše ljude i detaljno mapiramo kako radite. Identificiramo uska grla, mjerimo koliko vas koštaju neučinkovitosti, i dajemo vam jasnu sliku stanja. Ovu početnu analizu radimo besplatno.",
+        "Dolazimo u vašu kompaniju, upoznajemo vaše ljude i detaljno mapiramo kako radite. Identificiramo uska grla, mjerimo koliko vas koštaju neučinkovitosti, i dajemo vam jasnu sliku stanja. Ovu početnu analizu radimo besplatno.",
       includes: [
-        "Fizički dolazak u firmu i praćenje procesa",
+        "Fizički dolazak u kompaniju i praćenje procesa",
         "Mapiranje svih poslovnih tokova",
         "Procjena troškova nedigitalizacije",
         "Detaljan izvještaj s preporukama",
@@ -23,7 +30,7 @@ function Usluge() {
     {
       title: "Razvoj prilagođenih rješenja",
       description:
-        "Svaka firma je drugačija. Ako standardni alati ne pokrivaju vaše potrebe, naš tim razvija rješenja šivana po mjeri vašeg poslovanja — od web i mobilnih aplikacija do automatizacija specifičnih procesa.",
+        "Svaka kompanija je drugačija. Ako standardni alati ne pokrivaju vaše potrebe, naš tim razvija rješenja šivana po mjeri vašeg poslovanja — od web i mobilnih aplikacija do automatizacija specifičnih procesa.",
       includes: [
         "Web i mobilne aplikacije po mjeri",
         "Automatizacija poslovnih procesa",
@@ -56,18 +63,18 @@ function Usluge() {
   ];
 
   return (
-    <section className="border-b border-border bg-white py-20 md:py-28">
+    <section className="border-b border-border bg-white pt-36 pb-20 md:pt-44 md:pb-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
             Naše usluge
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
             Od analize do potpune transformacije — pokrivamo svaki korak.
-          </h2>
+          </h1>
           <p className="mt-4 text-lg text-muted">
             Ne prodajemo kutije sa softverom. Radimo s vama od prvog posjeta vašoj
-            firmi do trenutka kada vaš tim kaže: &ldquo;Kako smo uopće radili bez
+            kompaniji do trenutka kada vaš tim kaže: &ldquo;Kako smo uopće radili bez
             ovoga?&rdquo;
           </p>
         </div>
@@ -112,12 +119,41 @@ function Usluge() {
   );
 }
 
+function ImageBanner() {
+  return (
+    <section className="border-b border-border bg-white">
+      <div className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="overflow-hidden rounded-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&q=80"
+              alt="Poslovni tim radi na digitalnoj strategiji"
+              width={800}
+              height={534}
+              className="h-64 w-full object-cover md:h-80"
+            />
+          </div>
+          <div className="overflow-hidden rounded-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
+              alt="Analiza podataka na monitoru"
+              width={800}
+              height={534}
+              className="h-64 w-full object-cover md:h-80"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ZastoMi() {
   const reasons = [
     {
       title: "Dolazimo k vama i učimo vaš posao",
       description:
-        "Ne radimo na daljinu od prvog dana. Fizički dolazimo u vašu firmu, sjedimo s vašim zaposlenicima, gledamo kako rade. Tek kad razumijemo vaš posao iznutra — predlažemo rješenja.",
+        "Ne radimo na daljinu od prvog dana. Fizički dolazimo u vašu kompaniju, sjedimo s vašim zaposlenicima, gledamo kako rade. Tek kad razumijemo vaš posao iznutra — predlažemo rješenja.",
     },
     {
       title: "Radimo s vama, ne za vas",
@@ -142,7 +178,7 @@ function ZastoMi() {
     {
       title: "Dugoročno partnerstvo",
       description:
-        "Ne radimo projekte i odlazimo. Ostajemo s vama kao tehnološki partner — pratimo razvoj firme, predlažemo poboljšanja, osiguravamo da sustavi rastu zajedno s vama.",
+        "Ne radimo projekte i odlazimo. Ostajemo s vama kao tehnološki partner — pratimo razvoj kompanije, predlažemo poboljšanja, osiguravamo da sustavi rastu zajedno s vama.",
     },
   ];
 
@@ -179,7 +215,7 @@ function FAQ() {
   const questions = [
     {
       q: "Koliko košta digitalizacija?",
-      a: "Ovisi o veličini firme i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih firmi, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
+      a: "Ovisi o veličini kompanije i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih kompanija, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
     },
     {
       q: "Koliko traje cijeli proces?",
@@ -187,7 +223,7 @@ function FAQ() {
     },
     {
       q: "Hoće li moji zaposlenici prihvatiti promjenu?",
-      a: "Upravo zato dolazimo u vašu firmu i uključujemo zaposlenike od prvog dana. Iskustvo nam govori da nakon 2-3 tjedna korištenja, ljudi ne žele nazad na stari način. Ključ je da im pokažemo kako im alat olakšava posao, a ne komplicira.",
+      a: "Upravo zato dolazimo u vašu kompaniju i uključujemo zaposlenike od prvog dana. Iskustvo nam govori da nakon 2-3 tjedna korištenja, ljudi ne žele nazad na stari način. Ključ je da im pokažemo kako im alat olakšava posao, a ne komplicira.",
     },
     {
       q: "Što ako već imamo neke digitalne alate?",
@@ -195,7 +231,7 @@ function FAQ() {
     },
     {
       q: "Je li Briksy samo za građevinarstvo?",
-      a: "Briksy platforma je dizajnirana specifično za građevinarstvo — to je prva aplikacija koja spaja financije, realizaciju i robno-materijalno. Ali Briksy Group kao kompanija digitalizira firme iz svih industrija koristeći vlastite i provjerene alate trećih strana.",
+      a: "Briksy platforma je dizajnirana specifično za građevinarstvo — to je prva aplikacija koja spaja financije, realizaciju i robno-materijalno. Ali Briksy Group kao kompanija digitalizira kompanije iz svih industrija koristeći vlastite i provjerene alate trećih strana.",
     },
     {
       q: "Kako funkcionira AI implementacija?",
@@ -269,9 +305,16 @@ export default function UslugePage() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
+          { "@type": "ListItem", position: 2, name: "Usluge", item: "https://briksygroup.com/usluge" },
+        ],
+      },
+      {
         "@type": "Service",
         name: "Digitalizacija poslovanja",
-        provider: { "@id": "https://briksy.group/#organization" },
+        provider: { "@id": "https://briksygroup.com/#organization" },
         description:
           "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije softvera i AI rješenja.",
         areaServed: { "@type": "Country", name: "Croatia" },
@@ -285,7 +328,7 @@ export default function UslugePage() {
             name: "Koliko košta digitalizacija?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Ovisi o veličini firme i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih firmi, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
+              text: "Ovisi o veličini kompanije i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih kompanija, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
             },
           },
           {
@@ -317,7 +360,7 @@ export default function UslugePage() {
             name: "Je li Briksy samo za građevinarstvo?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Briksy platforma je dizajnirana specifično za građevinarstvo. Ali Briksy Group kao kompanija digitalizira firme iz svih industrija.",
+              text: "Briksy platforma je dizajnirana specifično za građevinarstvo. Ali Briksy Group kao kompanija digitalizira kompanije iz svih industrija.",
             },
           },
           {
@@ -340,6 +383,7 @@ export default function UslugePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Usluge />
+      <ImageBanner />
       <ZastoMi />
       <FAQ />
       <CTABanner />

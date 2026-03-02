@@ -6,6 +6,7 @@ export const metadata = {
   title: "Boat Supply — Provision Packages",
   description:
     "Pre-made provisioning packages for your sailing trip. Choose a package, customize quantities, and get everything delivered to your marina.",
+  robots: { index: false, follow: false },
 };
 
 export default function BoatSupplyPage() {

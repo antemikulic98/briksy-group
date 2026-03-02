@@ -1,23 +1,40 @@
 import ContactForm from "@/app/components/contact-form";
 
 export const metadata = {
-  title: "Kontakt — Besplatna analiza poslovanja",
+  title: "Kontakt — Zakažite besplatnu analizu poslovanja",
   description:
-    "Kontaktirajte Briksy Group za besplatnu analizu vašeg poslovanja. Dolazimo u vašu firmu, upoznajemo vaše procese i dajemo vam iskrenu procjenu — bez obveza.",
+    "Javite nam se za besplatnu analizu vašeg poslovanja. Dolazimo u vašu kompaniju, upoznajemo procese i dajemo iskrenu procjenu — bez obveza.",
+  alternates: { canonical: "https://briksygroup.com/kontakt" },
+  openGraph: {
+    title: "Kontakt — Zakažite besplatnu analizu poslovanja",
+    description: "Besplatna analiza poslovanja. Dolazimo u vašu kompaniju, upoznajemo procese — bez obveza.",
+    url: "https://briksygroup.com/kontakt",
+  },
 };
 
 export default function KontaktPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: "Kontakt — Briksy Group",
-    description:
-      "Kontaktirajte Briksy Group za besplatnu analizu vašeg poslovanja.",
-    url: "https://briksy.group/kontakt",
-    mainEntity: {
-      "@type": "Organization",
-      "@id": "https://briksy.group/#organization",
-    },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
+          { "@type": "ListItem", position: 2, name: "Kontakt", item: "https://briksygroup.com/kontakt" },
+        ],
+      },
+      {
+        "@type": "ContactPage",
+        name: "Kontakt — Briksy Group",
+        description:
+          "Kontaktirajte Briksy Group za besplatnu analizu vašeg poslovanja.",
+        url: "https://briksygroup.com/kontakt",
+        mainEntity: {
+          "@type": "Organization",
+          "@id": "https://briksygroup.com/#organization",
+        },
+      },
+    ],
   };
 
   return (
@@ -26,7 +43,7 @@ export default function KontaktPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="border-b border-border bg-slate-50 pt-20">
+      <section className="border-b border-border bg-slate-50 pt-16">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-16 lg:grid-cols-5">
             {/* Lijeva strana — info */}

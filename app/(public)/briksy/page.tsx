@@ -3,27 +3,45 @@ import InvoiceMockup from "@/app/components/invoice-mockup";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "Briksy — Softver za građevinarstvo",
+  title: "Briksy — Softver za upravljanje građevinskom kompanijom",
   description:
-    "Briksy je prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske firme. Razvijena u suradnji s vlasnicima firmi i inženjerima na terenu.",
+    "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno na jednom mjestu. Razvijena s vlasnicima kompanija i inženjerima na terenu.",
+  alternates: { canonical: "https://briksygroup.com/briksy" },
+  openGraph: {
+    title: "Briksy — Softver za upravljanje građevinskom kompanijom",
+    description: "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno za građevinske kompanije.",
+    url: "https://briksygroup.com/briksy",
+  },
 };
 
 export default function BriksyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Briksy",
-    url: "https://briksy.com",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    description:
-      "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske firme. Razvijena u suradnji s vlasnicima firmi i inženjerima.",
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "EUR",
-    },
-    creator: { "@id": "https://briksy.group/#organization" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
+          { "@type": "ListItem", position: 2, name: "Proizvodi", item: "https://briksygroup.com/briksy" },
+          { "@type": "ListItem", position: 3, name: "Briksy", item: "https://briksygroup.com/briksy" },
+        ],
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Briksy",
+        url: "https://briksy.com",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        description:
+          "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske kompanije. Razvijena u suradnji s vlasnicima kompanija i inženjerima.",
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+          priceCurrency: "EUR",
+        },
+        creator: { "@id": "https://briksygroup.com/#organization" },
+      },
+    ],
   };
 
   return (
@@ -33,7 +51,7 @@ export default function BriksyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero */}
-      <section className="border-b border-border bg-slate-50 pt-20">
+      <section className="border-b border-border bg-slate-50 pt-16">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-16 lg:grid-cols-2">
             <div>
@@ -45,7 +63,7 @@ export default function BriksyPage() {
                 robno-materijalno na jednom mjestu.
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Građevinske firme su godinama koristile jedan alat za financije,
+                Građevinske kompanije su godinama koristile jedan alat za financije,
                 drugi za praćenje projekata, treći za materijal i zalihe — i onda
                 ručno pokušavale sve to spojiti u Excelu. Briksy je prvi sustav
                 koji sve te podatke drži na jednom mjestu i automatski ih povezuje.
@@ -62,7 +80,7 @@ export default function BriksyPage() {
                 <p className="mt-2 leading-relaxed text-muted">
                   Briksy nije nastao u uredu programera koji zamišljaju kako
                   bi gradilište trebalo funkcionirati. Razvijali smo ga godinama
-                  u suradnji s vlasnicima građevinskih firmi i inženjerima na
+                  u suradnji s vlasnicima građevinskih kompanija i inženjerima na
                   terenu. Svaka funkcionalnost postoji jer ju je netko s gradilišta
                   zatražio, testirao i potvrdio da mu zaista pomaže u svakodnevnom
                   radu.
@@ -101,7 +119,7 @@ export default function BriksyPage() {
       <section className="border-b border-border bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-            Sve što trebate za upravljanje građevinskom firmom
+            Sve što trebate za upravljanje građevinskom kompanijom
           </h2>
 
           <AnimateOnScroll>
@@ -169,7 +187,7 @@ export default function BriksyPage() {
             Želite vidjeti Briksy u akciji?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
-            Javite nam se i organizirat ćemo demo prilagođen vašoj firmi —
+            Javite nam se i organizirat ćemo demo prilagođen vašoj kompaniji —
             besplatno i bez obveza.
           </p>
           <div className="mt-8 flex justify-center gap-4">

@@ -110,7 +110,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
           <div className="mt-3 space-y-2.5 text-left">
             {[
               "Kontaktirat ćemo vas za dogovor termina",
-              "Dolazimo k vama u firmu (ili online)",
+              "Dolazimo k vama u kompaniju (ili online)",
               "Besplatna analiza bez obveza",
             ].map((t, i) => (
               <div key={i} className="flex items-start gap-2.5">
@@ -132,7 +132,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
       <div className="mb-8">
         <div className="flex items-center justify-between">
           {[
-            { n: 1, label: "Vaša firma" },
+            { n: 1, label: "Vaša kompanija" },
             { n: 2, label: "Budget" },
             { n: 3, label: "Kontakt" },
           ].map((s, i) => (
@@ -171,10 +171,10 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
         </div>
       )}
 
-      {/* Step 1: Firma */}
+      {/* Step 1: Kompanija */}
       {step === 1 && (
         <div>
-          <h3 className="text-lg font-semibold text-foreground">Recite nam o svojoj firmi</h3>
+          <h3 className="text-lg font-semibold text-foreground">Recite nam o svojoj kompaniji</h3>
           <p className="mt-1 text-sm text-muted">Ovo nam pomaže da se pripremimo za razgovor.</p>
 
           <div className="mt-6">
@@ -198,7 +198,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
           </div>
 
           <div className="mt-6">
-            <label className="mb-2 block text-sm font-medium text-foreground">Veličina firme</label>
+            <label className="mb-2 block text-sm font-medium text-foreground">Veličina kompanije</label>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {COMPANY_SIZES.map((size) => (
                 <button
@@ -278,7 +278,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
               </div>
               <div>
                 <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-foreground">
-                  Naziv firme
+                  Naziv kompanije
                 </label>
                 <input
                   id="company"
@@ -286,7 +286,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
                   value={data.company}
                   onChange={(e) => update("company", e.target.value)}
                   className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-2 focus:ring-accent/20"
-                  placeholder="Vaša firma d.o.o."
+                  placeholder="Vaša kompanija d.o.o."
                 />
               </div>
             </div>
@@ -301,7 +301,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
                   value={data.email}
                   onChange={(e) => update("email", e.target.value)}
                   className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-2 focus:ring-accent/20"
-                  placeholder="ivan@firma.hr"
+                  placeholder="ivan@kompanija.hr"
                 />
               </div>
               <div>

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Briksy Group — Digitalizacija poslovanja u Hrvatskoj";
+export const alt = "Kontakt — Briksy Group";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,40 +45,57 @@ export default function OGImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
-              fontSize: "64px",
+              fontSize: "56px",
               fontWeight: 700,
               color: "#111827",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
             }}
           >
-            Digitaliziramo kompanije
+            Zakažite{" "}
+            <span style={{ color: "#2563eb" }}>besplatnu analizu</span>
             <br />
-            koje žele rasti.
+            vašeg poslovanja.
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Dolazimo u vašu kompaniju, učimo kako radite i gradimo digitalne sustave
-            koji donose rezultate.
+            Dolazimo u vašu kompaniju, upoznajemo vaše procese i dajemo vam
+            iskrenu procjenu — bez obveza i bez pritiska.
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: "40px" }}>
-          {[
-            { n: "50+", d: "kompanija" },
-            { n: "8+", d: "godina iskustva" },
-            { n: "3x", d: "ubrzanje procesa" },
-            { n: "40%", d: "ušteda troškova" },
-          ].map((s) => (
-            <div key={s.n} style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: "36px", fontWeight: 700, color: "#2563eb" }}>
-                {s.n}
-              </span>
-              <span style={{ fontSize: "16px", color: "#6b7280" }}>{s.d}</span>
-            </div>
-          ))}
+        <div style={{ display: "flex", gap: "40px", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              padding: "16px 32px",
+              backgroundColor: "#2563eb",
+              borderRadius: "12px",
+              color: "white",
+              fontSize: "20px",
+              fontWeight: 700,
+            }}
+          >
+            Javite nam se danas
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <span style={{ fontSize: "18px", fontWeight: 600, color: "#111827" }}>
+              info@briksy.com
+            </span>
+            <span style={{ fontSize: "16px", color: "#6b7280" }}>
+              Odgovaramo u roku od 24 sata
+            </span>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <span style={{ fontSize: "18px", fontWeight: 600, color: "#111827" }}>
+              +385 95 541 9712
+            </span>
+            <span style={{ fontSize: "16px", color: "#6b7280" }}>
+              Radnim danom 8-17h
+            </span>
+          </div>
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

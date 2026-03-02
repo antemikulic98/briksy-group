@@ -10,42 +10,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://briksy.group"),
+  metadataBase: new URL("https://briksygroup.com"),
   title: {
     default:
-      "Digitalizacija poslovanja u Hrvatskoj | Briksy Group — AI, softver, konzalting",
+      "Digitalizacija poslovanja | Briksy Group — AI i softver",
     template: "%s | Briksy Group",
   },
   description:
-    "Briksy Group je vodeća hrvatska tvrtka za digitalizaciju poslovanja. Dolazimo u vašu firmu, analiziramo procese i implementiramo digitalna rješenja i AI koji donose rezultate. Digitalizacija građevinarstva, proizvodnje i uslužnih djelatnosti. Besplatna analiza.",
-  keywords: [
-    "digitalizacija",
-    "digitalizacija poslovanja",
-    "digitalizacija firme",
-    "digitalizacija poduzeća",
-    "digitalizacija tvrtke",
-    "digitalna transformacija",
-    "digitalna transformacija poslovanja",
-    "digitalizacija poslovanja Hrvatska",
-    "digitalizacija poslovanja Zagreb",
-    "digitalizacija građevinarstva",
-    "digitalizacija građevinske firme",
-    "softver za građevinarstvo",
-    "softver za gradilište",
-    "softver za građevinske firme",
-    "AI implementacija",
-    "AI u poslovanju",
-    "umjetna inteligencija poslovanje",
-    "automatizacija poslovnih procesa",
-    "Briksy",
-    "Briksy Group",
-    "ERP građevinarstvo",
-    "upravljanje projektima građevinarstvo",
-    "robno materijalno poslovanje",
-    "digitalizacija dokumenata",
-    "poslovni softver Hrvatska",
-    "IT konzalting Hrvatska",
-  ],
+    "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija, softver za građevinarstvo i konzalting. Besplatna analiza.",
   authors: [{ name: "Briksy Group d.o.o." }],
   creator: "Briksy Group",
   publisher: "Briksy Group d.o.o.",
@@ -63,23 +35,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "hr_HR",
-    url: "https://briksy.group",
+    url: "https://briksygroup.com",
     siteName: "Briksy Group",
     title:
-      "Digitalizacija poslovanja u Hrvatskoj | Briksy Group",
+      "Digitalizacija poslovanja | Briksy Group — AI i softver",
     description:
-      "Dolazimo u vašu firmu, učimo kako radite i gradimo digitalne sustave koji donose rezultate. Digitalizacija, AI implementacija i softver za građevinarstvo. Besplatna analiza poslovanja.",
+      "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija i softver. Besplatna analiza.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digitalizacija poslovanja u Hrvatskoj | Briksy Group",
+    title: "Digitalizacija poslovanja | Briksy Group — AI i softver",
     description:
-      "Dolazimo u vašu firmu, učimo kako radite i gradimo digitalne sustave koji donose rezultate. Besplatna analiza poslovanja.",
+      "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. Besplatna analiza.",
     images: ["/opengraph-image"],
   },
   alternates: {
-    canonical: "https://briksy.group",
+    canonical: "https://briksygroup.com",
   },
   category: "technology",
 };
@@ -94,13 +66,13 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://briksy.group/#organization",
+        "@id": "https://briksygroup.com/#organization",
         name: "Briksy Group",
         legalName: "Briksy Group d.o.o.",
-        url: "https://briksy.group",
+        url: "https://briksygroup.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://briksy.group/logo.png",
+          url: "https://briksygroup.com/icon.svg",
         },
         description:
           "Vodeća hrvatska tvrtka za digitalizaciju poslovanja. Specijalizirani za digitalnu transformaciju, AI implementaciju i razvoj softvera za građevinarstvo i druge industrije.",
@@ -108,7 +80,6 @@ export default function RootLayout({
         address: {
           "@type": "PostalAddress",
           addressCountry: "HR",
-          addressLocality: "Hrvatska",
         },
         contactPoint: {
           "@type": "ContactPoint",
@@ -134,26 +105,26 @@ export default function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": "https://briksy.group/#website",
-        url: "https://briksy.group",
+        "@id": "https://briksygroup.com/#website",
+        url: "https://briksygroup.com",
         name: "Briksy Group",
         publisher: {
-          "@id": "https://briksy.group/#organization",
+          "@id": "https://briksygroup.com/#organization",
         },
         inLanguage: "hr",
       },
       {
         "@type": "WebPage",
-        "@id": "https://briksy.group/#webpage",
-        url: "https://briksy.group",
-        name: "Digitalizacija poslovanja u Hrvatskoj | Briksy Group",
+        "@id": "https://briksygroup.com/#webpage",
+        url: "https://briksygroup.com",
+        name: "Digitalizacija poslovanja | Briksy Group — AI i softver",
         description:
-          "Briksy Group digitalizira kompanije u Hrvatskoj. Dolazimo u vašu firmu, analiziramo procese i implementiramo rješenja koja donose rezultate.",
+          "Briksy Group digitalizira kompanije u Hrvatskoj. Dolazimo u vašu kompaniju, analiziramo procese i implementiramo rješenja koja donose rezultate.",
         isPartOf: {
-          "@id": "https://briksy.group/#website",
+          "@id": "https://briksygroup.com/#website",
         },
         about: {
-          "@id": "https://briksy.group/#organization",
+          "@id": "https://briksygroup.com/#organization",
         },
         inLanguage: "hr",
       },
@@ -165,8 +136,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

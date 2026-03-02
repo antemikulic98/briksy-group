@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/dashboard", "/admin", "/login", "/api"],
+      disallow: ["/dashboard", "/admin", "/login", "/api", "/boat-supply"],
     },
-    sitemap: "https://briksy.group/sitemap.xml",
+    sitemap: "https://briksygroup.com/sitemap.xml",
   };
 }

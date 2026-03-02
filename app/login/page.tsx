@@ -81,7 +81,7 @@ export default function LoginPage() {
             gdje smo.&rdquo;
           </p>
           <p className="mt-3 text-sm font-semibold text-white/90">
-            — Klijent, građevinska firma
+            — Klijent, građevinska kompanija
           </p>
         </div>
       </div>

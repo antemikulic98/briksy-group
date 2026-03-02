@@ -68,7 +68,7 @@ export default async function InquiriesPage({
             name="search"
             type="text"
             defaultValue={search}
-            placeholder="Pretraži po firmi, imenu ili emailu..."
+            placeholder="Pretraži po kompaniji, imenu ili emailu..."
             className="w-full rounded-lg border border-border px-4 py-2.5 text-sm text-foreground sm:w-72 outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-1 focus:ring-accent"
           />
           {filter && <input type="hidden" name="filter" value={filter} />}

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Briksy Group — Digitalizacija poslovanja u Hrvatskoj";
+export const alt = "AI u poslovanju — Briksy Group";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,29 +45,29 @@ export default function OGImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
-              fontSize: "64px",
+              fontSize: "56px",
               fontWeight: 700,
               color: "#111827",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
             }}
           >
-            Digitaliziramo kompanije
+            AI nije budućnost —
             <br />
-            koje žele rasti.
+            <span style={{ color: "#2563eb" }}>AI je sada.</span>
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Dolazimo u vašu kompaniju, učimo kako radite i gradimo digitalne sustave
-            koji donose rezultate.
+            Implementiramo umjetnu inteligenciju tamo gdje donosi stvarnu uštedu
+            vremena i novca u vašoj kompaniji.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: "40px" }}>
           {[
-            { n: "50+", d: "kompanija" },
-            { n: "8+", d: "godina iskustva" },
-            { n: "3x", d: "ubrzanje procesa" },
-            { n: "40%", d: "ušteda troškova" },
+            { n: "60%", d: "manje admin zadataka" },
+            { n: "85%", d: "manje grešaka" },
+            { n: "10x", d: "brža obrada dokumenata" },
+            { n: "24/7", d: "AI radi non-stop" },
           ].map((s) => (
             <div key={s.n} style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "36px", fontWeight: 700, color: "#2563eb" }}>
@@ -79,6 +79,6 @@ export default function OGImage() {
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

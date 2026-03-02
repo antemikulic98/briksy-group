@@ -47,7 +47,7 @@ export default function NewClientPage() {
               type="text"
               required
               className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
-              placeholder="Naziv firme d.o.o."
+              placeholder="Naziv kompanije d.o.o."
             />
           </div>
 
@@ -64,7 +64,7 @@ export default function NewClientPage() {
               type="email"
               required
               className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
-              placeholder="klijent@firma.com"
+              placeholder="klijent@kompanija.com"
             />
           </div>
 

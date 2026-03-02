@@ -16,7 +16,7 @@ export async function sendEmail({
   if (!resend) return;
   try {
     await resend.emails.send({
-      from: "Briksy Group <noreply@briksy.group>",
+      from: "Briksy Group <noreply@briksygroup.com>",
       to,
       subject,
       html,

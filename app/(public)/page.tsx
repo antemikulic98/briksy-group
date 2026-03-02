@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/app/components/contact-form";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 function Hero() {
   return (
-    <section className="border-b border-border bg-slate-50 pt-20">
+    <section className="border-b border-border bg-slate-50 pt-16">
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
@@ -20,7 +21,7 @@ function Hero() {
 
             <p className="mt-6 text-lg leading-relaxed text-muted">
               Ne radimo digitalizaciju iz ureda. Dolazimo k vama, učimo kako vaša
-              firma diše iz dana u dan, i tek onda gradimo sustave koji zaista
+              kompanija diše iz dana u dan, i tek onda gradimo sustave koji zaista
               rješavaju vaše probleme. Rezultat? Manje ručnog rada, manje grešaka,
               više vremena za ono što zaista pokreće vaš posao.
             </p>
@@ -80,7 +81,7 @@ function SocialProof() {
     <section className="border-b border-border bg-white py-12">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-center text-sm font-medium text-muted">
-          Firme koje su nam povjerile svoju digitalnu transformaciju
+          Kompanije koje su nam povjerile svoju digitalnu transformaciju
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
           {[
@@ -106,7 +107,7 @@ function SocialProof() {
 
 function UslugePreview() {
   const services = [
-    { title: "Analiza i konzalting", desc: "Dolazimo u vašu firmu, upoznajemo ljude i mapiramo procese. Početna analiza je besplatna." },
+    { title: "Analiza i konzalting", desc: "Dolazimo u vašu kompaniju, upoznajemo ljude i mapiramo procese. Početna analiza je besplatna." },
     { title: "Razvoj prilagođenih rješenja", desc: "Web i mobilne aplikacije šivane po mjeri vašeg poslovanja — od automatizacija do kompletnih sustava." },
     { title: "AI implementacija", desc: "Identificiramo gdje AI donosi stvarnu vrijednost i implementiramo ga u vaše postojeće procese." },
     { title: "Edukacija i podrška", desc: "Obučavamo vaš tim i ostajemo kao dugoročni partner. Podrška ne prestaje nakon implementacije." },
@@ -152,7 +153,7 @@ function UslugePreview() {
 
 function KakoRadimoPreview() {
   const steps = [
-    { num: "01", title: "Dolazak u firmu", desc: "Naš tim provodi dane u vašoj firmi i uči kako zaista radite." },
+    { num: "01", title: "Dolazak u kompaniju", desc: "Naš tim provodi dane u vašoj kompaniji i uči kako zaista radite." },
     { num: "02", title: "Dijagnoza i plan", desc: "Mapiramo procese, identificiramo probleme i predlažemo konkretne korake." },
     { num: "03", title: "Implementacija", desc: "Postavljamo sustave u fazama — bez zaustavljanja vašeg poslovanja." },
     { num: "04", title: "Podrška", desc: "Ostajemo s vama, pratimo rezultate i kontinuirano poboljšavamo." },
@@ -161,21 +162,41 @@ function KakoRadimoPreview() {
   return (
     <section className="border-b border-border bg-slate-50 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Naš pristup
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Dolazimo u vašu firmu i učimo kako zaista radite.
-          </h2>
-          <p className="mt-4 text-lg text-muted">
-            Ne radimo na daljinu od prvog dana. Fizički dolazimo, sjedimo s vašim
-            ljudima, razumijemo frustracije. Tek onda predlažemo rješenja.
-          </p>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-widest text-accent">
+              Naš pristup
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+              Dolazimo u vašu kompaniju i učimo kako zaista radite.
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              Ne radimo na daljinu od prvog dana. Fizički dolazimo, sjedimo s vašim
+              ljudima, razumijemo frustracije. Tek onda predlažemo rješenja.
+            </p>
+            <div className="mt-8 text-left">
+              <Link href="/o-nama" className="text-sm font-medium text-accent hover:underline">
+                Saznajte više o našem pristupu &rarr;
+              </Link>
+            </div>
+          </div>
+
+          <AnimateOnScroll>
+            <div className="relative overflow-hidden rounded-2xl">
+              <Image
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                alt="Tim konzultanata u razgovoru s klijentom u uredu"
+                width={800}
+                height={534}
+                className="h-auto w-full rounded-2xl object-cover"
+              />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5" />
+            </div>
+          </AnimateOnScroll>
         </div>
 
         <AnimateOnScroll>
-          <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
             {steps.map((s) => (
               <div key={s.num} className="bg-white p-8">
                 <div className="text-sm font-bold text-accent">{s.num}</div>
@@ -185,12 +206,6 @@ function KakoRadimoPreview() {
             ))}
           </div>
         </AnimateOnScroll>
-
-        <div className="mt-8 text-center">
-          <Link href="/o-nama" className="text-sm font-medium text-accent hover:underline">
-            Saznajte više o našem pristupu &rarr;
-          </Link>
-        </div>
       </div>
     </section>
   );
@@ -210,7 +225,7 @@ function BriksyPreview() {
               robno-materijalno.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted">
-              Razvijana godinama u suradnji s vlasnicima građevinskih firmi i
+              Razvijana godinama u suradnji s vlasnicima građevinskih kompanija i
               inženjerima na terenu. Sve na jednom mjestu — bez Excela, bez ručnog
               prekucavanja.
             </p>

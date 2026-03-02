@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   type Package,
   type Product,
@@ -151,10 +152,11 @@ export default function PackageDetail({ pkg }: { pkg: Package }) {
                         key={product.id}
                         className="flex items-center gap-3 px-4 py-3 sm:rounded-xl sm:p-3 sm:ring-1 sm:ring-border"
                       >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
+                        <Image
                           src={product.image}
                           alt={product.name}
+                          width={64}
+                          height={64}
                           className="h-14 w-14 shrink-0 rounded-lg object-cover sm:h-16 sm:w-16"
                         />
                         <div className="min-w-0 flex-1">
@@ -273,8 +275,7 @@ export default function PackageDetail({ pkg }: { pkg: Package }) {
                       onClick={() => addProduct(product.id)}
                       className="flex w-full cursor-pointer items-center gap-3 px-4 py-3 text-left transition-colors active:bg-slate-50 sm:rounded-xl sm:px-3 sm:py-2.5 sm:hover:bg-slate-50"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={product.image} alt={product.name} className="h-11 w-11 shrink-0 rounded-lg object-cover sm:h-10 sm:w-10 sm:rounded-md" />
+                      <Image src={product.image} alt={product.name} width={44} height={44} className="h-11 w-11 shrink-0 rounded-lg object-cover sm:h-10 sm:w-10 sm:rounded-md" />
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-sm font-medium">{product.name}</p>
                         <p className="text-xs font-semibold text-accent">{product.price.toFixed(2)} &euro;</p>

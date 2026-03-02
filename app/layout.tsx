@@ -157,80 +157,16 @@ export default function RootLayout({
         },
         inLanguage: "hr",
       },
-      {
-        "@type": "Service",
-        name: "Digitalizacija poslovanja",
-        provider: {
-          "@id": "https://briksy.group/#organization",
-        },
-        description:
-          "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije softvera i AI rješenja. Dolazimo u vašu firmu i učimo kako radite.",
-        areaServed: {
-          "@type": "Country",
-          name: "Croatia",
-        },
-        serviceType: "Digitalna transformacija",
-      },
-      {
-        "@type": "SoftwareApplication",
-        name: "Briksy",
-        url: "https://briksy.com",
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
-        description:
-          "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske firme. Razvijena u suradnji s vlasnicima firmi i inženjerima.",
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          priceCurrency: "EUR",
-        },
-        creator: {
-          "@id": "https://briksy.group/#organization",
-        },
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Koliko košta digitalizacija poslovanja?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Ovisi o veličini firme i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih firmi, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Koliko traje digitalizacija firme?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Tipična digitalizacija traje 2-3 mjeseca od prvog posjeta do punog pokretanja. Radimo u fazama, pa koristi počinjete vidjeti već nakon nekoliko tjedana. Kompleksnije transformacije s AI implementacijom mogu trajati 4-6 mjeseci.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Što je Briksy softver?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Briksy je prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje na jednom mjestu. Dizajnirana je specifično za građevinske firme i razvijena u suradnji s vlasnicima firmi i inženjerima na terenu.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Kako AI može pomoći mojoj firmi?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "AI automatizira repetitivne zadatke poput unosa podataka, kategorizacije dokumenata i kreiranja izvještaja. Naši klijenti u prosjeku prijavljuju 60% manje vremena utrošenog na administrativne zadatke i značajno manje grešaka u obradi podataka.",
-            },
-          },
-        ],
-      },
     ],
   };
 
   return (
     <html lang="hr">
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

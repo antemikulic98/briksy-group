@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ContactForm from "@/app/components/contact-form";
+import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 function Hero() {
   return (
@@ -40,32 +41,34 @@ function Hero() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-5">
-            <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <div className="text-3xl font-bold text-accent">50+</div>
-              <div className="mt-1 text-sm text-muted">
-                kompanija kojima smo pomogli transformirati poslovanje
+          <AnimateOnScroll>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <div className="text-3xl font-bold text-accent">50+</div>
+                <div className="mt-1 text-sm text-muted">
+                  kompanija kojima smo pomogli transformirati poslovanje
+                </div>
+              </div>
+              <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <div className="text-3xl font-bold text-accent">8+</div>
+                <div className="mt-1 text-sm text-muted">
+                  godina iskustva u digitalizaciji i razvoju softvera
+                </div>
+              </div>
+              <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <div className="text-3xl font-bold text-accent">3x</div>
+                <div className="mt-1 text-sm text-muted">
+                  prosječno ubrzanje poslovnih procesa nakon implementacije
+                </div>
+              </div>
+              <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <div className="text-3xl font-bold text-accent">40%</div>
+                <div className="mt-1 text-sm text-muted">
+                  prosječna ušteda na operativnim troškovima
+                </div>
               </div>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <div className="text-3xl font-bold text-accent">8+</div>
-              <div className="mt-1 text-sm text-muted">
-                godina iskustva u digitalizaciji i razvoju softvera
-              </div>
-            </div>
-            <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <div className="text-3xl font-bold text-accent">3x</div>
-              <div className="mt-1 text-sm text-muted">
-                prosječno ubrzanje poslovnih procesa nakon implementacije
-              </div>
-            </div>
-            <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <div className="text-3xl font-bold text-accent">40%</div>
-              <div className="mt-1 text-sm text-muted">
-                prosječna ušteda na operativnim troškovima
-              </div>
-            </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>
@@ -126,14 +129,16 @@ function UslugePreview() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s) => (
-            <div key={s.title} className="rounded-lg border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md">
-              <h3 className="font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+        <AnimateOnScroll>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s) => (
+              <div key={s.title} className="rounded-lg border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md">
+                <h3 className="font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
         <div className="mt-8 text-center md:hidden">
           <Link href="/usluge" className="text-sm font-medium text-accent hover:underline">
@@ -169,15 +174,17 @@ function KakoRadimoPreview() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
-          {steps.map((s) => (
-            <div key={s.num} className="bg-white p-8">
-              <div className="text-sm font-bold text-accent">{s.num}</div>
-              <h3 className="mt-2 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+        <AnimateOnScroll>
+          <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
+            {steps.map((s) => (
+              <div key={s.num} className="bg-white p-8">
+                <div className="text-sm font-bold text-accent">{s.num}</div>
+                <h3 className="mt-2 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
         <div className="mt-8 text-center">
           <Link href="/o-nama" className="text-sm font-medium text-accent hover:underline">
@@ -228,24 +235,26 @@ function BriksyPreview() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <h4 className="font-semibold">Financije i realizacija</h4>
-              <p className="mt-1 text-sm text-muted">Svaki trošak vezan uz projekt — u realnom vremenu.</p>
+          <AnimateOnScroll>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <h4 className="font-semibold">Financije i realizacija</h4>
+                <p className="mt-1 text-sm text-muted">Svaki trošak vezan uz projekt — u realnom vremenu.</p>
+              </div>
+              <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <h4 className="font-semibold">Robno-materijalno</h4>
+                <p className="mt-1 text-sm text-muted">Svaki materijal zabilježen — količina, cijena, gradilište.</p>
+              </div>
+              <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <h4 className="font-semibold">Upravljanje projektima</h4>
+                <p className="mt-1 text-sm text-muted">Od ponude do primopredaje — svaki korak dokumentiran.</p>
+              </div>
+              <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <h4 className="font-semibold">Izvještaji na klik</h4>
+                <p className="mt-1 text-sm text-muted">Automatski generirani izvještaji bez kopanja po podacima.</p>
+              </div>
             </div>
-            <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <h4 className="font-semibold">Robno-materijalno</h4>
-              <p className="mt-1 text-sm text-muted">Svaki materijal zabilježen — količina, cijena, gradilište.</p>
-            </div>
-            <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <h4 className="font-semibold">Upravljanje projektima</h4>
-              <p className="mt-1 text-sm text-muted">Od ponude do primopredaje — svaki korak dokumentiran.</p>
-            </div>
-            <div className="rounded-lg border border-border p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-              <h4 className="font-semibold">Izvještaji na klik</h4>
-              <p className="mt-1 text-sm text-muted">Automatski generirani izvještaji bez kopanja po podacima.</p>
-            </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

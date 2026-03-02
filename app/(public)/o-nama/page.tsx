@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
   title: "O nama — Kako radimo | Briksy Group",
@@ -62,9 +63,10 @@ function PhaseCards() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
-          <div className="bg-white p-8">
-            <div className="text-sm font-bold text-accent">Faza 1</div>
+        <AnimateOnScroll>
+          <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
+            <div className="bg-white p-8">
+              <div className="text-sm font-bold text-accent">Faza 1</div>
             <h3 className="mt-2 text-lg font-semibold">Dolazak u firmu</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Naš tim provodi dane u vašoj firmi. Upoznajemo vaše zaposlenike,
@@ -117,7 +119,8 @@ function PhaseCards() {
             </p>
             <p className="mt-4 text-xs text-muted">Kontinuirana podrška</p>
           </div>
-        </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -127,11 +130,12 @@ function InfoBox() {
   return (
     <section className="border-b border-border bg-slate-50 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="rounded-lg border border-border bg-white p-8">
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div>
-              <h3 className="font-semibold">
-                Zašto je dolazak u firmu bitan?
+        <AnimateOnScroll>
+          <div className="rounded-lg border border-border bg-white p-8">
+            <div className="grid gap-8 lg:grid-cols-3">
+              <div>
+                <h3 className="font-semibold">
+                  Zašto je dolazak u firmu bitan?
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 Jer ono što vlasnik misli da se događa u firmi i ono što se
@@ -160,7 +164,8 @@ function InfoBox() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -212,16 +217,18 @@ function ZastoMi() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((reason) => (
-            <div key={reason.title}>
-              <h3 className="font-semibold">{reason.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {reason.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        <AnimateOnScroll>
+          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+            {reasons.map((reason) => (
+              <div key={reason.title}>
+                <h3 className="font-semibold">{reason.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {reason.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -261,8 +268,25 @@ function CTASection() {
 }
 
 export default function ONamaPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "O nama — Briksy Group",
+    description:
+      "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+    url: "https://briksy.group/o-nama",
+    mainEntity: {
+      "@type": "Organization",
+      "@id": "https://briksy.group/#organization",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <HeroSection />
       <PhaseCards />
       <InfoBox />

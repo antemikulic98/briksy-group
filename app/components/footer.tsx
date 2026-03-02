@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieManageButton from "./cookie-manage-button";
 
 export default function Footer() {
   return (
@@ -44,6 +45,7 @@ export default function Footer() {
             <Link href="/login" className="text-sm text-gray-400 hover:text-white">
               Portal
             </Link>
+            <CookieManageButton />
           </div>
         </div>
 

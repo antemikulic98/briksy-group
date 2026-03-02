@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
   title: "AI implementacija u poslovanju — Briksy Group",
@@ -7,8 +8,23 @@ export const metadata = {
 };
 
 export default function AIPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI implementacija u poslovanju",
+    provider: { "@id": "https://briksy.group/#organization" },
+    description:
+      "Implementacija umjetne inteligencije u poslovne procese — automatizacija repetitivnih zadataka, pametna analitika, obrada dokumenata i integracija u postojeće sustave.",
+    areaServed: { "@type": "Country", name: "Croatia" },
+    serviceType: "AI implementacija",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="border-b border-border bg-slate-50 pt-20">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -35,9 +51,10 @@ export default function AIPage() {
               </p>
             </div>
 
-            <div className="space-y-5">
-              {[
-                { t: "Automatizacija repetitivnih zadataka", d: "Unos podataka, kategorizacija dokumenata, kreiranje izvještaja, odgovaranje na standardne upite — AI preuzima zadatke koji vašim ljudima oduzimaju sate dnevno, a ne zahtijevaju kreativno razmišljanje. Vaši zaposlenici se fokusiraju na posao koji zaista zahtijeva ljudski um." },
+            <AnimateOnScroll>
+              <div className="space-y-5">
+                {[
+                  { t: "Automatizacija repetitivnih zadataka", d: "Unos podataka, kategorizacija dokumenata, kreiranje izvještaja, odgovaranje na standardne upite — AI preuzima zadatke koji vašim ljudima oduzimaju sate dnevno, a ne zahtijevaju kreativno razmišljanje. Vaši zaposlenici se fokusiraju na posao koji zaista zahtijeva ljudski um." },
                 { t: "Pametna analitika i predviđanja", d: "AI analizira vaše podatke i prepoznaje obrasce koje ljudsko oko ne može vidjeti. Predviđa kašnjenja na projektima, identificira rizične troškove, sugerira optimalne rasporede. Ne zamjenjuje vaše odlučivanje — daje vam bolje informacije za bolje odluke." },
                 { t: "Obrada dokumenata i komunikacije", d: "AI čita ugovore i izvlači ključne informacije, kategorizira pristiglu poštu po prioritetu, generira sažetke dugih dokumenata i pomaže u kreiranju ponuda na temelju prethodnih projekata. Posao koji je trajao sate, završava u sekundama." },
                 { t: "Integracija u postojeće sustave", d: "Ne trebate mijenjati cijeli način rada da biste koristili AI. Implementiramo AI komponente unutar vaših postojećih alata i procesa — tako da vaši zaposlenici dobiju nove mogućnosti bez nove krivulje učenja." },
@@ -47,7 +64,8 @@ export default function AIPage() {
                   <p className="mt-2 text-sm leading-relaxed text-muted">{item.d}</p>
                 </div>
               ))}
-            </div>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -74,19 +92,21 @@ export default function AIPage() {
                   podataka.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { n: "60%", d: "manje vremena na admin zadatke" },
-                  { n: "85%", d: "manje grešaka u obradi podataka" },
-                  { n: "10x", d: "brža obrada dokumenata" },
-                  { n: "24/7", d: "AI sustavi rade non-stop" },
-                ].map((s) => (
-                  <div key={s.n} className="rounded-lg border border-border p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                    <div className="text-3xl font-bold">{s.n}</div>
-                    <div className="mt-1 text-sm text-muted">{s.d}</div>
-                  </div>
-                ))}
-              </div>
+              <AnimateOnScroll>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { n: "60%", d: "manje vremena na admin zadatke" },
+                    { n: "85%", d: "manje grešaka u obradi podataka" },
+                    { n: "10x", d: "brža obrada dokumenata" },
+                    { n: "24/7", d: "AI sustavi rade non-stop" },
+                  ].map((s) => (
+                    <div key={s.n} className="rounded-lg border border-border p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                      <div className="text-3xl font-bold">{s.n}</div>
+                      <div className="mt-1 text-sm text-muted">{s.d}</div>
+                    </div>
+                  ))}
+                </div>
+              </AnimateOnScroll>
             </div>
           </div>
         </div>

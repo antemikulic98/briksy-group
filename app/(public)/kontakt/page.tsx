@@ -7,8 +7,25 @@ export const metadata = {
 };
 
 export default function KontaktPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Kontakt — Briksy Group",
+    description:
+      "Kontaktirajte Briksy Group za besplatnu analizu vašeg poslovanja.",
+    url: "https://briksy.group/kontakt",
+    mainEntity: {
+      "@type": "Organization",
+      "@id": "https://briksy.group/#organization",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="border-b border-border bg-slate-50 pt-20">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-16 lg:grid-cols-5">

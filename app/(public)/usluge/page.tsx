@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
   title: "Usluge — Analiza, razvoj, AI implementacija i podrška",
@@ -71,39 +72,41 @@ function Usluge() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-lg border border-border p-8 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
-            >
-              <h3 className="text-xl font-semibold">{service.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted">
-                {service.description}
-              </p>
-              <ul className="mt-5 space-y-2">
-                {service.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm">
-                    <svg
-                      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-muted">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <AnimateOnScroll>
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="rounded-lg border border-border p-8 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
+              >
+                <h3 className="text-xl font-semibold">{service.title}</h3>
+                <p className="mt-3 leading-relaxed text-muted">
+                  {service.description}
+                </p>
+                <ul className="mt-5 space-y-2">
+                  {service.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm">
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-muted">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -155,16 +158,18 @@ function ZastoMi() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((reason) => (
-            <div key={reason.title}>
-              <h3 className="font-semibold">{reason.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {reason.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        <AnimateOnScroll>
+          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+            {reasons.map((reason) => (
+              <div key={reason.title}>
+                <h3 className="font-semibold">{reason.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {reason.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -260,8 +265,80 @@ function CTABanner() {
 }
 
 export default function UslugePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: "Digitalizacija poslovanja",
+        provider: { "@id": "https://briksy.group/#organization" },
+        description:
+          "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije softvera i AI rješenja.",
+        areaServed: { "@type": "Country", name: "Croatia" },
+        serviceType: "Digitalna transformacija",
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Koliko košta digitalizacija?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Ovisi o veličini firme i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih firmi, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Koliko traje cijeli proces?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Tipična digitalizacija traje 2-3 mjeseca od prvog posjeta do punog pokretanja. Radimo u fazama, pa koristi počinjete vidjeti već nakon nekoliko tjedana.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Hoće li moji zaposlenici prihvatiti promjenu?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Nakon 2-3 tjedna korištenja, ljudi ne žele nazad na stari način. Ključ je u tome da im pokažemo kako im alat olakšava posao.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Što ako već imamo neke digitalne alate?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Analiziramo alate koje koristite, procjenjujemo što radi a što ne, i predlažemo integracije ili zamjene tamo gdje ima smisla.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Je li Briksy samo za građevinarstvo?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Briksy platforma je dizajnirana specifično za građevinarstvo. Ali Briksy Group kao kompanija digitalizira firme iz svih industrija.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Kako funkcionira AI implementacija?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Počinjemo s identificiranjem procesa koji su najrepetitivniji i gdje se gubi najviše vremena. Zatim postavljamo AI rješenja koja se uklapaju u vaš postojeći tok rada.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Usluge />
       <ZastoMi />
       <FAQ />

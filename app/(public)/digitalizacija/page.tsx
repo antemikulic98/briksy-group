@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
   title: "Digitalizacija poslovanja — Briksy Group",
@@ -7,8 +8,23 @@ export const metadata = {
 };
 
 export default function DigitalizacijaPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Digitalizacija poslovanja",
+    provider: { "@id": "https://briksy.group/#organization" },
+    description:
+      "Kompletna digitalizacija poslovnih procesa — zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže, točnije i bez ljudske pogreške.",
+    areaServed: { "@type": "Country", name: "Croatia" },
+    serviceType: "Digitalna transformacija",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Digitalizacija */}
       <section className="border-b border-border bg-blue-50/50 pt-20">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -84,19 +100,21 @@ export default function DigitalizacijaPage() {
             </div>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { n: "67%", d: "kompanija kaže da im je digitalizacija povećala prihode" },
-              { n: "72%", d: "prijavljuje veće zadovoljstvo zaposlenika nakon transformacije" },
-              { n: "89%", d: "kaže da bi ponovili odluku o digitalizaciji" },
-              { n: "6-12", d: "mjeseci za potpuni povrat investicije u digitalizaciju" },
-            ].map((s) => (
-              <div key={s.n} className="rounded-lg border border-border bg-white p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                <div className="text-3xl font-bold text-accent">{s.n}</div>
-                <div className="mt-1 text-sm text-muted">{s.d}</div>
-              </div>
-            ))}
-          </div>
+          <AnimateOnScroll>
+            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { n: "67%", d: "kompanija kaže da im je digitalizacija povećala prihode" },
+                { n: "72%", d: "prijavljuje veće zadovoljstvo zaposlenika nakon transformacije" },
+                { n: "89%", d: "kaže da bi ponovili odluku o digitalizaciji" },
+                { n: "6-12", d: "mjeseci za potpuni povrat investicije u digitalizaciju" },
+              ].map((s) => (
+                <div key={s.n} className="rounded-lg border border-border bg-white p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <div className="text-3xl font-bold text-accent">{s.n}</div>
+                  <div className="mt-1 text-sm text-muted">{s.d}</div>
+                </div>
+              ))}
+            </div>
+          </AnimateOnScroll>
 
           <div className="mt-12 rounded-lg border border-border bg-white p-8">
             <h3 className="text-xl font-semibold">

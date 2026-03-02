@@ -1,5 +1,6 @@
 import Link from "next/link";
 import InvoiceMockup from "@/app/components/invoice-mockup";
+import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
   title: "Briksy — Softver za građevinarstvo",
@@ -8,8 +9,29 @@ export const metadata = {
 };
 
 export default function BriksyPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Briksy",
+    url: "https://briksy.com",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske firme. Razvijena u suradnji s vlasnicima firmi i inženjerima.",
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "EUR",
+    },
+    creator: { "@id": "https://briksy.group/#organization" },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="border-b border-border bg-slate-50 pt-20">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -82,9 +104,10 @@ export default function BriksyPage() {
             Sve što trebate za upravljanje građevinskom firmom
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md">
-              <h3 className="font-semibold">Financije i realizacija — povezano</h3>
+          <AnimateOnScroll>
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="rounded-lg border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md">
+                <h3 className="font-semibold">Financije i realizacija — povezano</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 Svaki trošak je automatski vezan uz projekt i fazu. Vidite koliko
                 košta svaka stavka u realizaciji, usporedite plan i stvarnost, i
@@ -134,7 +157,8 @@ export default function BriksyPage() {
                 ručnog zbrajanja.
               </p>
             </div>
-          </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { packages, calculatePackagePrice } from "./data";
 
 export const metadata = {
@@ -66,11 +67,12 @@ export default function BoatSupplyPage() {
                 >
                   {/* Image */}
                   <div className={`relative overflow-hidden ${isCustom ? "h-36 sm:h-44 md:h-52" : "h-40 sm:h-48"}`}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={pkg.image}
                       alt={pkg.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 p-4 sm:p-6">

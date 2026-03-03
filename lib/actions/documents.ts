@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { logActivity } from "./activities";
+import { validateFile, sanitizeFileName } from "@/lib/validation";
 import { revalidatePath } from "next/cache";
 import {
   S3Client,
@@ -36,19 +37,25 @@ export async function getUploadUrl(
   const session = await auth();
   if (!session) throw new Error("Niste prijavljeni.");
 
-  const key = `projects/${projectId}/${Date.now()}-${fileName}`;
+  // Validate file
+  const error = validateFile(fileName, fileType, fileSize);
+  if (error) return { error };
+
+  const safeName = sanitizeFileName(fileName);
+  const key = `projects/${projectId}/${Date.now()}-${safeName}`;
 
   const command = new PutObjectCommand({
     Bucket: BUCKET,
     Key: key,
     ContentType: fileType,
+    ContentLength: fileSize,
   });
 
   const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
   const document = await prisma.document.create({
     data: {
-      name: fileName,
+      name: safeName,
       key,
       size: fileSize,
       type: fileType,
@@ -59,7 +66,7 @@ export async function getUploadUrl(
 
   await logActivity(
     "DOCUMENT_UPLOADED",
-    `${session.user.name} je uploadao dokument: ${fileName}`,
+    `${session.user.name} je uploadao dokument: ${safeName}`,
     session.user.id,
     projectId
   );
@@ -81,7 +88,6 @@ export async function getDocumentDownloadUrl(documentId: string) {
 
   if (!document) throw new Error("Dokument nije pronađen.");
 
-  // Verify access
   if (
     session.user.role === "CLIENT" &&
     document.project.clientId !== session.user.id
@@ -127,13 +133,12 @@ export async function deleteDocument(documentId: string) {
 
   if (!document) throw new Error("Dokument nije pronađen.");
 
-  // Delete from S3
   try {
     await s3.send(
       new DeleteObjectCommand({ Bucket: BUCKET, Key: document.key })
     );
-  } catch (e) {
-    console.error("Failed to delete from S3:", e);
+  } catch {
+    // S3 deletion failure is non-critical
   }
 
   await prisma.document.delete({ where: { id: documentId } });

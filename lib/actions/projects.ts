@@ -6,6 +6,8 @@ import { ProjectStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { sendEmail } from "@/lib/email";
+import { escapeHtml } from "@/lib/html-escape";
+import { projectSchema, projectUpdateSchema } from "@/lib/validation";
 import { logActivity } from "./activities";
 
 async function requireAdmin() {
@@ -62,48 +64,52 @@ export async function getClientProject(id: string) {
 export async function createProject(formData: FormData) {
   const session = await requireAdmin();
 
-  const name = formData.get("name") as string;
-  const description = formData.get("description") as string;
-  const clientId = formData.get("clientId") as string;
-  const startDate = formData.get("startDate") as string;
-  const endDate = formData.get("endDate") as string;
+  const raw = {
+    name: formData.get("name") as string,
+    description: (formData.get("description") as string) || undefined,
+    clientId: formData.get("clientId") as string,
+    startDate: (formData.get("startDate") as string) || undefined,
+    endDate: (formData.get("endDate") as string) || undefined,
+  };
 
-  if (!name || !clientId) {
-    return { error: "Naziv i klijent su obavezni." };
+  const result = projectSchema.safeParse(raw);
+  if (!result.success) {
+    return { error: result.error.issues[0]?.message || "Neispravan unos." };
   }
+
+  const data = result.data;
 
   const project = await prisma.project.create({
     data: {
-      name,
-      description: description || null,
-      clientId,
-      startDate: startDate ? new Date(startDate) : null,
-      endDate: endDate ? new Date(endDate) : null,
+      name: data.name,
+      description: data.description || null,
+      clientId: data.clientId,
+      startDate: data.startDate ? new Date(data.startDate) : null,
+      endDate: data.endDate ? new Date(data.endDate) : null,
     },
   });
 
   await logActivity(
     "PROJECT_CREATED",
-    `Projekt "${name}" kreiran`,
+    `Projekt "${data.name}" kreiran`,
     session.user.id,
     project.id
   );
 
-  // Notify client
   const client = await prisma.user.findUnique({
-    where: { id: clientId },
+    where: { id: data.clientId },
     select: { email: true, name: true },
   });
 
   if (client) {
     await sendEmail({
       to: client.email,
-      subject: `Novi projekt: ${name}`,
+      subject: `Novi projekt: ${data.name}`,
       html: `
         <h2>Kreiran je novi projekt za vas</h2>
-        <p>Poštovani ${client.name},</p>
-        <p>Projekt <strong>"${name}"</strong> je kreiran u vašem portalu.</p>
-        ${description ? `<p>${description}</p>` : ""}
+        <p>Poštovani ${escapeHtml(client.name)},</p>
+        <p>Projekt <strong>&quot;${escapeHtml(data.name)}&quot;</strong> je kreiran u vašem portalu.</p>
+        ${data.description ? `<p>${escapeHtml(data.description)}</p>` : ""}
         <p><a href="${process.env.NEXTAUTH_URL}/dashboard">Pogledajte u portalu →</a></p>
       `,
     });
@@ -116,26 +122,35 @@ export async function createProject(formData: FormData) {
 export async function updateProject(id: string, formData: FormData) {
   const session = await requireAdmin();
 
-  const name = formData.get("name") as string;
-  const description = formData.get("description") as string;
-  const status = formData.get("status") as ProjectStatus;
-  const startDate = formData.get("startDate") as string;
-  const endDate = formData.get("endDate") as string;
+  const raw = {
+    name: formData.get("name") as string,
+    description: (formData.get("description") as string) || undefined,
+    status: formData.get("status") as string,
+    startDate: (formData.get("startDate") as string) || undefined,
+    endDate: (formData.get("endDate") as string) || undefined,
+  };
+
+  const result = projectUpdateSchema.safeParse(raw);
+  if (!result.success) {
+    return { error: result.error.issues[0]?.message || "Neispravan unos." };
+  }
+
+  const data = result.data;
 
   await prisma.project.update({
     where: { id },
     data: {
-      name,
-      description: description || null,
-      status,
-      startDate: startDate ? new Date(startDate) : null,
-      endDate: endDate ? new Date(endDate) : null,
+      name: data.name,
+      description: data.description || null,
+      status: data.status as ProjectStatus,
+      startDate: data.startDate ? new Date(data.startDate) : null,
+      endDate: data.endDate ? new Date(data.endDate) : null,
     },
   });
 
   await logActivity(
     "PROJECT_UPDATED",
-    `Projekt ažuriran — status: ${status}`,
+    `Projekt ažuriran — status: ${data.status}`,
     session.user.id,
     id
   );

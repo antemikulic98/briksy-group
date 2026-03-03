@@ -5,6 +5,7 @@ import { auth } from "@/lib/auth";
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { clientSchema } from "@/lib/validation";
 
 async function requireAdmin() {
   const session = await auth();
@@ -39,25 +40,30 @@ export async function getClient(id: string) {
 export async function createClient(formData: FormData) {
   await requireAdmin();
 
-  const email = formData.get("email") as string;
-  const name = formData.get("name") as string;
-  const password = formData.get("password") as string;
+  const raw = {
+    email: formData.get("email") as string,
+    name: formData.get("name") as string,
+    password: formData.get("password") as string,
+  };
 
-  if (!email || !name || !password) {
-    return { error: "Sva polja su obavezna." };
+  const result = clientSchema.safeParse(raw);
+  if (!result.success) {
+    return { error: result.error.issues[0]?.message || "Neispravan unos." };
   }
 
-  const existing = await prisma.user.findUnique({ where: { email } });
+  const data = result.data;
+
+  const existing = await prisma.user.findUnique({ where: { email: data.email } });
   if (existing) {
     return { error: "Korisnik s tim emailom već postoji." };
   }
 
-  const hashedPassword = await bcrypt.hash(password, 12);
+  const hashedPassword = await bcrypt.hash(data.password, 12);
 
   await prisma.user.create({
     data: {
-      email,
-      name,
+      email: data.email,
+      name: data.name,
       password: hashedPassword,
       role: "CLIENT",
     },

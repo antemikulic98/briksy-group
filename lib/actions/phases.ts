@@ -5,6 +5,8 @@ import { auth } from "@/lib/auth";
 import { PhaseStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { sendEmail } from "@/lib/email";
+import { escapeHtml } from "@/lib/html-escape";
+import { phaseSchema, phaseUpdateSchema } from "@/lib/validation";
 import { logActivity } from "./activities";
 
 async function requireAdmin() {
@@ -18,14 +20,19 @@ async function requireAdmin() {
 export async function createPhase(projectId: string, formData: FormData) {
   const session = await requireAdmin();
 
-  const name = formData.get("name") as string;
-  const description = formData.get("description") as string;
-  const startDate = formData.get("startDate") as string;
-  const endDate = formData.get("endDate") as string;
+  const raw = {
+    name: formData.get("name") as string,
+    description: (formData.get("description") as string) || undefined,
+    startDate: (formData.get("startDate") as string) || undefined,
+    endDate: (formData.get("endDate") as string) || undefined,
+  };
 
-  if (!name) {
-    return { error: "Naziv faze je obavezan." };
+  const result = phaseSchema.safeParse(raw);
+  if (!result.success) {
+    return { error: result.error.issues[0]?.message || "Neispravan unos." };
   }
+
+  const data = result.data;
 
   const lastPhase = await prisma.phase.findFirst({
     where: { projectId },
@@ -34,18 +41,18 @@ export async function createPhase(projectId: string, formData: FormData) {
 
   await prisma.phase.create({
     data: {
-      name,
-      description: description || null,
+      name: data.name,
+      description: data.description || null,
       projectId,
       order: (lastPhase?.order ?? -1) + 1,
-      startDate: startDate ? new Date(startDate) : null,
-      endDate: endDate ? new Date(endDate) : null,
+      startDate: data.startDate ? new Date(data.startDate) : null,
+      endDate: data.endDate ? new Date(data.endDate) : null,
     },
   });
 
   await logActivity(
     "PHASE_CREATED",
-    `Faza "${name}" kreirana`,
+    `Faza "${data.name}" kreirana`,
     session.user.id,
     projectId
   );
@@ -60,12 +67,22 @@ export async function updatePhase(
 ) {
   const session = await requireAdmin();
 
-  const name = formData.get("name") as string;
-  const description = formData.get("description") as string;
-  const status = formData.get("status") as PhaseStatus;
-  const percentage = parseInt(formData.get("percentage") as string) || 0;
-  const startDate = formData.get("startDate") as string;
-  const endDate = formData.get("endDate") as string;
+  const raw = {
+    name: formData.get("name") as string,
+    description: (formData.get("description") as string) || undefined,
+    status: formData.get("status") as string,
+    percentage: formData.get("percentage") as string,
+    startDate: (formData.get("startDate") as string) || undefined,
+    endDate: (formData.get("endDate") as string) || undefined,
+  };
+
+  const result = phaseUpdateSchema.safeParse(raw);
+  if (!result.success) {
+    return { error: result.error.issues[0]?.message || "Neispravan unos." };
+  }
+
+  const data = result.data;
+  const percentage = Math.min(100, Math.max(0, parseInt(data.percentage) || 0));
 
   const oldPhase = await prisma.phase.findUnique({
     where: { id: phaseId },
@@ -75,38 +92,41 @@ export async function updatePhase(
   await prisma.phase.update({
     where: { id: phaseId },
     data: {
-      name,
-      description: description || null,
-      status,
-      percentage: Math.min(100, Math.max(0, percentage)),
-      startDate: startDate ? new Date(startDate) : null,
-      endDate: endDate ? new Date(endDate) : null,
+      name: data.name,
+      description: data.description || null,
+      status: data.status as PhaseStatus,
+      percentage,
+      startDate: data.startDate ? new Date(data.startDate) : null,
+      endDate: data.endDate ? new Date(data.endDate) : null,
     },
   });
 
   await logActivity(
     "PHASE_UPDATED",
-    `Faza "${name}" ažurirana — ${status}, ${percentage}%`,
+    `Faza "${data.name}" ažurirana — ${data.status}, ${percentage}%`,
     session.user.id,
     projectId
   );
 
   // Notify client if status or percentage changed
-  if (oldPhase && (oldPhase.status !== status || oldPhase.percentage !== percentage)) {
+  if (oldPhase && (oldPhase.status !== data.status || oldPhase.percentage !== percentage)) {
     const project = await prisma.project.findUnique({
       where: { id: projectId },
       include: { client: { select: { email: true, name: true } } },
     });
 
     if (project) {
+      const statusLabel =
+        data.status === "ZAVRSENA" ? "Završena" : data.status === "U_TIJEKU" ? "U tijeku" : "Na čekanju";
+
       await sendEmail({
         to: project.client.email,
-        subject: `Ažuriranje faze: ${name} — ${project.name}`,
+        subject: `Ažuriranje faze: ${data.name} — ${project.name}`,
         html: `
-          <h2>Faza "${name}" je ažurirana</h2>
-          <p>Poštovani ${project.client.name},</p>
-          <p>Faza <strong>"${name}"</strong> na projektu <strong>"${project.name}"</strong> je ažurirana.</p>
-          <p><strong>Status:</strong> ${status === "ZAVRSENA" ? "Završena" : status === "U_TIJEKU" ? "U tijeku" : "Na čekanju"}</p>
+          <h2>Faza &quot;${escapeHtml(data.name)}&quot; je ažurirana</h2>
+          <p>Poštovani ${escapeHtml(project.client.name)},</p>
+          <p>Faza <strong>&quot;${escapeHtml(data.name)}&quot;</strong> na projektu <strong>&quot;${escapeHtml(project.name)}&quot;</strong> je ažurirana.</p>
+          <p><strong>Status:</strong> ${statusLabel}</p>
           <p><strong>Napredak:</strong> ${percentage}%</p>
           <p><a href="${process.env.NEXTAUTH_URL}/dashboard/projects/${projectId}">Pogledajte u portalu →</a></p>
         `,

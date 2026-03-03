@@ -1,0 +1,111 @@
+import { z } from "zod/v4";
+
+export const inquirySchema = z.object({
+  name: z.string().min(1, "Ime je obavezno.").max(100),
+  company: z.string().min(1, "Naziv firme je obavezan.").max(200),
+  email: z.email("Neispravan email format."),
+  phone: z.string().max(30).optional(),
+  industry: z.string().min(1, "Djelatnost je obavezna.").max(100),
+  companySize: z.string().min(1, "Veličina firme je obavezna.").max(50),
+  budget: z.string().min(1, "Budget je obavezan.").max(50),
+  message: z.string().min(1, "Poruka je obavezna.").max(5000),
+  website: z.string().max(0, "").optional(), // honeypot
+});
+
+export const projectSchema = z.object({
+  name: z.string().min(1, "Naziv projekta je obavezan.").max(200),
+  description: z.string().max(5000).optional(),
+  clientId: z.string().min(1, "Klijent je obavezan."),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+});
+
+export const projectUpdateSchema = z.object({
+  name: z.string().min(1).max(200),
+  description: z.string().max(5000).optional(),
+  status: z.enum(["AKTIVAN", "ZAVRSEN", "PAUZIRAN"]),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+});
+
+export const clientSchema = z.object({
+  email: z.email("Neispravan email format."),
+  name: z.string().min(1, "Ime je obavezno.").max(100),
+  password: z.string().min(8, "Lozinka mora imati najmanje 8 znakova.").max(100),
+});
+
+export const phaseSchema = z.object({
+  name: z.string().min(1, "Naziv faze je obavezan.").max(200),
+  description: z.string().max(5000).optional(),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+});
+
+export const phaseUpdateSchema = z.object({
+  name: z.string().min(1).max(200),
+  description: z.string().max(5000).optional(),
+  status: z.enum(["NA_CEKANJU", "U_TIJEKU", "ZAVRSENA"]),
+  percentage: z.string(),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+});
+
+export const commentSchema = z.object({
+  content: z.string().min(1, "Komentar ne može biti prazan.").max(5000),
+});
+
+export const boatSupplySchema = z.object({
+  name: z.string().min(1, "Name is required.").max(100),
+  email: z.email("Invalid email."),
+  phone: z.string().max(30).optional(),
+  marina: z.string().max(200).optional(),
+  checkInDate: z.string().optional(),
+  note: z.string().max(2000).optional(),
+  packageName: z.string().min(1).max(100),
+  items: z.string().min(1),
+});
+
+export const bugReportSchema = z.object({
+  title: z.string().min(1, "Naslov je obavezan.").max(200),
+  description: z.string().min(1, "Opis je obavezan.").max(5000),
+  severity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]),
+  page: z.string().max(500).optional(),
+});
+
+const ALLOWED_FILE_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+];
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+
+export function validateFile(
+  fileName: string,
+  fileType: string,
+  fileSize: number
+): string | null {
+  if (!ALLOWED_FILE_TYPES.includes(fileType)) {
+    return "Nepodržani tip datoteke. Dozvoljeni: PDF, Word, Excel, JPG, PNG.";
+  }
+  if (fileSize > MAX_FILE_SIZE) {
+    return "Datoteka je prevelika. Maksimalno 10 MB.";
+  }
+  if (/[\/\\]/.test(fileName)) {
+    return "Neispravan naziv datoteke.";
+  }
+  return null;
+}
+
+export function sanitizeFileName(name: string): string {
+  return name
+    .replace(/[\/\\]/g, "_")
+    .replace(/\.\./g, "_")
+    .replace(/[^\w.\-\s]/g, "_")
+    .slice(0, 200);
+}

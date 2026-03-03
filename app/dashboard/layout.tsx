@@ -4,6 +4,7 @@ import Sidebar from "@/app/components/dashboard/sidebar";
 
 const clientLinks = [
   { href: "/dashboard", label: "Projekti" },
+  { href: "/dashboard/bug-report", label: "Prijavi bug" },
 ];
 
 export default async function DashboardLayout({

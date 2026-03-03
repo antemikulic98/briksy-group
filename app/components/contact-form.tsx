@@ -39,6 +39,7 @@ type FormData = {
   companySize: string;
   budget: string;
   message: string;
+  website: string;
 };
 
 export default function ContactForm({ compact }: { compact?: boolean }) {
@@ -54,6 +55,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
     companySize: "",
     budget: "",
     message: "",
+    website: "",
   });
 
   const totalSteps = 3;
@@ -384,6 +386,20 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
             )}
           </button>
         )}
+      </div>
+
+      {/* Honeypot — hidden from real users */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={data.website}
+          onChange={(e) => update("website", e.target.value)}
+        />
       </div>
 
       <p className="mt-5 text-center text-xs text-muted">

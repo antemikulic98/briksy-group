@@ -2,7 +2,15 @@
 
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
-export { logSecurityEvent } from "@/lib/security-logger";
+import { logSecurityEvent as _log } from "@/lib/security-logger";
+
+export async function logSecurityEvent(
+  type: string,
+  message: string,
+  extra?: { ip?: string; userAgent?: string; email?: string; userId?: string }
+) {
+  return _log(type, message, extra);
+}
 
 async function requireAdmin() {
   const session = await auth();

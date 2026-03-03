@@ -49,14 +49,19 @@ export default function DocumentsSection({
 
     setUploading(true);
     try {
-      const { uploadUrl } = await getUploadUrl(
+      const result = await getUploadUrl(
         projectId,
         file.name,
         file.type,
         file.size
       );
 
-      await fetch(uploadUrl, {
+      if ("error" in result) {
+        alert(result.error);
+        return;
+      }
+
+      await fetch(result.uploadUrl, {
         method: "PUT",
         body: file,
         headers: { "Content-Type": file.type },

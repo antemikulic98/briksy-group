@@ -10,6 +10,7 @@ const adminLinks = [
   { href: "/admin/analytics", label: "Analitika" },
   { href: "/admin/security", label: "Sigurnost" },
   { href: "/admin/bug-reports", label: "Bug reporti" },
+  { href: "/admin/settings", label: "Postavke" },
 ];
 
 export default async function AdminLayout({

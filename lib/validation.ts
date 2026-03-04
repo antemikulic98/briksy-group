@@ -54,22 +54,23 @@ export const commentSchema = z.object({
   content: z.string().min(1, "Komentar ne može biti prazan.").max(5000),
 });
 
-export const boatSupplySchema = z.object({
-  name: z.string().min(1, "Name is required.").max(100),
-  email: z.email("Invalid email."),
-  phone: z.string().max(30).optional(),
-  marina: z.string().max(200).optional(),
-  checkInDate: z.string().optional(),
-  note: z.string().max(2000).optional(),
-  packageName: z.string().min(1).max(100),
-  items: z.string().min(1),
-});
-
 export const bugReportSchema = z.object({
   title: z.string().min(1, "Naslov je obavezan.").max(200),
   description: z.string().min(1, "Opis je obavezan.").max(5000),
   severity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]),
   page: z.string().max(500).optional(),
+});
+
+export const twoFactorCodeSchema = z.object({
+  code: z
+    .string()
+    .min(6, "Kod mora imati najmanje 6 znakova.")
+    .max(8)
+    .regex(/^[a-zA-Z0-9]+$/, "Kod smije sadržavati samo slova i brojeve."),
+});
+
+export const disableTwoFactorSchema = z.object({
+  password: z.string().min(1, "Lozinka je obavezna."),
 });
 
 const ALLOWED_FILE_TYPES = [

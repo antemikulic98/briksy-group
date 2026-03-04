@@ -21,6 +21,9 @@ export async function login(formData: FormData) {
   // If signIn succeeded (no error thrown), get session to determine redirect
   const session = await auth();
   if (session?.user?.role === "ADMIN") {
+    if (session.user.twoFactorVerified === false) {
+      redirect("/login/verify-2fa");
+    }
     redirect("/admin");
   } else {
     redirect("/dashboard");

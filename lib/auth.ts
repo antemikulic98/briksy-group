@@ -61,21 +61,38 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: user.email,
           name: user.name,
           role: user.role,
+          twoFactorEnabled: user.twoFactorEnabled,
         };
       },
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
       if (user) {
         token.id = user.id as string;
         token.role = user.role;
+        if (user.role === "ADMIN" && user.twoFactorEnabled) {
+          token.twoFactorVerified = false;
+        } else {
+          token.twoFactorVerified = true;
+        }
+      }
+      // Handle session update after 2FA verification
+      if (
+        trigger === "update" &&
+        typeof session === "object" &&
+        session !== null &&
+        "twoFactorVerified" in session &&
+        (session as { twoFactorVerified: boolean }).twoFactorVerified === true
+      ) {
+        token.twoFactorVerified = true;
       }
       return token;
     },
     async session({ session, token }) {
       session.user.id = token.id as string;
       session.user.role = token.role as Role;
+      session.user.twoFactorVerified = token.twoFactorVerified as boolean | undefined;
       return session;
     },
   },

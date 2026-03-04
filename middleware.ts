@@ -5,6 +5,20 @@ export default auth((req) => {
   const { pathname } = req.nextUrl;
   const isLoggedIn = !!req.auth;
   const role = req.auth?.user?.role;
+  const twoFactorVerified = req.auth?.user?.twoFactorVerified;
+
+  // Handle 2FA verification page
+  if (pathname === "/login/verify-2fa") {
+    if (!isLoggedIn) {
+      return NextResponse.redirect(new URL("/login", req.url));
+    }
+    // Only admins who haven't verified 2FA should be here
+    if (role !== "ADMIN" || twoFactorVerified !== false) {
+      const target = role === "ADMIN" ? "/admin" : "/dashboard";
+      return NextResponse.redirect(new URL(target, req.url));
+    }
+    return NextResponse.next();
+  }
 
   // Zaštita dashboard ruta — zahtijeva login
   if (pathname.startsWith("/dashboard")) {
@@ -25,11 +39,18 @@ export default auth((req) => {
     if (role !== "ADMIN") {
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
+    // Admin mora završiti 2FA verifikaciju
+    if (twoFactorVerified === false) {
+      return NextResponse.redirect(new URL("/login/verify-2fa", req.url));
+    }
   }
 
   // Ako je logiran i ide na /login, redirectaj ga
   if (pathname === "/login" && isLoggedIn) {
     if (role === "ADMIN") {
+      if (twoFactorVerified === false) {
+        return NextResponse.redirect(new URL("/login/verify-2fa", req.url));
+      }
       return NextResponse.redirect(new URL("/admin", req.url));
     }
     return NextResponse.redirect(new URL("/dashboard", req.url));
@@ -39,5 +60,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/admin/:path*", "/login"],
+  matcher: ["/dashboard/:path*", "/admin/:path*", "/login", "/login/verify-2fa"],
 };

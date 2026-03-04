@@ -64,10 +64,10 @@ export default function OGImage() {
 
         <div style={{ display: "flex", gap: "40px" }}>
           {[
-            { n: "50+", d: "kompanija" },
-            { n: "8+", d: "godina iskustva" },
-            { n: "3x", d: "ubrzanje procesa" },
-            { n: "40%", d: "ušteda troškova" },
+            { n: "2018.", d: "od osnivanja" },
+            { n: "100%", d: "po mjeri" },
+            { n: "0 €", d: "početna analiza" },
+            { n: "24h", d: "odgovor na prijavu" },
           ].map((s) => (
             <div key={s.n} style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "36px", fontWeight: 700, color: "#2563eb" }}>

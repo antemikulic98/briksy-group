@@ -161,9 +161,9 @@ function ZastoMi() {
         "Uključujemo vaš tim u svaki korak jer oni najbolje znaju kako posao zaista funkcionira. Mi donosimo tehnologiju i AI, vi donosite znanje o industriji. Zajedno gradimo nešto što ima smisla.",
     },
     {
-      title: "Dokazani rezultati u praksi",
+      title: "Fokus na mjerljive rezultate",
       description:
-        "Više od 50 kompanija je prošlo kroz naš proces. Prosječno smanjenje operativnih troškova je 40%, ubrzanje procesa 3x. Realni podaci, ne marketinški slogani.",
+        "Svaki projekt počinje jasnim ciljevima i metrikama uspjeha. Pratimo napredak i prilagođavamo pristup dok ne postignemo dogovorene rezultate.",
     },
     {
       title: "AI kao alat, ne kao buzzword",

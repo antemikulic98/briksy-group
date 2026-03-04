@@ -187,8 +187,8 @@ export default function BriksyPage() {
             Želite vidjeti Briksy u akciji?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
-            Javite nam se i organizirat ćemo demo prilagođen vašoj kompaniji —
-            besplatno i bez obveza.
+            Organizirat ćemo demo prilagođen vašoj kompaniji. Ako zaključite
+            da nije za vas — nema daljnjeg kontakta s naše strane.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Link

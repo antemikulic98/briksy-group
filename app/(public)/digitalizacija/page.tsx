@@ -122,10 +122,10 @@ export default function DigitalizacijaPage() {
           <AnimateOnScroll>
             <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { n: "67%", d: "kompanija kaže da im je digitalizacija povećala prihode" },
-                { n: "72%", d: "prijavljuje veće zadovoljstvo zaposlenika nakon transformacije" },
-                { n: "89%", d: "kaže da bi ponovili odluku o digitalizaciji" },
-                { n: "6-12", d: "mjeseci za potpuni povrat investicije u digitalizaciju" },
+                { n: "0 €", d: "početna analiza — dolazimo besplatno i bez obveza" },
+                { n: "4", d: "faze implementacije — od analize do podrške" },
+                { n: "100%", d: "prilagođeno vašem poslovanju, nikad generičko" },
+                { n: "24h", d: "odgovaramo na svaku prijavu u roku jednog dana" },
               ].map((s) => (
                 <div key={s.n} className="rounded-lg border border-border bg-white p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
                   <div className="text-3xl font-bold text-accent">{s.n}</div>

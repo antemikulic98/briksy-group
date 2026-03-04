@@ -358,7 +358,7 @@ export default function Navbar() {
             href="/kontakt"
             className="ml-2 rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
           >
-            Besplatna analiza
+            Dogovorite analizu
           </Link>
         </div>
 

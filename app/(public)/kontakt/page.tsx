@@ -57,8 +57,8 @@ export default function KontaktPage() {
                 transformaciju danas.
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Ispunite formu u 3 kratka koraka i javit ćemo vam se u roku od
-                24 sata. Bez obveza, bez pritiska.
+                Ispunite formu — traje manje od minute. Obično se javimo
+                unutar nekoliko sati radnim danom.
               </p>
 
               <div className="mt-10 space-y-5">

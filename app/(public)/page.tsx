@@ -22,8 +22,9 @@ function Hero() {
             <p className="mt-6 text-lg leading-relaxed text-muted">
               Ne radimo digitalizaciju iz ureda. Dolazimo k vama, učimo kako vaša
               kompanija diše iz dana u dan, i tek onda gradimo sustave koji zaista
-              rješavaju vaše probleme. Rezultat? Manje ručnog rada, manje grešaka,
-              više vremena za ono što zaista pokreće vaš posao.
+              rješavaju vaše probleme. Rezultat? Manje ručnog rada, manje grešaka
+              — i vaši ljudi konačno mogu fokus prebaciti na projekte, pregovore i
+              rast umjesto na administraciju.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -31,7 +32,7 @@ function Hero() {
                 href="/kontakt"
                 className="inline-flex items-center justify-center rounded-lg bg-accent px-7 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
               >
-                Zakažite besplatni razgovor
+                Dogovorite analizu poslovanja
               </Link>
               <Link
                 href="/o-nama"
@@ -45,27 +46,27 @@ function Hero() {
           <AnimateOnScroll>
             <div className="grid grid-cols-2 gap-5">
               <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                <div className="text-3xl font-bold text-accent">50+</div>
+                <div className="text-3xl font-bold text-accent">2018.</div>
                 <div className="mt-1 text-sm text-muted">
-                  kompanija kojima smo pomogli transformirati poslovanje
+                  godina osnivanja — gradimo softver od prvog dana
                 </div>
               </div>
               <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                <div className="text-3xl font-bold text-accent">8+</div>
+                <div className="text-3xl font-bold text-accent">100%</div>
                 <div className="mt-1 text-sm text-muted">
-                  godina iskustva u digitalizaciji i razvoju softvera
+                  prilagođena rješenja — ništa generičko, sve po mjeri
                 </div>
               </div>
               <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                <div className="text-3xl font-bold text-accent">3x</div>
+                <div className="text-3xl font-bold text-accent">0 €</div>
                 <div className="mt-1 text-sm text-muted">
-                  prosječno ubrzanje poslovnih procesa nakon implementacije
+                  početna analiza — dolazimo besplatno i bez obveza
                 </div>
               </div>
               <div className="rounded-lg bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                <div className="text-3xl font-bold text-accent">40%</div>
+                <div className="text-3xl font-bold text-accent">24h</div>
                 <div className="mt-1 text-sm text-muted">
-                  prosječna ušteda na operativnim troškovima
+                  odgovaramo na svaku prijavu u roku od jednog dana
                 </div>
               </div>
             </div>
@@ -389,7 +390,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SocialProof />
       <UslugePreview />
       <KakoRadimoPreview />
       <BriksyPreview />

@@ -53,8 +53,9 @@ export default function AIPage() {
                 Umjetna inteligencija u poslovanju
               </p>
               <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-                AI nije budućnost — AI je sada.
-                <br />I vaša kompanija ga može koristiti.
+                Gdje AI stvarno štedi vrijeme
+                <br />
+                — i gdje samo baca novac.
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-muted">
                 Umjetna inteligencija više nije rezervirana za tech gigante i
@@ -115,19 +116,18 @@ export default function AIPage() {
                   uključuje temeljitu obuku vašeg tima i praćenje rezultata.
                 </p>
                 <p className="mt-4 leading-relaxed text-muted">
-                  Naši klijenti koji su implementirali AI u poslovne procese
-                  u prosjeku prijavljuju 60% manje vremena utrošenog na
-                  administrativne zadatke i značajno manje grešaka u obradi
-                  podataka.
+                  AI nije čarobni štapić — ali na pravom mjestu može drastično
+                  smanjiti ručni rad, ubrzati obradu podataka i eliminirati
+                  ponavljajuće greške.
                 </p>
               </div>
               <AnimateOnScroll>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { n: "60%", d: "manje vremena na admin zadatke" },
-                    { n: "85%", d: "manje grešaka u obradi podataka" },
-                    { n: "10x", d: "brža obrada dokumenata" },
-                    { n: "24/7", d: "AI sustavi rade non-stop" },
+                    { n: "AI", d: "analiza podataka i donošenje odluka" },
+                    { n: "NLP", d: "obrada dokumenata i teksta" },
+                    { n: "OCR", d: "digitalizacija papirnatih procesa" },
+                    { n: "24/7", d: "automatizirani sustavi rade non-stop" },
                   ].map((s) => (
                     <div key={s.n} className="rounded-lg border border-border p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
                       <div className="text-3xl font-bold">{s.n}</div>

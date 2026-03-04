@@ -135,7 +135,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
         <div className="flex items-center justify-between">
           {[
             { n: 1, label: "Vaša kompanija" },
-            { n: 2, label: "Budget" },
+            { n: 2, label: "Okvirni budget" },
             { n: 3, label: "Kontakt" },
           ].map((s, i) => (
             <div key={s.n} className="flex items-center">
@@ -228,7 +228,7 @@ export default function ContactForm({ compact }: { compact?: boolean }) {
       {step === 2 && (
         <div>
           <h3 className="text-lg font-semibold text-foreground">Koliki je vaš okvirni budget?</h3>
-          <p className="mt-1 text-sm text-muted">Ne morate znati točan iznos — ovo je samo orijentacija.</p>
+          <p className="mt-1 text-sm text-muted">Pomaže nam da pripremimo prijedlog koji odgovara vašim mogućnostima.</p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {BUDGETS.map((b) => (

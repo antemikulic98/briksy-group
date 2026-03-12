@@ -451,11 +451,11 @@ export default function Navbar() {
               </div>
 
               <div className="mt-3 space-y-2 border-t border-border pt-3 pb-1">
-                <a href="mailto:info@briksy.com" className="flex items-center gap-3 px-4 text-sm text-muted">
+                <a href="mailto:info@briksygroup.com" className="flex items-center gap-3 px-4 text-sm text-muted">
                   <svg className="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  info@briksy.com
+                  info@briksygroup.com
                 </a>
                 <a href="tel:+385955419712" className="flex items-center gap-3 px-4 text-sm text-muted">
                   <svg className="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">

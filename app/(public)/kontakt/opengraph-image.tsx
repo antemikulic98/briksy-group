@@ -79,7 +79,7 @@ export default function OGImage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
             <span style={{ fontSize: "18px", fontWeight: 600, color: "#111827" }}>
-              info@briksy.com
+              info@briksygroup.com
             </span>
             <span style={{ fontSize: "16px", color: "#6b7280" }}>
               Odgovaramo u roku od 24 sata

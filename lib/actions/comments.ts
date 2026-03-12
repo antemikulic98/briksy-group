@@ -73,7 +73,7 @@ export async function addComment(projectId: string, content: string) {
     });
   } else {
     await sendEmail({
-      to: "info@briksy.com",
+      to: "info@briksygroup.com",
       subject: `Komentar klijenta na projektu: ${project.name}`,
       html: `
         <h2>Komentar klijenta na projektu &quot;${escapedProjectName}&quot;</h2>

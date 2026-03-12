@@ -261,10 +261,10 @@ function CTASection() {
               Zakažite besplatni razgovor
             </Link>
             <a
-              href="mailto:info@briksy.com"
+              href="mailto:info@briksygroup.com"
               className="inline-flex items-center justify-center rounded-lg border border-border px-7 py-3.5 text-base font-medium hover:bg-gray-50"
             >
-              info@briksy.com
+              info@briksygroup.com
             </a>
           </div>
         </div>

@@ -1,8 +1,15 @@
-import { Resend } from "resend";
+import * as nodemailer from "nodemailer";
 
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
+const transporter =
+  process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD
+    ? nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_APP_PASSWORD,
+        },
+      })
+    : null;
 
 export async function sendEmail({
   to,
@@ -13,10 +20,10 @@ export async function sendEmail({
   subject: string;
   html: string;
 }) {
-  if (!resend) return;
+  if (!transporter) return;
   try {
-    await resend.emails.send({
-      from: "Briksy Group <noreply@briksygroup.com>",
+    await transporter.sendMail({
+      from: `"Briksy Group" <${process.env.GMAIL_USER}>`,
       to,
       subject,
       html,

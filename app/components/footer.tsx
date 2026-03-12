@@ -13,6 +13,20 @@ export default function Footer() {
             <p className="mt-1 text-sm text-gray-400">
               Digitalizacija i AI implementacija za kompanije.
             </p>
+            <div className="mt-3 flex flex-col gap-1">
+              <a
+                href="mailto:info@briksygroup.com"
+                className="text-sm text-gray-400 hover:text-white"
+              >
+                info@briksygroup.com
+              </a>
+              <a
+                href="tel:+385955419712"
+                className="text-sm text-gray-400 hover:text-white"
+              >
+                +385 95 541 9712
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6">

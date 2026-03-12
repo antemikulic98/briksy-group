@@ -63,7 +63,7 @@ export async function submitInquiry(formData: FormData) {
     });
 
     await sendEmail({
-      to: "info@briksy.com",
+      to: "info@briksygroup.com",
       subject: `Nova prijava: ${escapeHtml(data.company)} — ${escapeHtml(data.name)}`,
       html: `
         <h2>Nova prijava za digitalizaciju</h2>

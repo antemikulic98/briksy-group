@@ -104,7 +104,7 @@ export default function KontaktPage() {
                   Ili nas kontaktirajte direktno
                 </h3>
                 <a
-                  href="mailto:info@briksy.com"
+                  href="mailto:info@briksygroup.com"
                   className="flex items-center gap-3 rounded-lg border border-border bg-white p-4 hover:bg-gray-50"
                 >
                   <svg
@@ -121,7 +121,7 @@ export default function KontaktPage() {
                     />
                   </svg>
                   <div>
-                    <div className="text-sm font-semibold">info@briksy.com</div>
+                    <div className="text-sm font-semibold">info@briksygroup.com</div>
                     <div className="text-xs text-muted">
                       Odgovaramo u roku od 24 sata
                     </div>

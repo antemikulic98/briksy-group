@@ -84,7 +84,7 @@ export default function RootLayout({
         contactPoint: {
           "@type": "ContactPoint",
           telephone: "+385-95-541-9712",
-          email: "info@briksy.com",
+          email: "info@briksygroup.com",
           contactType: "sales",
           availableLanguage: ["Croatian", "English"],
           areaServed: {

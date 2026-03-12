@@ -331,12 +331,12 @@ function CTASection() {
               <h3 className="text-sm font-medium uppercase tracking-wider text-muted">
                 Ili nas kontaktirajte direktno
               </h3>
-              <a href="mailto:info@briksy.com" className="flex items-center gap-3 rounded-lg border border-border bg-white p-4 hover:bg-gray-50">
+              <a href="mailto:info@briksygroup.com" className="flex items-center gap-3 rounded-lg border border-border bg-white p-4 hover:bg-gray-50">
                 <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <div>
-                  <div className="text-sm font-semibold">info@briksy.com</div>
+                  <div className="text-sm font-semibold">info@briksygroup.com</div>
                   <div className="text-xs text-muted">Odgovaramo u roku od 24 sata</div>
                 </div>
               </a>

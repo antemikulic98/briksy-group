@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
@@ -18,93 +17,53 @@ function Usluge() {
   const services = [
     {
       title: "Analiza i konzalting",
-      description:
-        "Dolazimo u vašu kompaniju, upoznajemo vaše ljude i detaljno mapiramo kako radite. Identificiramo uska grla, mjerimo koliko vas koštaju neučinkovitosti, i dajemo vam jasnu sliku stanja. Ovu početnu analizu radimo besplatno.",
-      includes: [
-        "Fizički dolazak u kompaniju i praćenje procesa",
-        "Mapiranje svih poslovnih tokova",
-        "Procjena troškova nedigitalizacije",
-        "Detaljan izvještaj s preporukama",
-      ],
+      description: "Dolazimo u vašu kompaniju, mapiramo procese i identificiramo uska grla. Početna analiza je besplatna.",
+      includes: ["Fizički dolazak i praćenje procesa", "Mapiranje poslovnih tokova", "Procjena troškova nedigitalizacije", "Izvještaj s preporukama"],
     },
     {
       title: "Razvoj prilagođenih rješenja",
-      description:
-        "Svaka kompanija je drugačija. Ako standardni alati ne pokrivaju vaše potrebe, naš tim razvija rješenja šivana po mjeri vašeg poslovanja — od web i mobilnih aplikacija do automatizacija specifičnih procesa.",
-      includes: [
-        "Web i mobilne aplikacije po mjeri",
-        "Automatizacija poslovnih procesa",
-        "Integracija postojećih sustava",
-        "API razvoj i povezivanje servisa",
-      ],
+      description: "Web i mobilne aplikacije šivane po mjeri — od automatizacija do kompletnih sustava.",
+      includes: ["Web i mobilne aplikacije po mjeri", "Automatizacija poslovnih procesa", "Integracija postojećih sustava", "API razvoj i povezivanje servisa"],
     },
     {
       title: "AI implementacija",
-      description:
-        "Identificiramo gdje umjetna inteligencija može donijeti stvarnu vrijednost u vašem poslovanju i implementiramo AI rješenja koja se prirodno uklapaju u vaš postojeći način rada.",
-      includes: [
-        "Analiza procesa pogodnih za AI automatizaciju",
-        "Implementacija AI za obradu dokumenata",
-        "Prediktivna analitika i izvještavanje",
-        "Obuka tima za korištenje AI alata",
-      ],
+      description: "Identificiramo gdje AI donosi stvarnu vrijednost i implementiramo ga u vaš postojeći način rada.",
+      includes: ["Analiza procesa za AI automatizaciju", "Obrada dokumenata s AI", "Prediktivna analitika", "Obuka tima za AI alate"],
     },
     {
       title: "Edukacija i podrška",
-      description:
-        "Tehnologija je beskorisna ako je ljudi ne koriste. Posvećujemo posebnu pažnju edukaciji vašeg tima — ne samo kako koristiti alate, nego zašto im to olakšava svakodnevni posao. Podrška ne prestaje nakon implementacije.",
-      includes: [
-        "Obuka za sve razine korisnika",
-        "Video materijali i dokumentacija",
-        "Dedicirani account manager",
-        "Kontinuirana tehnička podrška",
-      ],
+      description: "Obučavamo vaš tim i ostajemo kao dugoročni partner. Podrška ne prestaje nakon implementacije.",
+      includes: ["Obuka za sve razine korisnika", "Video materijali i dokumentacija", "Dedicirani account manager", "Kontinuirana tehnička podrška"],
     },
   ];
 
   return (
-    <section className="border-b border-border bg-white pt-36 pb-20 md:pt-44 md:pb-28">
+    <section className="border-b border-border bg-white pt-36 pb-14 md:pt-44 md:pb-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
             Naše usluge
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Od analize do potpune transformacije — pokrivamo svaki korak.
+            Od analize do potpune transformacije.
           </h1>
-          <p className="mt-4 text-lg text-muted">
-            Ne prodajemo kutije sa softverom. Radimo s vama od prvog posjeta vašoj
-            kompaniji do trenutka kada vaš tim kaže: &ldquo;Kako smo uopće radili bez
-            ovoga?&rdquo;
+          <p className="mt-3 text-lg text-muted">
+            Radimo s vama od prvog posjeta do trenutka kada vaš tim kaže:
+            "Kako smo uopće radili bez ovoga?"
           </p>
         </div>
 
         <AnimateOnScroll>
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             {services.map((service) => (
-              <div
-                key={service.title}
-                className="rounded-lg border border-border p-8 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
-              >
-                <h3 className="text-xl font-semibold">{service.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">
-                  {service.description}
-                </p>
-                <ul className="mt-5 space-y-2">
+              <div key={service.title} className="rounded-xl border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md">
+                <h3 className="text-lg font-semibold">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{service.description}</p>
+                <ul className="mt-4 space-y-1.5">
                   {service.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-accent"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
+                      <svg className="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-muted">{item}</span>
                     </li>
@@ -119,89 +78,34 @@ function Usluge() {
   );
 }
 
-function ImageBanner() {
-  return (
-    <section className="border-b border-border bg-white">
-      <div className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl">
-            <Image
-              src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&q=80"
-              alt="Poslovni tim radi na digitalnoj strategiji"
-              width={800}
-              height={534}
-              className="h-64 w-full object-cover md:h-80"
-            />
-          </div>
-          <div className="overflow-hidden rounded-2xl">
-            <Image
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
-              alt="Analiza podataka na monitoru"
-              width={800}
-              height={534}
-              className="h-64 w-full object-cover md:h-80"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ZastoMi() {
   const reasons = [
-    {
-      title: "Dolazimo k vama i učimo vaš posao",
-      description:
-        "Ne radimo na daljinu od prvog dana. Fizički dolazimo u vašu kompaniju, sjedimo s vašim zaposlenicima, gledamo kako rade. Tek kad razumijemo vaš posao iznutra — predlažemo rješenja.",
-    },
-    {
-      title: "Radimo s vama, ne za vas",
-      description:
-        "Uključujemo vaš tim u svaki korak jer oni najbolje znaju kako posao zaista funkcionira. Mi donosimo tehnologiju i AI, vi donosite znanje o industriji. Zajedno gradimo nešto što ima smisla.",
-    },
-    {
-      title: "Fokus na mjerljive rezultate",
-      description:
-        "Svaki projekt počinje jasnim ciljevima i metrikama uspjeha. Pratimo napredak i prilagođavamo pristup dok ne postignemo dogovorene rezultate.",
-    },
-    {
-      title: "AI kao alat, ne kao buzzword",
-      description:
-        "Implementiramo umjetnu inteligenciju tamo gdje donosi stvarnu vrijednost — ne da bismo bili moderni, nego da bismo vam uštedjeli vrijeme i novac na konkretnim zadacima.",
-    },
-    {
-      title: "Fer i transparentne cijene",
-      description:
-        "Nema skrivenih troškova. Prije početka točno znate koliko košta svaka faza. Plaćate samo za ono što je dogovoreno. Početna analiza je besplatna.",
-    },
-    {
-      title: "Dugoročno partnerstvo",
-      description:
-        "Ne radimo projekte i odlazimo. Ostajemo s vama kao tehnološki partner — pratimo razvoj kompanije, predlažemo poboljšanja, osiguravamo da sustavi rastu zajedno s vama.",
-    },
+    { title: "Dolazimo k vama", desc: "Fizički dolazimo, sjedimo s vašim zaposlenicima, gledamo kako rade." },
+    { title: "Radimo s vama, ne za vas", desc: "Vi donosite znanje o industriji, mi tehnologiju. Zajedno gradimo." },
+    { title: "Mjerljivi rezultati", desc: "Svaki projekt počinje jasnim ciljevima i metrikama uspjeha." },
+    { title: "AI gdje ima smisla", desc: "Implementiramo AI tamo gdje donosi stvarnu vrijednost, ne kao buzzword." },
+    { title: "Transparentne cijene", desc: "Nema skrivenih troškova. Početna analiza je besplatna." },
+    { title: "Dugoročno partnerstvo", desc: "Ostajemo s vama — pratimo razvoj i predlažemo poboljšanja." },
   ];
 
   return (
-    <section className="border-b border-border bg-blue-50/50 py-20 md:py-28">
+    <section className="border-b border-border bg-blue-50/50 py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
             Zašto Briksy Group
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Što nas razlikuje od svih ostalih koji obećavaju digitalizaciju.
+            Što nas razlikuje
           </h2>
         </div>
 
         <AnimateOnScroll>
-          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-            {reasons.map((reason) => (
-              <div key={reason.title}>
-                <h3 className="font-semibold">{reason.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {reason.description}
-                </p>
+          <div className="mt-10 grid gap-x-10 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
+            {reasons.map((r) => (
+              <div key={r.title}>
+                <h3 className="font-semibold">{r.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted">{r.desc}</p>
               </div>
             ))}
           </div>
@@ -213,54 +117,35 @@ function ZastoMi() {
 
 function FAQ() {
   const questions = [
-    {
-      q: "Koliko košta digitalizacija?",
-      a: "Ovisi o veličini kompanije i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih kompanija, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
-    },
-    {
-      q: "Koliko traje cijeli proces?",
-      a: "Tipična digitalizacija traje 2-3 mjeseca od prvog posjeta do punog pokretanja. Radimo u fazama, pa koristi počinjete vidjeti već nakon nekoliko tjedana. Kompleksnije transformacije s AI implementacijom mogu trajati 4-6 mjeseci.",
-    },
-    {
-      q: "Hoće li moji zaposlenici prihvatiti promjenu?",
-      a: "Upravo zato dolazimo u vašu kompaniju i uključujemo zaposlenike od prvog dana. Iskustvo nam govori da nakon 2-3 tjedna korištenja, ljudi ne žele nazad na stari način. Ključ je da im pokažemo kako im alat olakšava posao, a ne komplicira.",
-    },
-    {
-      q: "Što ako već imamo neke digitalne alate?",
-      a: "Odlično — to znači da imate osnovu. Analiziramo alate koje koristite, procjenjujemo što radi a što ne, i predlažemo integracije ili zamjene tamo gdje ima smisla. Ne bacamo sve — gradimo na onome što funkcionira.",
-    },
-    {
-      q: "Je li Briksy samo za građevinarstvo?",
-      a: "Briksy platforma je dizajnirana specifično za građevinarstvo — to je prva aplikacija koja spaja financije, realizaciju i robno-materijalno. Ali Briksy Group kao kompanija digitalizira kompanije iz svih industrija koristeći vlastite i provjerene alate trećih strana.",
-    },
-    {
-      q: "Kako funkcionira AI implementacija?",
-      a: "Počinjemo s identificiranjem procesa koji su najrepetitivniji i gdje se gubi najviše vremena. Zatim postavljamo AI rješenja koja se uklapaju u vaš postojeći tok rada. Svaka implementacija uključuje obuku vašeg tima i mjerenje rezultata.",
-    },
+    { q: "Koliko košta digitalizacija?", a: "Ovisi o opsegu. Početna analiza je besplatna. Većina klijenata vrati investiciju u 6-12 mjeseci." },
+    { q: "Koliko traje cijeli proces?", a: "Tipično 2-3 mjeseca. Radimo u fazama, koristi vidite već nakon nekoliko tjedana." },
+    { q: "Hoće li zaposlenici prihvatiti promjenu?", a: "Nakon 2-3 tjedna ne žele nazad. Ključ je pokazati im kako alat olakšava posao." },
+    { q: "Što ako već imamo neke alate?", a: "Analiziramo što radi, predlažemo integracije ili zamjene. Ne bacamo sve — gradimo na onome što funkcionira." },
+    { q: "Je li Briksy samo za građevinarstvo?", a: "Briksy platforma da. Ali Briksy Group digitalizira kompanije iz svih industrija." },
+    { q: "Kako funkcionira AI implementacija?", a: "Identificiramo najrepetitivnije procese, postavljamo AI rješenja u vaš tok rada i obučavamo tim." },
   ];
 
   return (
-    <section className="border-b border-border bg-white py-20 md:py-28">
+    <section className="border-b border-border bg-white py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-5">
+        <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <p className="text-sm font-medium uppercase tracking-widest text-accent">
               Česta pitanja
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-              Sve što želite znati prije nego što nas kontaktirate.
+              Sve što želite znati.
             </h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              Ako ne pronađete odgovor na vaše pitanje, javite nam se direktno.
-              Uvijek odgovaramo u roku od 24 sata.
+            <p className="mt-3 text-muted">
+              Nema odgovora? Javite nam se — odgovaramo u roku od 24 sata.
             </p>
           </div>
 
           <div className="divide-y divide-border lg:col-span-3">
             {questions.map((item) => (
-              <div key={item.q} className="py-6 first:pt-0 last:pb-0">
+              <div key={item.q} className="py-5 first:pt-0 last:pb-0">
                 <h3 className="font-semibold">{item.q}</h3>
-                <p className="mt-2 leading-relaxed text-muted">{item.a}</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.a}</p>
               </div>
             ))}
           </div>
@@ -272,26 +157,19 @@ function FAQ() {
 
 function CTABanner() {
   return (
-    <section className="bg-slate-50 py-20 md:py-28">
+    <section className="bg-slate-50 py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6 text-center">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
           Spremni za sljedeći korak?
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-          Javite nam se i zakažite besplatnu analizu vašeg poslovanja. Dolazimo k
-          vama, upoznajemo vaš posao i dajemo vam konkretan plan — bez obveza.
+        <p className="mx-auto mt-3 max-w-xl text-lg text-muted">
+          Besplatna analiza vašeg poslovanja. Bez obveza.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            href="/kontakt"
-            className="inline-flex items-center justify-center rounded-lg bg-accent px-7 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
-          >
-            Zakažite besplatni razgovor
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link href="/kontakt" className="inline-flex items-center justify-center rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-white hover:bg-accent-dark">
+            Zakažite razgovor
           </Link>
-          <Link
-            href="/o-nama"
-            className="inline-flex items-center justify-center rounded-lg border border-border px-7 py-3.5 text-base font-medium hover:bg-gray-50"
-          >
+          <Link href="/o-nama" className="inline-flex items-center justify-center rounded-xl border border-border px-7 py-3.5 text-base font-medium hover:bg-gray-50">
             Saznajte više o nama
           </Link>
         </div>
@@ -315,62 +193,19 @@ export default function UslugePage() {
         "@type": "Service",
         name: "Digitalizacija poslovanja",
         provider: { "@id": "https://briksygroup.com/#organization" },
-        description:
-          "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije softvera i AI rješenja.",
+        description: "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije softvera i AI rješenja.",
         areaServed: { "@type": "Country", name: "Croatia" },
         serviceType: "Digitalna transformacija",
       },
       {
         "@type": "FAQPage",
         mainEntity: [
-          {
-            "@type": "Question",
-            name: "Koliko košta digitalizacija?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Ovisi o veličini kompanije i opsegu transformacije. Početna analiza je besplatna — dolazimo k vama, upoznajemo vaše poslovanje i dajemo vam procjenu. Za većinu srednje velikih kompanija, investicija se vrati u prvih 6-12 mjeseci kroz uštede.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Koliko traje cijeli proces?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Tipična digitalizacija traje 2-3 mjeseca od prvog posjeta do punog pokretanja. Radimo u fazama, pa koristi počinjete vidjeti već nakon nekoliko tjedana.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Hoće li moji zaposlenici prihvatiti promjenu?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Nakon 2-3 tjedna korištenja, ljudi ne žele nazad na stari način. Ključ je u tome da im pokažemo kako im alat olakšava posao.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Što ako već imamo neke digitalne alate?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Analiziramo alate koje koristite, procjenjujemo što radi a što ne, i predlažemo integracije ili zamjene tamo gdje ima smisla.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Je li Briksy samo za građevinarstvo?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Briksy platforma je dizajnirana specifično za građevinarstvo. Ali Briksy Group kao kompanija digitalizira kompanije iz svih industrija.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Kako funkcionira AI implementacija?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Počinjemo s identificiranjem procesa koji su najrepetitivniji i gdje se gubi najviše vremena. Zatim postavljamo AI rješenja koja se uklapaju u vaš postojeći tok rada.",
-            },
-          },
+          { "@type": "Question", name: "Koliko košta digitalizacija?", acceptedAnswer: { "@type": "Answer", text: "Ovisi o opsegu. Početna analiza je besplatna. Većina klijenata vrati investiciju u 6-12 mjeseci." } },
+          { "@type": "Question", name: "Koliko traje cijeli proces?", acceptedAnswer: { "@type": "Answer", text: "Tipično 2-3 mjeseca. Radimo u fazama, koristi vidite već nakon nekoliko tjedana." } },
+          { "@type": "Question", name: "Hoće li zaposlenici prihvatiti promjenu?", acceptedAnswer: { "@type": "Answer", text: "Nakon 2-3 tjedna ne žele nazad. Ključ je pokazati im kako alat olakšava posao." } },
+          { "@type": "Question", name: "Što ako već imamo neke alate?", acceptedAnswer: { "@type": "Answer", text: "Analiziramo što radi, predlažemo integracije ili zamjene. Gradimo na onome što funkcionira." } },
+          { "@type": "Question", name: "Je li Briksy samo za građevinarstvo?", acceptedAnswer: { "@type": "Answer", text: "Briksy platforma da. Ali Briksy Group digitalizira kompanije iz svih industrija." } },
+          { "@type": "Question", name: "Kako funkcionira AI implementacija?", acceptedAnswer: { "@type": "Answer", text: "Identificiramo najrepetitivnije procese, postavljamo AI rješenja u vaš tok rada i obučavamo tim." } },
         ],
       },
     ],
@@ -378,12 +213,8 @@ export default function UslugePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Usluge />
-      <ImageBanner />
       <ZastoMi />
       <FAQ />
       <CTABanner />

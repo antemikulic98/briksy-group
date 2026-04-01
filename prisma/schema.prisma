@@ -119,14 +119,14 @@ model Activity {
 
 model Inquiry {
   id          String   @id @default(cuid())
-  name        String
+  name        String?
   company     String
   email       String
-  phone       String?
-  industry    String
-  companySize String
-  budget      String
-  message     String
+  phone       String
+  industry    String?
+  companySize String?
+  budget      String?
+  message     String?
   read        Boolean  @default(false)
   createdAt   DateTime @default(now())
 }

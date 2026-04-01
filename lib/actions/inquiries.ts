@@ -22,14 +22,14 @@ export async function submitInquiry(formData: FormData) {
   }
 
   const raw = {
-    name: formData.get("name") as string,
+    name: (formData.get("name") as string) || undefined,
     company: formData.get("company") as string,
     email: formData.get("email") as string,
-    phone: (formData.get("phone") as string) || undefined,
-    industry: formData.get("industry") as string,
-    companySize: formData.get("companySize") as string,
-    budget: formData.get("budget") as string,
-    message: formData.get("message") as string,
+    phone: formData.get("phone") as string,
+    industry: (formData.get("industry") as string) || undefined,
+    companySize: (formData.get("companySize") as string) || undefined,
+    budget: (formData.get("budget") as string) || undefined,
+    message: (formData.get("message") as string) || undefined,
     website: (formData.get("website") as string) || undefined,
   };
 
@@ -51,31 +51,26 @@ export async function submitInquiry(formData: FormData) {
   try {
     await prisma.inquiry.create({
       data: {
-        name: data.name,
+        name: data.name || null,
         company: data.company,
         email: data.email,
-        phone: data.phone || null,
-        industry: data.industry,
-        companySize: data.companySize,
-        budget: data.budget,
-        message: data.message,
+        phone: data.phone,
+        industry: data.industry || null,
+        companySize: data.companySize || null,
+        budget: data.budget || null,
+        message: data.message || null,
       },
     });
 
     await sendEmail({
       to: "info@briksygroup.com",
-      subject: `Nova prijava: ${escapeHtml(data.company)} — ${escapeHtml(data.name)}`,
+      subject: `Nova prijava: ${escapeHtml(data.company)}`,
       html: `
-        <h2>Nova prijava za digitalizaciju</h2>
-        <p><strong>Ime:</strong> ${escapeHtml(data.name)}</p>
+        <h2>Nova prijava za kontakt</h2>
         <p><strong>Firma:</strong> ${escapeHtml(data.company)}</p>
         <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
-        <p><strong>Telefon:</strong> ${escapeHtml(data.phone || "—")}</p>
-        <p><strong>Djelatnost:</strong> ${escapeHtml(data.industry)}</p>
-        <p><strong>Veličina firme:</strong> ${escapeHtml(data.companySize)}</p>
-        <p><strong>Budget:</strong> ${escapeHtml(data.budget)}</p>
-        <p><strong>Poruka:</strong></p>
-        <p>${escapeHtml(data.message)}</p>
+        <p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>
+        ${data.message ? `<p><strong>Poruka:</strong></p><p>${escapeHtml(data.message)}</p>` : ""}
       `,
     });
 

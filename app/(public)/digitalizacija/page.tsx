@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
@@ -30,8 +29,7 @@ export default function DigitalizacijaPage() {
         "@type": "Service",
         name: "Digitalizacija poslovanja",
         provider: { "@id": "https://briksygroup.com/#organization" },
-        description:
-          "Kompletna digitalizacija poslovnih procesa — zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže, točnije i bez ljudske pogreške.",
+        description: "Kompletna digitalizacija poslovnih procesa — zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže, točnije i bez ljudske pogreške.",
         areaServed: { "@type": "Country", name: "Croatia" },
         serviceType: "Digitalna transformacija",
       },
@@ -40,14 +38,12 @@ export default function DigitalizacijaPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {/* Digitalizacija */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      {/* Hero */}
       <section className="border-b border-border bg-blue-50/50 pt-16">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <div className="grid gap-16 lg:grid-cols-5">
+        <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
+          <div className="grid gap-12 lg:grid-cols-5">
             <div className="lg:col-span-2">
               <p className="text-sm font-medium uppercase tracking-widest text-accent">
                 Digitalizacija — objašnjeno jednostavno
@@ -55,145 +51,77 @@ export default function DigitalizacijaPage() {
               <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
                 Što zapravo znači digitalizirati kompaniju?
               </h1>
-              <p className="mt-6 leading-relaxed text-muted">
-                Digitalizacija znači zamijeniti ručne, spore i nepouzdane poslovne
-                procese digitalnim sustavima koji rade brže, točnije i bez ljudske
-                pogreške. Ali to nije samo &ldquo;staviti sve u kompjuter&rdquo; — to je potpuna
-                promjena načina na koji vaša kompanija funkcionira.
-              </p>
-              <p className="mt-4 leading-relaxed text-muted">
-                Zamislite da svaki papir koji danas prođe kroz vaše ruke, svaki
-                telefonski poziv koji služi samo za prenošenje informacija, svaka
-                Excel tablica koju ručno ažurirate — nestane. I umjesto toga imate
-                sustav koji to radi automatski, bez grešaka, 24 sata dnevno.
+              <p className="mt-5 leading-relaxed text-muted">
+                Zamijeniti ručne, spore procese digitalnim sustavima koji rade
+                brže, točnije i bez ljudske pogreške. Ne samo "staviti u kompjuter"
+                — nego promijeniti način na koji kompanija funkcionira.
               </p>
             </div>
 
-            <div className="space-y-6 lg:col-span-3">
-              <div className="rounded-lg border border-accent/20 bg-accent/5 p-6">
+            <div className="space-y-5 lg:col-span-3">
+              <div className="rounded-lg border border-accent/20 bg-accent/5 p-5">
                 <h3 className="font-semibold">Primjer iz prakse</h3>
-                <p className="mt-2 leading-relaxed text-muted">
-                  Građevinska kompanija koja vodi projekte na papiru troši prosječno{" "}
-                  <strong className="text-foreground">15 sati tjedno</strong> samo na
-                  administraciju — ručno kreiranje ponuda, traženje dokumenata,
-                  telefonsko usklađivanje s gradilištem. S digitalnim sustavom, taj
-                  posao se svede na <strong className="text-foreground">2-3 sata</strong>.
-                  Ostatak vremena ide na ono što zapravo donosi novac: gradnju,
-                  pregovore, rast.
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  Građevinska kompanija troši <strong className="text-foreground">15 sati tjedno</strong> na
+                  administraciju — ponude, dokumenti, usklađivanje s gradilištem.
+                  S digitalnim sustavom: <strong className="text-foreground">2-3 sata</strong>.
+                  Ostatak ide na gradnju, pregovore i rast.
                 </p>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div className="rounded-lg border border-border bg-white p-5">
-                  <h4 className="font-semibold">Dokumentacija</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">
-                    Umjesto fascikli, registratora i dijeljenih foldera punih starih
-                    verzija — jedan sustav gdje je svaki dokument uvijek na svom
-                    mjestu, s poviješću promjena i kontrolom pristupa.
-                  </p>
+              <AnimateOnScroll>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {[
+                    { title: "Dokumentacija", desc: "Jedan sustav umjesto fascikli — s poviješću promjena i kontrolom pristupa." },
+                    { title: "Komunikacija", desc: "Jasni kanali vezani uz projekte. Ništa se ne gubi u prijevodu." },
+                    { title: "Financije", desc: "Uvid u troškove u realnom vremenu, automatski kategorizirano." },
+                    { title: "Odlučivanje", desc: "Konkretni podaci i trendovi umjesto odluka na temelju osjećaja." },
+                  ].map((item) => (
+                    <div key={item.title} className="rounded-lg border border-border bg-white p-5">
+                      <h4 className="font-semibold">{item.title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">{item.desc}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="rounded-lg border border-border bg-white p-5">
-                  <h4 className="font-semibold">Komunikacija</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">
-                    Umjesto telefona, Vibera i &ldquo;reci Marku da javi Petru&rdquo; — jasni
-                    kanali, bilješke vezane uz projekte, i ništa se ne gubi u
-                    prijevodu.
-                  </p>
-                </div>
-                <div className="rounded-lg border border-border bg-white p-5">
-                  <h4 className="font-semibold">Financije</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">
-                    Umjesto da čekate kraj mjeseca da vidite koliko je projekt
-                    stvarno koštao — imate uvid u realnom vremenu, svaki trošak
-                    zabilježen i kategoriziran automatski.
-                  </p>
-                </div>
-                <div className="rounded-lg border border-border bg-white p-5">
-                  <h4 className="font-semibold">Odlučivanje</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">
-                    Umjesto odluka na temelju osjećaja i iskustva — konkretni podaci,
-                    trendovi i izvještaji koji vam govore što funkcionira, a što ne.
-                  </p>
-                </div>
-              </div>
+              </AnimateOnScroll>
             </div>
           </div>
 
+          {/* Objections */}
           <AnimateOnScroll>
-            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { n: "0 €", d: "početna analiza — dolazimo besplatno i bez obveza" },
-                { n: "4", d: "faze implementacije — od analize do podrške" },
-                { n: "100%", d: "prilagođeno vašem poslovanju, nikad generičko" },
-                { n: "24h", d: "odgovaramo na svaku prijavu u roku jednog dana" },
-              ].map((s) => (
-                <div key={s.n} className="rounded-lg border border-border bg-white p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                  <div className="text-3xl font-bold text-accent">{s.n}</div>
-                  <div className="mt-1 text-sm text-muted">{s.d}</div>
-                </div>
-              ))}
+            <div className="mt-12 rounded-lg border border-border bg-white p-6">
+              <h3 className="text-lg font-semibold">
+                Zašto kompanije odgađaju — i zašto ne bi trebale
+              </h3>
+              <div className="mt-5 grid gap-6 lg:grid-cols-3">
+                {[
+                  { q: "\"Preskupo je\"", a: "Cijena nedigitalizacije je veća. Naši klijenti u prosjeku vrate investiciju u 6-12 mjeseci." },
+                  { q: "\"Nemamo vremena\"", a: "Upravo zato trebate digitalizaciju. Radimo u fazama koje ne zaustavljaju vaše poslovanje." },
+                  { q: "\"Zaposlenici neće prihvatiti\"", a: "Nakon 2-3 tjedna korištenja, ne žele nazad. Ključ je pokazati im kako im alat olakšava posao." },
+                ].map((item) => (
+                  <div key={item.q}>
+                    <h4 className="font-semibold text-muted">{item.q}</h4>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.a}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </AnimateOnScroll>
-
-          <div className="mt-16 overflow-hidden rounded-2xl">
-            <Image
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80"
-              alt="Moderan ured s timom koji koristi digitalne alate"
-              width={1200}
-              height={500}
-              className="h-64 w-full object-cover md:h-80"
-            />
-          </div>
-
-          <div className="mt-12 rounded-lg border border-border bg-white p-8">
-            <h3 className="text-xl font-semibold">
-              Zašto kompanije odgađaju digitalizaciju — i zašto to ne bi trebale
-            </h3>
-            <div className="mt-6 grid gap-8 lg:grid-cols-3">
-              <div>
-                <h4 className="font-semibold text-muted">&ldquo;Preskupo je&rdquo;</h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  Cijena digitalizacije je uvijek manja od cijene nedigitalizacije.
-                  Svaki mjesec koji prođe bez promjene je mjesec izgubljene
-                  produktivnosti i nepotrebnih troškova. Naši klijenti u prosjeku
-                  vrate investiciju u 6-12 mjeseci.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-muted">&ldquo;Nemamo vremena&rdquo;</h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  Upravo zato što nemate vremena — trebate digitalizaciju. Radimo u
-                  fazama koje ne zaustavljaju vaše svakodnevno poslovanje. I upravo
-                  zato dolazimo k vama — da vama proces oduzme minimalno vremena.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-muted">&ldquo;Zaposlenici neće prihvatiti&rdquo;</h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  Iskustvo nam govori da nakon 2-3 tjedna korištenja, zaposlenici
-                  ne žele nazad na stari način rada. Ključ je u tome da im pokažemo
-                  kako im alat olakšava posao, a ne da im ga komplicira. Zato
-                  edukacija i podrška nikad ne prestaju.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-50 py-20 md:py-28">
+      <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             Spremni za digitalizaciju?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
-            Javite nam se za besplatnu analizu vašeg poslovanja. Dolazimo k vama,
-            upoznajemo vaš posao i dajemo vam iskrenu procjenu — bez obveza.
+          <p className="mx-auto mt-3 max-w-xl text-lg text-muted">
+            Besplatna analiza vašeg poslovanja. Bez obveza.
           </p>
           <Link
             href="/kontakt"
-            className="mt-8 inline-flex rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
+            className="mt-6 inline-flex rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
           >
             Kontaktirajte nas
           </Link>

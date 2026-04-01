@@ -1,14 +1,14 @@
 import { z } from "zod/v4";
 
 export const inquirySchema = z.object({
-  name: z.string().min(1, "Ime je obavezno.").max(100),
+  name: z.string().max(100).optional(),
   company: z.string().min(1, "Naziv firme je obavezan.").max(200),
   email: z.email("Neispravan email format."),
-  phone: z.string().max(30).optional(),
-  industry: z.string().min(1, "Djelatnost je obavezna.").max(100),
-  companySize: z.string().min(1, "Veličina firme je obavezna.").max(50),
-  budget: z.string().min(1, "Budget je obavezan.").max(50),
-  message: z.string().min(1, "Poruka je obavezna.").max(5000),
+  phone: z.string().min(1, "Kontakt broj je obavezan.").max(30),
+  industry: z.string().max(100).optional(),
+  companySize: z.string().max(50).optional(),
+  budget: z.string().max(50).optional(),
+  message: z.string().max(5000).optional(),
   website: z.string().max(0, "").optional(), // honeypot
 });
 

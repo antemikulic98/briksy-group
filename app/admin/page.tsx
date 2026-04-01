@@ -176,7 +176,7 @@ export default async function AdminPage() {
                     )}
                   </div>
                   <p className="mt-0.5 text-xs text-muted">
-                    {inquiry.name} &middot; {inquiry.email}
+                    {inquiry.name ? `${inquiry.name} · ` : ""}{inquiry.email}
                   </p>
                 </div>
               ))}

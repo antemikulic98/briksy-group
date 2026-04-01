@@ -130,7 +130,7 @@ export default async function InquiriesPage({
                       )}
                     </div>
                     <p className="text-sm text-muted">
-                      {inquiry.name} &middot; {inquiry.email}
+                      {inquiry.name ? `${inquiry.name} · ` : ""}{inquiry.email}
                       {inquiry.phone && ` · ${inquiry.phone}`}
                     </p>
                   </div>
@@ -148,21 +148,31 @@ export default async function InquiriesPage({
                   </div>
                 </div>
 
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-border bg-slate-50 px-2.5 py-0.5 text-xs text-muted">
-                    {inquiry.industry}
-                  </span>
-                  <span className="rounded-full border border-border bg-slate-50 px-2.5 py-0.5 text-xs text-muted">
-                    {inquiry.companySize}
-                  </span>
-                  <span className="rounded-full border border-border bg-slate-50 px-2.5 py-0.5 text-xs text-muted">
-                    {inquiry.budget}
-                  </span>
-                </div>
+                {(inquiry.industry || inquiry.companySize || inquiry.budget) && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {inquiry.industry && (
+                      <span className="rounded-full border border-border bg-slate-50 px-2.5 py-0.5 text-xs text-muted">
+                        {inquiry.industry}
+                      </span>
+                    )}
+                    {inquiry.companySize && (
+                      <span className="rounded-full border border-border bg-slate-50 px-2.5 py-0.5 text-xs text-muted">
+                        {inquiry.companySize}
+                      </span>
+                    )}
+                    {inquiry.budget && (
+                      <span className="rounded-full border border-border bg-slate-50 px-2.5 py-0.5 text-xs text-muted">
+                        {inquiry.budget}
+                      </span>
+                    )}
+                  </div>
+                )}
 
-                <p className="mt-3 text-sm text-foreground">
-                  {inquiry.message}
-                </p>
+                {inquiry.message && (
+                  <p className="mt-3 text-sm text-foreground">
+                    {inquiry.message}
+                  </p>
+                )}
               </div>
             ))}
           </div>

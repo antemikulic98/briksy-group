@@ -115,7 +115,7 @@ export default function KontaktPage() {
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-muted">
                   Društvo s ograničenom odgovornošću za razvoj i održavanje web
-                  aplikacija i softverskih rješenja
+                  aplikacija i software rješenja
                 </p>
                 <dl className="mt-4 space-y-1.5 text-xs text-muted">
                   <div className="flex gap-2">

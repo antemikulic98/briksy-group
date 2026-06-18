@@ -33,6 +33,15 @@ export default function DigitalizacijaPage() {
         areaServed: { "@type": "Country", name: "Croatia" },
         serviceType: "Digitalna transformacija",
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: "Što je digitalizacija poslovanja?", acceptedAnswer: { "@type": "Answer", text: "Digitalizacija poslovanja je proces zamjene ručnih, papirnatih i neučinkovitih procesa digitalnim sustavima. To uključuje automatizaciju administracije, digitalno upravljanje dokumentima, praćenje troškova u realnom vremenu i donošenje odluka na temelju podataka umjesto na temelju osjećaja." } },
+          { "@type": "Question", name: "Koliko košta digitalizacija?", acceptedAnswer: { "@type": "Answer", text: "Cijena ovisi o opsegu i složenosti projekta. Početna analiza vašeg poslovanja je potpuno besplatna i bez obveza. Većina naših klijenata vrati investiciju u digitalizaciju u roku od 6 do 12 mjeseci kroz uštedu vremena i smanjenje grešaka." } },
+          { "@type": "Question", name: "Koliko traje proces digitalizacije?", acceptedAnswer: { "@type": "Answer", text: "Tipičan projekt digitalizacije traje 2-3 mjeseca. Radimo u fazama koje ne zaustavljaju vaše poslovanje — koristi vidite već nakon prvih nekoliko tjedana implementacije." } },
+          { "@type": "Question", name: "Trebam li mijenjati sve postojeće alate?", acceptedAnswer: { "@type": "Answer", text: "Ne. Analiziramo što trenutno koristite i što funkcionira. Nova rješenja integriramo s vašim postojećim alatima ili predlažemo zamjenu samo tamo gdje ima smisla. Cilj je nadogradnja, ne potpuna zamjena." } },
+        ],
+      },
     ],
   };
 
@@ -107,6 +116,39 @@ export default function DigitalizacijaPage() {
               </div>
             </div>
           </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-border bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-5">
+            <div className="lg:col-span-2">
+              <p className="text-sm font-medium uppercase tracking-widest text-accent">
+                Česta pitanja
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                Sve o digitalizaciji.
+              </h2>
+              <p className="mt-3 text-muted">
+                Imate dodatnih pitanja? Javite nam se — odgovaramo u roku od 24 sata.
+              </p>
+            </div>
+
+            <div className="divide-y divide-border lg:col-span-3">
+              {[
+                { q: "Što je digitalizacija poslovanja?", a: "Digitalizacija poslovanja je proces zamjene ručnih, papirnatih i neučinkovitih procesa digitalnim sustavima. To uključuje automatizaciju administracije, digitalno upravljanje dokumentima, praćenje troškova u realnom vremenu i donošenje odluka na temelju podataka umjesto na temelju osjećaja." },
+                { q: "Koliko košta digitalizacija?", a: "Cijena ovisi o opsegu i složenosti projekta. Početna analiza vašeg poslovanja je potpuno besplatna i bez obveza. Većina naših klijenata vrati investiciju u digitalizaciju u roku od 6 do 12 mjeseci kroz uštedu vremena i smanjenje grešaka." },
+                { q: "Koliko traje proces digitalizacije?", a: "Tipičan projekt digitalizacije traje 2-3 mjeseca. Radimo u fazama koje ne zaustavljaju vaše poslovanje — koristi vidite već nakon prvih nekoliko tjedana implementacije." },
+                { q: "Trebam li mijenjati sve postojeće alate?", a: "Ne. Analiziramo što trenutno koristite i što funkcionira. Nova rješenja integriramo s vašim postojećim alatima ili predlažemo zamjenu samo tamo gdje ima smisla. Cilj je nadogradnja, ne potpuna zamjena." },
+              ].map((item) => (
+                <div key={item.q} className="py-5 first:pt-0 last:pb-0">
+                  <h3 className="font-semibold">{item.q}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

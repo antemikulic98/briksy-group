@@ -193,7 +193,7 @@ export default function UslugePage() {
         "@type": "Service",
         name: "Digitalizacija poslovanja",
         provider: { "@id": "https://briksygroup.com/#organization" },
-        description: "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije softvera i AI rješenja.",
+        description: "Kompletna digitalizacija poslovnih procesa — od analize i konzaltinga do implementacije software-a i AI rješenja.",
         areaServed: { "@type": "Country", name: "Croatia" },
         serviceType: "Digitalna transformacija",
       },

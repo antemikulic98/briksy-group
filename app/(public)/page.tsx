@@ -164,7 +164,7 @@ function KakoRadimo() {
     {
       num: "03",
       title: "Gradimo rješenje",
-      desc: "Razvijamo softver i automatizacije prilagođene točno vašim potrebama.",
+      desc: "Razvijamo software i automatizacije prilagođene točno vašim potrebama.",
       icon: (
         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -228,7 +228,7 @@ function UslugePreview() {
       ),
     },
     {
-      title: "Softver po mjeri",
+      title: "Software po mjeri",
       desc: "Web i mobilne aplikacije prilagođene vašem poslovanju.",
       icon: (
         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -310,7 +310,7 @@ function BriksyPreview() {
                 Naš proizvod
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-                Briksy — softver za građevinarstvo
+                Briksy — software za građevinarstvo
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted">
                 Financije, realizacija i robno-materijalno na jednom mjestu.

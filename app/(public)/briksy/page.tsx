@@ -3,12 +3,12 @@ import InvoiceMockup from "@/app/components/invoice-mockup";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "Briksy — Softver za upravljanje građevinskom kompanijom",
+  title: "Briksy — Software za upravljanje građevinskom kompanijom",
   description:
     "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno na jednom mjestu. Razvijena s vlasnicima kompanija i inženjerima na terenu.",
   alternates: { canonical: "https://briksygroup.com/briksy" },
   openGraph: {
-    title: "Briksy — Softver za upravljanje građevinskom kompanijom",
+    title: "Briksy — Software za upravljanje građevinskom kompanijom",
     description: "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno za građevinske kompanije.",
     url: "https://briksygroup.com/briksy",
   },

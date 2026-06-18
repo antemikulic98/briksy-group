@@ -29,7 +29,7 @@ function HeroSection() {
               Onda gradimo.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted">
-              Softver koji nastaje bez razumijevanja vašeg svakodnevnog rada
+              Software koji nastaje bez razumijevanja vašeg svakodnevnog rada
               gotovo uvijek završi kao nekorišten alat. Zato dolazimo k vama,
               upoznajemo ljude i procese — i tek onda predlažemo rješenja.
             </p>
@@ -142,7 +142,7 @@ function NaseVrijednosti() {
     { title: "Ljudi, ne samo tehnologija", desc: "Svaka transformacija počinje s ljudima. Zato posvećujemo toliko vremena razumijevanju vaših zaposlenika." },
     { title: "Mjerljivi rezultati", desc: "Prije implementacije definiramo jasne metrike uspjeha — koliko vremena štedite, koliki je ROI. I onda mjerimo." },
     { title: "Bez tehničkog žargona", desc: "Govorimo vaš jezik. Objašnjavamo jednostavno što radimo, zašto i kakve rezultate možete očekivati." },
-    { title: "Odgovornost za rezultat", desc: "Ne predajemo softver i nestajemo. Ako nešto ne radi kako treba — popravljamo dok ne bude." },
+    { title: "Odgovornost za rezultat", desc: "Ne predajemo software i nestajemo. Ako nešto ne radi kako treba — popravljamo dok ne bude." },
     { title: "Rast zajedno", desc: "Vaša kompanija se mijenja, sustavi moraju pratiti. Ne radimo jednokratne projekte — gradimo partnerstva." },
   ];
 

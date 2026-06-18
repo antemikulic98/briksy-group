@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://briksygroup.com"),
   title: {
     default:
-      "Digitalizacija poslovanja | Briksy Group — AI i softver",
+      "Digitalizacija poslovanja | Briksy Group — AI i software",
     template: "%s | Briksy Group",
   },
   description:
-    "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija, softver za građevinarstvo i konzalting. Besplatna analiza.",
+    "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija, software za građevinarstvo i konzalting. Besplatna analiza.",
   authors: [{ name: "Briksy Group d.o.o." }],
   creator: "Briksy Group",
   publisher: "Briksy Group d.o.o.",
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     url: "https://briksygroup.com",
     siteName: "Briksy Group",
     title:
-      "Digitalizacija poslovanja | Briksy Group — AI i softver",
+      "Digitalizacija poslovanja | Briksy Group — AI i software",
     description:
-      "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija i softver. Besplatna analiza.",
+      "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija i software. Besplatna analiza.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digitalizacija poslovanja | Briksy Group — AI i softver",
+    title: "Digitalizacija poslovanja | Briksy Group — AI i software",
     description:
       "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. Besplatna analiza.",
     images: ["/opengraph-image"],
@@ -75,10 +75,14 @@ export default function RootLayout({
           url: "https://briksygroup.com/icon.svg",
         },
         description:
-          "Vodeća hrvatska tvrtka za digitalizaciju poslovanja. Specijalizirani za digitalnu transformaciju, AI implementaciju i razvoj softvera za građevinarstvo i druge industrije.",
+          "Vodeća hrvatska tvrtka za digitalizaciju poslovanja. Specijalizirani za digitalnu transformaciju, AI implementaciju i razvoj software-a za građevinarstvo i druge industrije.",
         foundingDate: "2018",
         address: {
           "@type": "PostalAddress",
+          streetAddress: "Putaljski put 25C",
+          addressLocality: "Kaštel Sućurac",
+          postalCode: "21212",
+          addressRegion: "Splitsko-dalmatinska županija",
           addressCountry: "HR",
         },
         contactPoint: {
@@ -96,7 +100,7 @@ export default function RootLayout({
         knowsAbout: [
           "Digitalizacija poslovanja",
           "Digitalna transformacija",
-          "Softver za građevinarstvo",
+          "Software za građevinarstvo",
           "AI implementacija",
           "Automatizacija poslovnih procesa",
           "ERP sustavi",
@@ -117,7 +121,7 @@ export default function RootLayout({
         "@type": "WebPage",
         "@id": "https://briksygroup.com/#webpage",
         url: "https://briksygroup.com",
-        name: "Digitalizacija poslovanja | Briksy Group — AI i softver",
+        name: "Digitalizacija poslovanja | Briksy Group — AI i software",
         description:
           "Briksy Group digitalizira kompanije u Hrvatskoj. Dolazimo u vašu kompaniju, analiziramo procese i implementiramo rješenja koja donose rezultate.",
         isPartOf: {
@@ -127,6 +131,43 @@ export default function RootLayout({
           "@id": "https://briksygroup.com/#organization",
         },
         inLanguage: "hr",
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://briksygroup.com/#localbusiness",
+        name: "Briksy Group",
+        image: "https://briksygroup.com/icon.svg",
+        url: "https://briksygroup.com",
+        telephone: "+385-95-541-9712",
+        email: "info@briksygroup.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Putaljski put 25C",
+          addressLocality: "Kaštel Sućurac",
+          postalCode: "21212",
+          addressRegion: "Splitsko-dalmatinska županija",
+          addressCountry: "HR",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 43.5397,
+          longitude: 16.4475,
+        },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+          ],
+          opens: "08:00",
+          closes: "16:00",
+        },
+        parentOrganization: {
+          "@id": "https://briksygroup.com/#organization",
+        },
       },
     ],
   };

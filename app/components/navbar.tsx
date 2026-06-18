@@ -415,7 +415,7 @@ export default function Navbar() {
                     </div>
                     <div>
                       <div className={`text-sm font-medium ${pathname === "/briksy" ? "text-accent" : "text-foreground"}`}>Briksy</div>
-                      <div className="text-xs text-muted">Softver za građevinarstvo</div>
+                      <div className="text-xs text-muted">Software za građevinarstvo</div>
                     </div>
                   </Link>
                 </MobileSection>

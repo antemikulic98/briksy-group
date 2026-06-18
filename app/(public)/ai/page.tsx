@@ -33,6 +33,15 @@ export default function AIPage() {
         areaServed: { "@type": "Country", name: "Croatia" },
         serviceType: "AI implementacija",
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: "Koje su prednosti AI u poslovanju?", acceptedAnswer: { "@type": "Answer", text: "AI automatizira repetitivne zadatke poput unosa podataka i kategorizacije dokumenata, pruža pametnu analitiku koja prepoznaje obrasce i predviđa trendove, te ubrzava obradu dokumenata sa sati na sekunde. Rezultat je manje ručnog rada, manje grešaka i brže donošenje odluka." } },
+          { "@type": "Question", name: "Je li AI skup za implementirati?", acceptedAnswer: { "@type": "Answer", text: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." } },
+          { "@type": "Question", name: "Trebam li tehničko znanje za korištenje AI?", acceptedAnswer: { "@type": "Answer", text: "Ne. Naša AI rješenja dizajnirana su za korištenje bez tehničkog predznanja. Svaka implementacija uključuje kompletnu obuku vašeg tima i podršku dok se ne osjećate sigurno u korištenju." } },
+          { "@type": "Question", name: "Hoće li AI zamijeniti moje zaposlenike?", acceptedAnswer: { "@type": "Answer", text: "Ne. AI ne zamjenjuje ljude — pomaže im. Preuzima dosadne, repetitivne zadatke kako bi se vaši zaposlenici mogli fokusirati na ono što zahtijeva kreativnost, pregovaranje i ljudski kontakt." } },
+        ],
+      },
     ],
   };
 
@@ -145,6 +154,39 @@ export default function AIPage() {
                 ))}
               </div>
             </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-border bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-5">
+            <div className="lg:col-span-2">
+              <p className="text-sm font-medium uppercase tracking-widest text-accent">
+                Česta pitanja
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                Sve o AI implementaciji.
+              </h2>
+              <p className="mt-3 text-muted">
+                Imate dodatnih pitanja? Javite nam se — odgovaramo u roku od 24 sata.
+              </p>
+            </div>
+
+            <div className="divide-y divide-border lg:col-span-3">
+              {[
+                { q: "Koje su prednosti AI u poslovanju?", a: "AI automatizira repetitivne zadatke poput unosa podataka i kategorizacije dokumenata, pruža pametnu analitiku koja prepoznaje obrasce i predviđa trendove, te ubrzava obradu dokumenata sa sati na sekunde. Rezultat je manje ručnog rada, manje grešaka i brže donošenje odluka." },
+                { q: "Je li AI skup za implementirati?", a: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." },
+                { q: "Trebam li tehničko znanje za korištenje AI?", a: "Ne. Naša AI rješenja dizajnirana su za korištenje bez tehničkog predznanja. Svaka implementacija uključuje kompletnu obuku vašeg tima i podršku dok se ne osjećate sigurno u korištenju." },
+                { q: "Hoće li AI zamijeniti moje zaposlenike?", a: "Ne. AI ne zamjenjuje ljude — pomaže im. Preuzima dosadne, repetitivne zadatke kako bi se vaši zaposlenici mogli fokusirati na ono što zahtijeva kreativnost, pregovaranje i ljudski kontakt." },
+              ].map((item) => (
+                <div key={item.q} className="py-5 first:pt-0 last:pb-0">
+                  <h3 className="font-semibold">{item.q}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

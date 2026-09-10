@@ -222,7 +222,7 @@ function ProizvodiDropdown({ pathname }: { pathname: string }) {
                   <IconArrow />
                 </div>
                 <p className="mt-0.5 text-[13px] leading-snug text-muted">
-                  Prva aplikacija koja spaja financije, realizaciju i robno-materijalno za građevinske kompanije.
+                  Aplikacija koja spaja financije, realizaciju i robno-materijalno za građevinske firme.
                 </p>
               </div>
             </Link>
@@ -230,7 +230,7 @@ function ProizvodiDropdown({ pathname }: { pathname: string }) {
 
           <div className="border-t border-border bg-slate-50/80 px-5 py-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-muted">Više proizvoda uskoro</span>
+              <span className="text-xs text-muted">Rađen s ljudima s gradilišta</span>
               <a
                 href="https://briksy.com"
                 target="_blank"
@@ -358,7 +358,7 @@ export default function Navbar() {
             href="/kontakt"
             className="ml-2 rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
           >
-            Dogovorite analizu
+            Dogovorite razgovor
           </Link>
         </div>
 

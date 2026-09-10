@@ -4,7 +4,15 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  const hashedPassword = await bcrypt.hash("1234Debil!!", 12);
+  const password = process.env.SEED_ADMIN_PASSWORD;
+  if (!password) {
+    console.error(
+      "Postavite SEED_ADMIN_PASSWORD u .env prije pokretanja seeda."
+    );
+    process.exit(1);
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 12);
 
   const admin = await prisma.user.upsert({
     where: { email: "admin@briksygroup.com" },

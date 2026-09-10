@@ -4,11 +4,11 @@ import AnimateOnScroll from "@/app/components/animate-on-scroll";
 export const metadata = {
   title: "AI u poslovanju — Implementacija i automatizacija",
   description:
-    "Implementiramo AI rješenja koja automatiziraju repetitivne zadatke, analiziraju podatke i ubrzavaju obradu dokumenata. Besplatna analiza.",
+    "Implementiramo AI rješenja koja automatiziraju repetitivne zadatke, analiziraju podatke i ubrzavaju obradu dokumenata — tamo gdje donose stvarnu vrijednost.",
   alternates: { canonical: "https://briksygroup.com/ai" },
   openGraph: {
     title: "AI u poslovanju — Implementacija i automatizacija",
-    description: "AI rješenja koja automatiziraju repetitivne zadatke i ubrzavaju obradu dokumenata u vašoj kompaniji.",
+    description: "AI rješenja koja automatiziraju repetitivne zadatke i ubrzavaju obradu dokumenata u vašoj firmi.",
     url: "https://briksygroup.com/ai",
   },
 };
@@ -37,7 +37,7 @@ export default function AIPage() {
         "@type": "FAQPage",
         mainEntity: [
           { "@type": "Question", name: "Koje su prednosti AI u poslovanju?", acceptedAnswer: { "@type": "Answer", text: "AI automatizira repetitivne zadatke poput unosa podataka i kategorizacije dokumenata, pruža pametnu analitiku koja prepoznaje obrasce i predviđa trendove, te ubrzava obradu dokumenata sa sati na sekunde. Rezultat je manje ručnog rada, manje grešaka i brže donošenje odluka." } },
-          { "@type": "Question", name: "Je li AI skup za implementirati?", acceptedAnswer: { "@type": "Answer", text: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." } },
+          { "@type": "Question", name: "Koliko košta implementacija AI-ja?", acceptedAnswer: { "@type": "Answer", text: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." } },
           { "@type": "Question", name: "Trebam li tehničko znanje za korištenje AI?", acceptedAnswer: { "@type": "Answer", text: "Ne. Naša AI rješenja dizajnirana su za korištenje bez tehničkog predznanja. Svaka implementacija uključuje kompletnu obuku vašeg tima i podršku dok se ne osjećate sigurno u korištenju." } },
           { "@type": "Question", name: "Hoće li AI zamijeniti moje zaposlenike?", acceptedAnswer: { "@type": "Answer", text: "Ne. AI ne zamjenjuje ljude — pomaže im. Preuzima dosadne, repetitivne zadatke kako bi se vaši zaposlenici mogli fokusirati na ono što zahtijeva kreativnost, pregovaranje i ljudski kontakt." } },
         ],
@@ -97,7 +97,7 @@ export default function AIPage() {
             </p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
               Gdje AI stvarno štedi vrijeme
-              — i gdje samo baca novac.
+              — i gdje se novac samo baca.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted">
               Pomažemo vam identificirati gdje AI donosi stvarnu vrijednost
@@ -177,7 +177,7 @@ export default function AIPage() {
             <div className="divide-y divide-border lg:col-span-3">
               {[
                 { q: "Koje su prednosti AI u poslovanju?", a: "AI automatizira repetitivne zadatke poput unosa podataka i kategorizacije dokumenata, pruža pametnu analitiku koja prepoznaje obrasce i predviđa trendove, te ubrzava obradu dokumenata sa sati na sekunde. Rezultat je manje ručnog rada, manje grešaka i brže donošenje odluka." },
-                { q: "Je li AI skup za implementirati?", a: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." },
+                { q: "Koliko košta implementacija AI-ja?", a: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." },
                 { q: "Trebam li tehničko znanje za korištenje AI?", a: "Ne. Naša AI rješenja dizajnirana su za korištenje bez tehničkog predznanja. Svaka implementacija uključuje kompletnu obuku vašeg tima i podršku dok se ne osjećate sigurno u korištenju." },
                 { q: "Hoće li AI zamijeniti moje zaposlenike?", a: "Ne. AI ne zamjenjuje ljude — pomaže im. Preuzima dosadne, repetitivne zadatke kako bi se vaši zaposlenici mogli fokusirati na ono što zahtijeva kreativnost, pregovaranje i ljudski kontakt." },
               ].map((item) => (
@@ -198,7 +198,7 @@ export default function AIPage() {
             Spremni za AI u vašem poslovanju?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg text-muted">
-            Besplatna analiza — identificiramo gdje AI donosi najveću vrijednost.
+            Upoznajemo vaše procese i identificiramo gdje AI donosi najveću vrijednost.
           </p>
           <Link
             href="/kontakt"

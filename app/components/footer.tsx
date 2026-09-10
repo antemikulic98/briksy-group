@@ -12,7 +12,7 @@ export default function Footer() {
               briksy<span className="text-accent">.</span>group
             </div>
             <p className="mt-3 text-sm leading-relaxed text-gray-400">
-              Digitalizacija i AI implementacija za kompanije. Dolazimo k vama,
+              Digitalizacija i AI implementacija za firme. Dolazimo k vama,
               analiziramo procese i gradimo rješenja koja donose rezultate.
             </p>
             <div className="mt-4 space-y-1">
@@ -98,6 +98,11 @@ export default function Footer() {
               <li>
                 <Link href="/login" className="text-sm text-gray-400 hover:text-white">
                   Klijentski portal
+                </Link>
+              </li>
+              <li>
+                <Link href="/privatnost" className="text-sm text-gray-400 hover:text-white">
+                  Politika privatnosti
                 </Link>
               </li>
               <li>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/app/components/contact-form";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
@@ -82,8 +81,8 @@ function Hero() {
           </h1>
 
           <p className="animate-slide-up mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted opacity-0 md:text-xl" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
-            Analiziramo vaše procese, pronalazimo gdje gubite vrijeme
-            i gradimo rješenja koja povećavaju efikasnost.
+            Učimo kako vaša firma radi i gradimo aplikacije koje ubrzavaju
+            protok informacija — da se digitalizirate na najjednostavniji način.
           </p>
 
           <div className="animate-slide-up mt-8 flex flex-col justify-center gap-3 opacity-0 sm:flex-row" style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}>
@@ -91,7 +90,7 @@ function Hero() {
               href="/kontakt"
               className="group inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
             >
-              Besplatna analiza poslovanja
+              Upoznajmo vaše poslovanje
               <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -108,9 +107,9 @@ function Hero() {
         {/* Stat kartice */}
         <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
           {[
-            { value: 7, suffix: "+", label: "Godina iskustva", icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> },
+            { value: 8, suffix: "+", label: "Godina iskustva", icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> },
             { value: 100, suffix: "%", label: "Rješenja po mjeri", icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg> },
-            { value: 0, suffix: " €", label: "Početna analiza", static: true, icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+            { value: 4, suffix: "", label: "Koraka do digitalizacije", icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 7l2 2 4-4" /></svg> },
             { value: 24, suffix: "h", label: "Vrijeme odgovora", icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
           ].map((stat, i) => (
             <AnimateOnScroll key={stat.label} delay={i * 100}>
@@ -119,11 +118,7 @@ function Hero() {
                   {stat.icon}
                 </div>
                 <div className="text-2xl font-bold text-foreground">
-                  {stat.static ? (
-                    `${stat.value}${stat.suffix}`
-                  ) : (
-                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                  )}
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="mt-0.5 text-xs font-medium text-muted">{stat.label}</div>
               </div>
@@ -416,7 +411,7 @@ function PortalBanner() {
                 Već ste naš klijent?
               </h3>
               <p className="mt-2 max-w-lg text-muted">
-                Pratite napredak svog projekta u realnom vremenu — faze, postotci i status na jednom mjestu.
+                Pratite napredak svog projekta u realnom vremenu — faze, postoci i status na jednom mjestu.
               </p>
             </div>
             <Link

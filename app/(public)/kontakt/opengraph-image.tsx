@@ -52,13 +52,13 @@ export default function OGImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Zakažite{" "}
-            <span style={{ color: "#2563eb" }}>besplatnu analizu</span>
+            Upoznajmo{" "}
+            <span style={{ color: "#2563eb" }}>vaše poslovanje</span>
             <br />
-            vašeg poslovanja.
+            iznutra.
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Dolazimo u vašu kompaniju, upoznajemo vaše procese i dajemo vam
+            Dolazimo u vašu firmu, upoznajemo vaše procese i dajemo vam
             iskrenu procjenu — bez obveza i bez pritiska.
           </div>
         </div>

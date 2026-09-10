@@ -52,7 +52,7 @@ export default function OGImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Dolazimo u vašu kompaniju
+            Dolazimo u vašu firmu
             <br />
             i učimo <span style={{ color: "#2563eb" }}>kako radite.</span>
           </div>
@@ -64,7 +64,7 @@ export default function OGImage() {
 
         <div style={{ display: "flex", gap: "40px" }}>
           {[
-            { n: "1.", d: "Dolazak u kompaniju" },
+            { n: "1.", d: "Dolazak u firmu" },
             { n: "2.", d: "Dijagnoza i plan" },
             { n: "3.", d: "Implementacija" },
             { n: "4.", d: "Podrška" },

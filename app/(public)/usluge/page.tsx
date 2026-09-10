@@ -2,13 +2,13 @@ import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "Usluge — Analiza, razvoj, AI i podrška",
+  title: "Usluge — Aplikacije po mjeri, AI i digitalizacija",
   description:
-    "Briksy Group nudi kompletne usluge digitalizacije — od besplatne analize poslovanja, razvoja prilagođenih rješenja i AI implementacije do edukacije i kontinuirane podrške.",
+    "Upoznajemo kako vaša firma radi i gradimo aplikacije po mjeri koje ubrzavaju protok informacija — od analize procesa i AI implementacije do edukacije i podrške.",
   alternates: { canonical: "https://briksygroup.com/usluge" },
   openGraph: {
-    title: "Usluge — Analiza, razvoj, AI i podrška",
-    description: "Kompletne usluge digitalizacije — od besplatne analize do implementacije i podrške.",
+    title: "Usluge — Aplikacije po mjeri, AI i digitalizacija",
+    description: "Upoznajemo kako vaša firma radi i gradimo aplikacije koje ubrzavaju protok informacija.",
     url: "https://briksygroup.com/usluge",
   },
 };
@@ -17,7 +17,7 @@ function Usluge() {
   const services = [
     {
       title: "Analiza i konzalting",
-      description: "Dolazimo u vašu kompaniju, mapiramo procese i identificiramo uska grla. Početna analiza je besplatna.",
+      description: "Dolazimo u vašu firmu, mapiramo procese i identificiramo uska grla. Početna analiza je besplatna.",
       includes: ["Fizički dolazak i praćenje procesa", "Mapiranje poslovnih tokova", "Procjena troškova nedigitalizacije", "Izvještaj s preporukama"],
     },
     {
@@ -119,9 +119,9 @@ function FAQ() {
   const questions = [
     { q: "Koliko košta digitalizacija?", a: "Ovisi o opsegu. Početna analiza je besplatna. Većina klijenata vrati investiciju u 6-12 mjeseci." },
     { q: "Koliko traje cijeli proces?", a: "Tipično 2-3 mjeseca. Radimo u fazama, koristi vidite već nakon nekoliko tjedana." },
-    { q: "Hoće li zaposlenici prihvatiti promjenu?", a: "Nakon 2-3 tjedna ne žele nazad. Ključ je pokazati im kako alat olakšava posao." },
+    { q: "Hoće li zaposlenici prihvatiti promjenu?", a: "Nakon 2-3 tjedna ne žele natrag. Ključ je pokazati im kako alat olakšava posao." },
     { q: "Što ako već imamo neke alate?", a: "Analiziramo što radi, predlažemo integracije ili zamjene. Ne bacamo sve — gradimo na onome što funkcionira." },
-    { q: "Je li Briksy samo za građevinarstvo?", a: "Briksy platforma da. Ali Briksy Group digitalizira kompanije iz svih industrija." },
+    { q: "Je li Briksy samo za građevinarstvo?", a: "Briksy platforma da. Ali Briksy Group digitalizira firme iz svih industrija." },
     { q: "Kako funkcionira AI implementacija?", a: "Identificiramo najrepetitivnije procese, postavljamo AI rješenja u vaš tok rada i obučavamo tim." },
   ];
 
@@ -163,7 +163,7 @@ function CTABanner() {
           Spremni za sljedeći korak?
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-lg text-muted">
-          Besplatna analiza vašeg poslovanja. Bez obveza.
+          Upoznajemo kako vaša firma radi i predlažemo najjednostavniji put digitalizacije. Bez obveza.
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link href="/kontakt" className="inline-flex items-center justify-center rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-white hover:bg-accent-dark">
@@ -202,9 +202,9 @@ export default function UslugePage() {
         mainEntity: [
           { "@type": "Question", name: "Koliko košta digitalizacija?", acceptedAnswer: { "@type": "Answer", text: "Ovisi o opsegu. Početna analiza je besplatna. Većina klijenata vrati investiciju u 6-12 mjeseci." } },
           { "@type": "Question", name: "Koliko traje cijeli proces?", acceptedAnswer: { "@type": "Answer", text: "Tipično 2-3 mjeseca. Radimo u fazama, koristi vidite već nakon nekoliko tjedana." } },
-          { "@type": "Question", name: "Hoće li zaposlenici prihvatiti promjenu?", acceptedAnswer: { "@type": "Answer", text: "Nakon 2-3 tjedna ne žele nazad. Ključ je pokazati im kako alat olakšava posao." } },
+          { "@type": "Question", name: "Hoće li zaposlenici prihvatiti promjenu?", acceptedAnswer: { "@type": "Answer", text: "Nakon 2-3 tjedna ne žele natrag. Ključ je pokazati im kako alat olakšava posao." } },
           { "@type": "Question", name: "Što ako već imamo neke alate?", acceptedAnswer: { "@type": "Answer", text: "Analiziramo što radi, predlažemo integracije ili zamjene. Gradimo na onome što funkcionira." } },
-          { "@type": "Question", name: "Je li Briksy samo za građevinarstvo?", acceptedAnswer: { "@type": "Answer", text: "Briksy platforma da. Ali Briksy Group digitalizira kompanije iz svih industrija." } },
+          { "@type": "Question", name: "Je li Briksy samo za građevinarstvo?", acceptedAnswer: { "@type": "Answer", text: "Briksy platforma da. Ali Briksy Group digitalizira firme iz svih industrija." } },
           { "@type": "Question", name: "Kako funkcionira AI implementacija?", acceptedAnswer: { "@type": "Answer", text: "Identificiramo najrepetitivnije procese, postavljamo AI rješenja u vaš tok rada i obučavamo tim." } },
         ],
       },

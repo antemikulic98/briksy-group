@@ -52,13 +52,13 @@ export default function OGImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Digitaliziramo kompanije
+            Digitaliziramo firme
             <br />
             koje žele rasti.
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Dolazimo u vašu kompaniju, učimo kako radite i gradimo digitalne sustave
-            koji donose rezultate.
+            Učimo kako vaša firma radi i gradimo aplikacije koje ubrzavaju
+            protok informacija.
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function OGImage() {
           {[
             { n: "2018.", d: "od osnivanja" },
             { n: "100%", d: "po mjeri" },
-            { n: "0 €", d: "početna analiza" },
+            { n: "4", d: "koraka do digitalizacije" },
             { n: "24h", d: "odgovor na prijavu" },
           ].map((s) => (
             <div key={s.n} style={{ display: "flex", flexDirection: "column" }}>

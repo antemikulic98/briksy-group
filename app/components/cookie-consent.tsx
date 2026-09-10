@@ -44,6 +44,7 @@ export default function CookieConsent() {
   function reject() {
     setCookie(COOKIE_NAME, "rejected", COOKIE_MAX_AGE);
     setVisible(false);
+    window.dispatchEvent(new Event("cookie-consent-update"));
   }
 
   if (!visible) return null;
@@ -53,7 +54,11 @@ export default function CookieConsent() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-4 sm:flex-row sm:justify-between">
         <p className="text-sm text-muted">
           Koristimo kolačiće za analitiku kako bismo poboljšali vaše iskustvo na
-          stranici. Vaši podaci se ne dijele s trećim stranama.
+          stranici. Vaše podatke ne koristimo u marketinške svrhe. Više u{" "}
+          <a href="/privatnost" className="font-medium text-accent hover:underline">
+            politici privatnosti
+          </a>
+          .
         </p>
         <div className="flex shrink-0 items-center gap-3">
           <button

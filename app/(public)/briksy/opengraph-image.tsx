@@ -73,8 +73,8 @@ export default function OGImage() {
             <span style={{ color: "#2563eb" }}>na jednom mjestu.</span>
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
-            Prva aplikacija za građevinske kompanije razvijena u suradnji s
-            vlasnicima kompanija i inženjerima na terenu.
+            Aplikacija za građevinske firme razvijena u suradnji s
+            vlasnicima firmi i inženjerima na terenu.
           </div>
         </div>
 

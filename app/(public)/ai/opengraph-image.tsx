@@ -58,7 +58,7 @@ export default function OGImage() {
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
             Implementiramo umjetnu inteligenciju tamo gdje donosi stvarnu uštedu
-            vremena i novca u vašoj kompaniji.
+            vremena i novca u vašoj firmi.
           </div>
         </div>
 

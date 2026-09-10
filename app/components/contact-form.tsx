@@ -62,7 +62,7 @@ export default function ContactForm() {
         </div>
         <h3 className="text-xl font-bold text-foreground">Poruka je poslana!</h3>
         <p className="mx-auto mt-3 max-w-sm text-muted">
-          Javit ćemo vam se u najkraćem mogućem roku na <strong className="text-foreground">{data.email}</strong>. Hvala na povjerenju.
+          Javit ćemo vam se u roku od 24 sata na <strong className="text-foreground">{data.email}</strong>. Hvala na povjerenju.
         </p>
       </div>
     );
@@ -94,14 +94,14 @@ export default function ContactForm() {
             value={data.company}
             onChange={(e) => update("company", e.target.value)}
             className={inputClass}
-            placeholder="Vaša kompanija d.o.o."
+            placeholder="Vaša firma d.o.o."
           />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-foreground">
-              Kontakt broj
+              Broj telefona
             </label>
             <input
               id="phone"
@@ -124,7 +124,7 @@ export default function ContactForm() {
               value={data.email}
               onChange={(e) => update("email", e.target.value)}
               className={inputClass}
-              placeholder="ivan@kompanija.hr"
+              placeholder="ivan@firma.hr"
             />
           </div>
         </div>
@@ -177,7 +177,12 @@ export default function ContactForm() {
       </div>
 
       <p className="mt-5 text-center text-xs text-muted">
-        Vaši podaci su sigurni. Koristimo ih isključivo za kontaktiranje.
+        Vaši podaci su sigurni — koristimo ih isključivo kako bismo vam se
+        javili. Više u{" "}
+        <a href="/privatnost" className="text-accent hover:underline">
+          politici privatnosti
+        </a>
+        .
       </p>
     </form>
   );

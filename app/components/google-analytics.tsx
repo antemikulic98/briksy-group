@@ -42,9 +42,7 @@ export default function GoogleAnalytics() {
     }
 
     function handleConsentUpdate() {
-      if (getCookie("cookie-consent") === "accepted") {
-        setConsented(true);
-      }
+      setConsented(getCookie("cookie-consent") === "accepted");
     }
 
     window.addEventListener("cookie-consent-update", handleConsentUpdate);

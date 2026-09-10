@@ -3,13 +3,13 @@ import InvoiceMockup from "@/app/components/invoice-mockup";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
 
 export const metadata = {
-  title: "Briksy — Software za upravljanje građevinskom kompanijom",
+  title: "Briksy — software za građevinske firme",
   description:
-    "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno na jednom mjestu. Razvijena s vlasnicima kompanija i inženjerima na terenu.",
+    "Aplikacija koja spaja financije, realizaciju i robno-materijalno na jednom mjestu. Razvijena s vlasnicima građevinskih firmi i inženjerima na terenu.",
   alternates: { canonical: "https://briksygroup.com/briksy" },
   openGraph: {
-    title: "Briksy — Software za upravljanje građevinskom kompanijom",
-    description: "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno za građevinske kompanije.",
+    title: "Briksy — software za građevinske firme",
+    description: "Aplikacija koja spaja financije, realizaciju i robno-materijalno za građevinske firme.",
     url: "https://briksygroup.com/briksy",
   },
 };
@@ -22,8 +22,7 @@ export default function BriksyPage() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
-          { "@type": "ListItem", position: 2, name: "Proizvodi", item: "https://briksygroup.com/briksy" },
-          { "@type": "ListItem", position: 3, name: "Briksy", item: "https://briksygroup.com/briksy" },
+          { "@type": "ListItem", position: 2, name: "Briksy", item: "https://briksygroup.com/briksy" },
         ],
       },
       {
@@ -32,7 +31,7 @@ export default function BriksyPage() {
         url: "https://briksy.com",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
-        description: "Prva aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske kompanije.",
+        description: "Aplikacija koja spaja financije, realizaciju i robno-materijalno poslovanje za građevinske firme.",
         offers: { "@type": "Offer", availability: "https://schema.org/InStock", priceCurrency: "EUR" },
         creator: { "@id": "https://briksygroup.com/#organization" },
       },
@@ -72,7 +71,7 @@ export default function BriksyPage() {
               <div className="mt-6 rounded-lg border border-accent/20 bg-accent/5 p-5">
                 <h3 className="font-semibold">Rađen s onima koji ga koriste</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">
-                  Razvijan godinama s vlasnicima građevinskih kompanija i
+                  Razvijan godinama s vlasnicima građevinskih firmi i
                   inženjerima na terenu. Svaka funkcionalnost postoji jer ju je
                   netko s gradilišta zatražio i potvrdio.
                 </p>
@@ -107,7 +106,7 @@ export default function BriksyPage() {
       <section className="border-b border-border bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-            Sve za upravljanje građevinskom kompanijom
+            Sve za upravljanje građevinskom firmom
           </h2>
 
           <AnimateOnScroll>
@@ -130,7 +129,7 @@ export default function BriksyPage() {
             Želite vidjeti Briksy u akciji?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg text-muted">
-            Demo prilagođen vašoj kompaniji. Ako nije za vas — nema daljnjeg kontakta.
+            Demo prilagođen vašoj firmi. Ako nije za vas, nema pritiska ni naknadnih poziva.
           </p>
           <div className="mt-6 flex justify-center gap-4">
             <Link href="/kontakt" className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-white hover:bg-accent-dark">

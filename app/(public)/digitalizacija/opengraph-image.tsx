@@ -54,7 +54,7 @@ export default function OGImage() {
           >
             Što zapravo znači
             <br />
-            <span style={{ color: "#2563eb" }}>digitalizirati kompaniju?</span>
+            <span style={{ color: "#2563eb" }}>digitalizirati firmu?</span>
           </div>
           <div style={{ fontSize: "24px", color: "#6b7280", maxWidth: "700px" }}>
             Zamjena ručnih, sporih procesa digitalnim sustavima koji rade brže,

@@ -5,11 +5,11 @@ import AnimateOnScroll from "@/app/components/animate-on-scroll";
 export const metadata = {
   title: "O nama — Naš pristup digitalizaciji poslovanja",
   description:
-    "Dolazimo u vašu kompaniju, učimo kako zaista radite i tek onda gradimo digitalna rješenja. Pristup temeljen na razumijevanju vašeg poslovanja iznutra.",
+    "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja. Pristup temeljen na razumijevanju vašeg poslovanja iznutra.",
   alternates: { canonical: "https://briksygroup.com/o-nama" },
   openGraph: {
     title: "O nama — Naš pristup digitalizaciji poslovanja",
-    description: "Dolazimo u vašu kompaniju, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+    description: "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
     url: "https://briksygroup.com/o-nama",
   },
 };
@@ -36,7 +36,7 @@ function HeroSection() {
           </div>
           <div className="relative min-h-[280px] overflow-hidden rounded-2xl lg:min-h-[360px]">
             <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80"
+              src="/img/tim-analiza.jpg"
               alt="Tim stručnjaka zajedno analizira poslovne procese"
               fill
               className="object-cover"
@@ -54,7 +54,7 @@ function PhaseCards() {
   const phases = [
     {
       num: "01",
-      title: "Dolazak u kompaniju",
+      title: "Dolazak u firmu",
       desc: "Upoznajemo vaše zaposlenike, procese i alate. Gledamo kako teče radni dan — od prvog maila do zadnjeg potpisa.",
     },
     {
@@ -105,7 +105,7 @@ function PhaseCards() {
 function InfoBox() {
   const items = [
     {
-      title: "Zašto dolazimo u kompaniju?",
+      title: "Zašto dolazimo u firmu?",
       desc: "Ono što vlasnik misli da se događa i ono što se zaista događa — često su dvije različite stvari. Mi ne pitamo kako radite — gledamo.",
     },
     {
@@ -114,7 +114,7 @@ function InfoBox() {
     },
     {
       title: "Bez šablonskih rješenja",
-      desc: "Ne dolazimo s gotovim rješenjem. Prvo učimo, pa tek onda gradimo. Traje malo duže, ali rezultati su nesporedivo bolji.",
+      desc: "Ne dolazimo s gotovim rješenjem. Prvo učimo, pa tek onda gradimo. Traje malo duže, ali rezultati su neusporedivo bolji.",
     },
   ];
 
@@ -143,7 +143,7 @@ function NaseVrijednosti() {
     { title: "Mjerljivi rezultati", desc: "Prije implementacije definiramo jasne metrike uspjeha — koliko vremena štedite, koliki je ROI. I onda mjerimo." },
     { title: "Bez tehničkog žargona", desc: "Govorimo vaš jezik. Objašnjavamo jednostavno što radimo, zašto i kakve rezultate možete očekivati." },
     { title: "Odgovornost za rezultat", desc: "Ne predajemo software i nestajemo. Ako nešto ne radi kako treba — popravljamo dok ne bude." },
-    { title: "Rast zajedno", desc: "Vaša kompanija se mijenja, sustavi moraju pratiti. Ne radimo jednokratne projekte — gradimo partnerstva." },
+    { title: "Rast zajedno", desc: "Vaša firma se mijenja, sustavi moraju pratiti. Ne radimo jednokratne projekte — gradimo partnerstva." },
   ];
 
   return (
@@ -182,7 +182,7 @@ function CTASection() {
             Spremni za razgovor?
           </h2>
           <p className="mt-3 text-lg text-muted">
-            Besplatna analiza vašeg poslovanja. Bez obveza.
+            Upoznajemo kako vaša firma radi i predlažemo najjednostavniji put digitalizacije. Bez obveza.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
@@ -218,7 +218,7 @@ export default function ONamaPage() {
       {
         "@type": "AboutPage",
         name: "O nama — Briksy Group",
-        description: "Dolazimo u vašu kompaniju, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+        description: "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
         url: "https://briksygroup.com/o-nama",
         mainEntity: { "@type": "Organization", "@id": "https://briksygroup.com/#organization" },
       },

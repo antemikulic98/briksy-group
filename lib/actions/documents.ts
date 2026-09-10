@@ -37,6 +37,15 @@ export async function getUploadUrl(
   const session = await auth();
   if (!session) throw new Error("Niste prijavljeni.");
 
+  const project = await prisma.project.findUnique({
+    where: { id: projectId },
+    select: { clientId: true },
+  });
+  if (!project) throw new Error("Projekt nije pronađen.");
+  if (session.user.role === "CLIENT" && project.clientId !== session.user.id) {
+    throw new Error("Nemate pristup.");
+  }
+
   // Validate file
   const error = validateFile(fileName, fileType, fileSize);
   if (error) return { error };

@@ -1,13 +1,13 @@
 import ContactForm from "@/app/components/contact-form";
 
 export const metadata = {
-  title: "Kontakt — Zakažite besplatnu analizu poslovanja",
+  title: "Kontakt — Upoznajmo vaše poslovanje",
   description:
-    "Javite nam se za besplatnu analizu vašeg poslovanja. Dolazimo u vašu kompaniju, upoznajemo procese i dajemo iskrenu procjenu — bez obveza.",
+    "Javite nam se — dolazimo u vašu firmu, učimo kako radite i predlažemo najjednostavniji put digitalizacije. Odgovaramo u roku od 24 sata, bez obveza.",
   alternates: { canonical: "https://briksygroup.com/kontakt" },
   openGraph: {
-    title: "Kontakt — Zakažite besplatnu analizu poslovanja",
-    description: "Besplatna analiza poslovanja. Dolazimo u vašu kompaniju, upoznajemo procese — bez obveza.",
+    title: "Kontakt — Upoznajmo vaše poslovanje",
+    description: "Dolazimo u vašu firmu, učimo kako radite i predlažemo najjednostavniji put digitalizacije.",
     url: "https://briksygroup.com/kontakt",
   },
 };

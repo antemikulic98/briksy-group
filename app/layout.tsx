@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Briksy Group",
   },
   description:
-    "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija, software za građevinarstvo i konzalting. Besplatna analiza.",
+    "Gradimo aplikacije po mjeri za firme koje žele ubrzati protok informacija. Učimo kako vaša firma radi i digitaliziramo je na najjednostavniji način.",
   authors: [{ name: "Briksy Group d.o.o." }],
   creator: "Briksy Group",
   publisher: "Briksy Group d.o.o.",
@@ -40,18 +40,15 @@ export const metadata: Metadata = {
     title:
       "Digitalizacija poslovanja | Briksy Group — AI i software",
     description:
-      "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. AI implementacija i software. Besplatna analiza.",
+      "Aplikacije po mjeri za firme koje žele ubrzati protok informacija. Učimo kako radite i digitaliziramo vas na najjednostavniji način.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Digitalizacija poslovanja | Briksy Group — AI i software",
     description:
-      "Dolazimo u vašu kompaniju, analiziramo procese i gradimo digitalna rješenja koja donose rezultate. Besplatna analiza.",
+      "Aplikacije po mjeri za firme koje žele ubrzati protok informacija.",
     images: ["/opengraph-image"],
-  },
-  alternates: {
-    canonical: "https://briksygroup.com",
   },
   category: "technology",
 };
@@ -72,10 +69,12 @@ export default function RootLayout({
         url: "https://briksygroup.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://briksygroup.com/icon.svg",
+          url: "https://briksygroup.com/img/icon.png",
+          width: 512,
+          height: 512,
         },
         description:
-          "Vodeća hrvatska tvrtka za digitalizaciju poslovanja. Specijalizirani za digitalnu transformaciju, AI implementaciju i razvoj software-a za građevinarstvo i druge industrije.",
+          "Hrvatska tvrtka za digitalizaciju poslovanja. Gradimo aplikacije po mjeri za firme koje žele ubrzati protok informacija — digitalna transformacija, AI implementacija i software za građevinarstvo.",
         foundingDate: "2018",
         address: {
           "@type": "PostalAddress",
@@ -123,7 +122,7 @@ export default function RootLayout({
         url: "https://briksygroup.com",
         name: "Digitalizacija poslovanja | Briksy Group — AI i software",
         description:
-          "Briksy Group digitalizira kompanije u Hrvatskoj. Dolazimo u vašu kompaniju, analiziramo procese i implementiramo rješenja koja donose rezultate.",
+          "Briksy Group digitalizira firme u Hrvatskoj. Dolazimo u vašu firmu, analiziramo procese i implementiramo rješenja koja donose rezultate.",
         isPartOf: {
           "@id": "https://briksygroup.com/#website",
         },
@@ -136,7 +135,7 @@ export default function RootLayout({
         "@type": "LocalBusiness",
         "@id": "https://briksygroup.com/#localbusiness",
         name: "Briksy Group",
-        image: "https://briksygroup.com/icon.svg",
+        image: "https://briksygroup.com/img/icon.png",
         url: "https://briksygroup.com",
         telephone: "+385-95-541-9712",
         email: "info@briksygroup.com",
@@ -163,7 +162,7 @@ export default function RootLayout({
             "Friday",
           ],
           opens: "08:00",
-          closes: "16:00",
+          closes: "17:00",
         },
         parentOrganization: {
           "@id": "https://briksygroup.com/#organization",

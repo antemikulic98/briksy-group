@@ -76,6 +76,12 @@ export default function DigitalizacijaPage() {
                   S digitalnim sustavom: <strong className="text-foreground">2-3 sata</strong>.
                   Ostatak ide na gradnju, pregovore i rast.
                 </p>
+                <Link
+                  href="/briksy/studija-slucaja"
+                  className="mt-3 inline-block text-sm font-medium text-accent hover:underline"
+                >
+                  Pročitajte cijelu studiju slučaja →
+                </Link>
               </div>
 
               <AnimateOnScroll>

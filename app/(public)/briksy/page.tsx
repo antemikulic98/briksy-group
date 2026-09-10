@@ -75,6 +75,12 @@ export default function BriksyPage() {
                   inženjerima na terenu. Svaka funkcionalnost postoji jer ju je
                   netko s gradilišta zatražio i potvrdio.
                 </p>
+                <Link
+                  href="/briksy/studija-slucaja"
+                  className="mt-3 inline-block text-sm font-medium text-accent hover:underline"
+                >
+                  Pogledajte kako izgleda dan digitalizirane firme →
+                </Link>
               </div>
 
               <div className="mt-5 flex gap-4">

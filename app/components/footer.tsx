@@ -72,6 +72,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/briksy/studija-slucaja" className="text-sm text-gray-400 hover:text-white">
+                  Studija slučaja
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://briksy.com"
                   target="_blank"

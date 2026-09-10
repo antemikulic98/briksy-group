@@ -230,7 +230,12 @@ function ProizvodiDropdown({ pathname }: { pathname: string }) {
 
           <div className="border-t border-border bg-slate-50/80 px-5 py-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-muted">Rađen s ljudima s gradilišta</span>
+              <Link
+                href="/briksy/studija-slucaja"
+                className="text-xs font-medium text-muted hover:text-accent"
+              >
+                Studija slučaja →
+              </Link>
               <a
                 href="https://briksy.com"
                 target="_blank"

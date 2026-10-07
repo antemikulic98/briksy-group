@@ -1,208 +1,40 @@
 import Image from "next/image";
-import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
+import CTASection from "@/app/components/cta-section";
 
 export const metadata = {
-  title: "O nama — Naš pristup digitalizaciji poslovanja",
+  title: "Kako radimo — Prvo učimo kako radite, onda gradimo",
   description:
-    "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja. Pristup temeljen na razumijevanju vašeg poslovanja iznutra.",
+    "Dolazimo u firmu, učimo kako stvarno radite i tek onda gradimo. Četiri koraka od prvog razgovora do sustava koji vaša firma koristi.",
   alternates: { canonical: "https://briksygroup.com/o-nama" },
   openGraph: {
-    title: "O nama — Naš pristup digitalizaciji poslovanja",
-    description: "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+    title: "Kako radimo — Briksy Group",
+    description: "Dolazimo u firmu, učimo kako stvarno radite i tek onda gradimo.",
     url: "https://briksygroup.com/o-nama",
   },
 };
 
-function HeroSection() {
-  return (
-    <section className="border-b border-border bg-slate-50 pt-16">
-      <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-widest text-accent">
-              Naš pristup
-            </p>
-            <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-              Prvo učimo kako radite.
-              <br />
-              Onda gradimo.
-            </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted">
-              Software koji nastaje bez razumijevanja vašeg svakodnevnog rada
-              gotovo uvijek završi kao nekorišten alat. Zato dolazimo k vama,
-              upoznajemo ljude i procese — i tek onda predlažemo rješenja.
-            </p>
-          </div>
-          <div className="relative min-h-[280px] overflow-hidden rounded-2xl lg:min-h-[360px]">
-            <Image
-              src="/img/tim-analiza.jpg"
-              alt="Tim stručnjaka zajedno analizira poslovne procese"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+const steps = [
+  { title: "Upoznamo vaše poslovanje", desc: "Dolazimo u firmu, razgovaramo s ljudima koji rade posao i gledamo kako informacije stvarno putuju." },
+  { title: "Dijagnoza i prijedlog", desc: "Što vrijedi digitalizirati, što ne dirati, i treba li custom software, integracija ili postojeći alat." },
+  { title: "Gradimo u fazama", desc: "Prvo ono što najviše boli. Svaka faza je upotrebljiva sama za sebe i ne zaustavlja poslovanje." },
+  { title: "Ostajemo uz vas", desc: "Obuka na stvarnim podacima, podrška i razvoj dok se firma mijenja i raste." },
+];
 
-function PhaseCards() {
-  const phases = [
-    {
-      num: "01",
-      title: "Dolazak u firmu",
-      desc: "Upoznajemo vaše zaposlenike, procese i alate. Gledamo kako teče radni dan — od prvog maila do zadnjeg potpisa.",
-    },
-    {
-      num: "02",
-      title: "Dijagnoza i plan",
-      desc: "Kreiramo detaljnu dijagnozu: gdje gubite vrijeme, što se može automatizirati. Predlažemo korake s jasnim prioritetima i cijenama.",
-    },
-    {
-      num: "03",
-      title: "Implementacija",
-      desc: "Postavljamo sustave i obučavamo vaš tim. Radimo u fazama da ne zaustavljamo vaše poslovanje. Svaki tjedan dobivate izvještaj.",
-    },
-    {
-      num: "04",
-      title: "Podrška i optimizacija",
-      desc: "Pratimo kako se sustav koristi, slušamo feedback i kontinuirano poboljšavamo. Digitalizacija je proces, ne jednokratan projekt.",
-    },
-  ];
+const tkoSmo = [
+  { title: "Od 2018.", desc: "Hrvatska tvrtka za poslovni software. Sjedište u Kaštel Sućurcu, radimo po cijeloj Hrvatskoj." },
+  { title: "Konzultanti i developeri", desc: "U timu su ljudi s iskustvom u građevinarstvu, proizvodnji i logistici, ne samo programeri." },
+  { title: "Vlastiti proizvod", desc: "Briksy, ERP za građevinske firme, izgrađen je na isti način na koji radimo i vaš projekt." },
+];
 
-  return (
-    <section className="border-b border-border bg-white py-14 md:py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Naš proces
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Četiri faze koje vode do rezultata.
-          </h2>
-        </div>
-
-        <AnimateOnScroll>
-          <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
-            {phases.map((p) => (
-              <div key={p.num} className="bg-white p-6">
-                <div className="text-sm font-bold text-accent">Faza {p.num}</div>
-                <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
-function InfoBox() {
-  const items = [
-    {
-      title: "Zašto dolazimo u firmu?",
-      desc: "Ono što vlasnik misli da se događa i ono što se zaista događa — često su dvije različite stvari. Mi ne pitamo kako radite — gledamo.",
-    },
-    {
-      title: "Razumijemo vašu industriju",
-      desc: "U timu su poslovni konzultanti s iskustvom u građevinarstvu, proizvodnji, logistici i uslužnim djelatnostima. Govorimo vaš jezik.",
-    },
-    {
-      title: "Bez šablonskih rješenja",
-      desc: "Ne dolazimo s gotovim rješenjem. Prvo učimo, pa tek onda gradimo. Traje malo duže, ali rezultati su neusporedivo bolji.",
-    },
-  ];
-
-  return (
-    <section className="border-b border-border bg-slate-50 py-14 md:py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <AnimateOnScroll>
-          <div className="grid gap-6 rounded-lg border border-border bg-white p-6 lg:grid-cols-3 lg:p-8">
-            {items.map((item) => (
-              <div key={item.title}>
-                <h3 className="font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
-function NaseVrijednosti() {
-  const values = [
-    { title: "Iskrenost iznad svega", desc: "Ako digitalizacija neće donijeti rezultate — reći ćemo vam. Ne prodajemo rješenja koja vam ne trebaju." },
-    { title: "Ljudi, ne samo tehnologija", desc: "Svaka transformacija počinje s ljudima. Zato posvećujemo toliko vremena razumijevanju vaših zaposlenika." },
-    { title: "Mjerljivi rezultati", desc: "Prije implementacije definiramo jasne metrike uspjeha — koliko vremena štedite, koliki je ROI. I onda mjerimo." },
-    { title: "Bez tehničkog žargona", desc: "Govorimo vaš jezik. Objašnjavamo jednostavno što radimo, zašto i kakve rezultate možete očekivati." },
-    { title: "Odgovornost za rezultat", desc: "Ne predajemo software i nestajemo. Ako nešto ne radi kako treba — popravljamo dok ne bude." },
-    { title: "Rast zajedno", desc: "Vaša firma se mijenja, sustavi moraju pratiti. Ne radimo jednokratne projekte — gradimo partnerstva." },
-  ];
-
-  return (
-    <section className="border-b border-border bg-white py-14 md:py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Naše vrijednosti
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Principi po kojima radimo svaki dan.
-          </h2>
-        </div>
-
-        <AnimateOnScroll>
-          <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-            {values.map((v) => (
-              <div key={v.title}>
-                <h3 className="font-semibold">{v.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{v.desc}</p>
-              </div>
-            ))}
-          </div>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  return (
-    <section className="bg-slate-50 py-14 md:py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Spremni za razgovor?
-          </h2>
-          <p className="mt-3 text-lg text-muted">
-            Upoznajemo kako vaša firma radi i predlažemo najjednostavniji put digitalizacije. Bez obveza.
-          </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center justify-center rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
-            >
-              Zakažite razgovor
-            </Link>
-            <a
-              href="mailto:info@briksygroup.com"
-              className="inline-flex items-center justify-center rounded-xl border border-border px-7 py-3.5 text-base font-medium hover:bg-gray-50"
-            >
-              info@briksygroup.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+const principles = [
+  { title: "Gledamo, ne pitamo", desc: "Ono što vlasnik misli da se događa i ono što se stvarno događa često su dvije različite stvari." },
+  { title: "Gradimo oko postojećeg", desc: "ERP i alati koji rade ostaju. Dodajemo dio koji nedostaje." },
+  { title: "Iskreno", desc: "Ako digitalizacija neće donijeti rezultat, reći ćemo vam. Ne prodajemo ono što vam ne treba." },
+  { title: "Bez žargona", desc: "Objašnjavamo jednostavno što radimo, zašto i što možete očekivati." },
+  { title: "Mjerljivo", desc: "Prije implementacije dogovaramo što znači uspjeh, pa to i mjerimo." },
+  { title: "Dugoročno", desc: "Ne predajemo software i nestajemo. Sustav raste s firmom." },
+];
 
 export default function ONamaPage() {
   const jsonLd = {
@@ -212,13 +44,13 @@ export default function ONamaPage() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Početna", item: "https://briksygroup.com" },
-          { "@type": "ListItem", position: 2, name: "O nama", item: "https://briksygroup.com/o-nama" },
+          { "@type": "ListItem", position: 2, name: "Kako radimo", item: "https://briksygroup.com/o-nama" },
         ],
       },
       {
         "@type": "AboutPage",
-        name: "O nama — Briksy Group",
-        description: "Dolazimo u vašu firmu, učimo kako zaista radite i tek onda gradimo digitalna rješenja.",
+        name: "Kako radimo — Briksy Group",
+        description: "Dolazimo u firmu, učimo kako stvarno radite i tek onda gradimo.",
         url: "https://briksygroup.com/o-nama",
         mainEntity: { "@type": "Organization", "@id": "https://briksygroup.com/#organization" },
       },
@@ -228,10 +60,90 @@ export default function ONamaPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <HeroSection />
-      <PhaseCards />
-      <InfoBox />
-      <NaseVrijednosti />
+
+      <section className="bg-white pt-16">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">Kako radimo</p>
+              <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+                Prvo učimo kako radite. Onda gradimo.
+              </h1>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+                Software koji nastane bez razumijevanja svakodnevnog rada završi
+                kao nekorišten alat. Zato prvo dolazimo k vama.
+              </p>
+            </div>
+            <div className="relative min-h-[300px] overflow-hidden rounded-3xl lg:min-h-[420px]">
+              <Image
+                src="/img/tim-analiza.jpg"
+                alt="Tim zajedno analizira poslovne procese"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-br from-accent to-blue-800 py-24 text-white md:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-200">Četiri koraka</p>
+          <h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            Od prvog razgovora do sustava koji firma stvarno koristi.
+          </h2>
+          <AnimateOnScroll>
+            <ol className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+              {steps.map((s, i) => (
+                <li key={s.title} className="border-t border-white/25 pt-6">
+                  <span className="text-sm font-semibold text-blue-200">0{i + 1}</span>
+                  <h3 className="mt-3 text-xl font-semibold leading-snug">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-blue-100">{s.desc}</p>
+                </li>
+              ))}
+            </ol>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-10 border-b border-border pb-20 md:grid-cols-12 md:pb-24">
+            <div className="md:col-span-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">Tko smo</p>
+              <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+                Briksy Group d.o.o.
+              </h2>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-3 md:col-span-8">
+              {tkoSmo.map((t) => (
+                <div key={t.title}>
+                  <p className="text-lg font-semibold">{t.title}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-20 text-xs font-semibold uppercase tracking-widest text-accent md:mt-24">Principi</p>
+          <h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            Kako razmišljamo o svakom projektu.
+          </h2>
+          <AnimateOnScroll>
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {principles.map((p) => (
+                <div key={p.title} className="rounded-2xl bg-slate-50 p-7">
+                  <h3 className="text-lg font-semibold">{p.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       <CTASection />
     </>
   );

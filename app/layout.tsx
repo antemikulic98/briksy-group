@@ -11,13 +11,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://briksygroup.com"),
+  alternates: { canonical: "https://briksygroup.com" },
   title: {
     default:
-      "Digitalizacija poslovanja | Briksy Group — AI i software",
+      "Poslovni software po mjeri | Briksy Group",
     template: "%s | Briksy Group",
   },
   description:
-    "Gradimo aplikacije po mjeri za firme koje žele ubrzati protok informacija. Učimo kako vaša firma radi i digitaliziramo je na najjednostavniji način.",
+    "Software za firme koje su prerasle Excel, mailove i nepovezane programe. Povezujemo procese, ljude i podatke u jedan sustav, uz integracije s alatima koje već koristite.",
   authors: [{ name: "Briksy Group d.o.o." }],
   creator: "Briksy Group",
   publisher: "Briksy Group d.o.o.",
@@ -38,16 +39,16 @@ export const metadata: Metadata = {
     url: "https://briksygroup.com",
     siteName: "Briksy Group",
     title:
-      "Digitalizacija poslovanja | Briksy Group — AI i software",
+      "Poslovni software po mjeri | Briksy Group",
     description:
-      "Aplikacije po mjeri za firme koje žele ubrzati protok informacija. Učimo kako radite i digitaliziramo vas na najjednostavniji način.",
+      "Software za firme koje su prerasle Excel. Povezujemo procese, ljude i podatke u jedan sustav, uz integracije s alatima koje već koristite.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digitalizacija poslovanja | Briksy Group — AI i software",
+    title: "Poslovni software po mjeri | Briksy Group",
     description:
-      "Aplikacije po mjeri za firme koje žele ubrzati protok informacija.",
+      "Software za firme koje su prerasle Excel, mailove i nepovezane programe.",
     images: ["/opengraph-image"],
   },
   category: "technology",
@@ -74,7 +75,7 @@ export default function RootLayout({
           height: 512,
         },
         description:
-          "Hrvatska tvrtka za digitalizaciju poslovanja. Gradimo aplikacije po mjeri za firme koje žele ubrzati protok informacija — digitalna transformacija, AI implementacija i software za građevinarstvo.",
+          "Hrvatska tvrtka za poslovni software po mjeri. Gradimo operativne sustave za firme koje su prerasle Excel: software po mjeri, integracije s ERP-om, automatizacija i AI obrada dokumenata, te Briksy, software za građevinarstvo.",
         foundingDate: "2018",
         address: {
           "@type": "PostalAddress",
@@ -97,8 +98,9 @@ export default function RootLayout({
         },
         sameAs: ["https://briksy.com"],
         knowsAbout: [
+          "Poslovni software po mjeri",
           "Digitalizacija poslovanja",
-          "Digitalna transformacija",
+          "Integracija ERP sustava",
           "Software za građevinarstvo",
           "AI implementacija",
           "Automatizacija poslovnih procesa",
@@ -120,9 +122,9 @@ export default function RootLayout({
         "@type": "WebPage",
         "@id": "https://briksygroup.com/#webpage",
         url: "https://briksygroup.com",
-        name: "Digitalizacija poslovanja | Briksy Group — AI i software",
+        name: "Poslovni software po mjeri | Briksy Group",
         description:
-          "Briksy Group digitalizira firme u Hrvatskoj. Dolazimo u vašu firmu, analiziramo procese i implementiramo rješenja koja donose rezultate.",
+          "Briksy Group gradi poslovni software po mjeri za firme u Hrvatskoj. Dolazimo u firmu, učimo kako radite i povezujemo procese, ljude i podatke u jedan sustav.",
         isPartOf: {
           "@id": "https://briksygroup.com/#website",
         },

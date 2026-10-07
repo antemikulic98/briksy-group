@@ -1,17 +1,50 @@
-import Link from "next/link";
 import AnimateOnScroll from "@/app/components/animate-on-scroll";
+import CTASection from "@/app/components/cta-section";
 
 export const metadata = {
-  title: "AI u poslovanju — Implementacija i automatizacija",
+  title: "AI u poslovanju — Obrada dokumenata i automatizacija",
   description:
-    "Implementiramo AI rješenja koja automatiziraju repetitivne zadatke, analiziraju podatke i ubrzavaju obradu dokumenata — tamo gdje donose stvarnu vrijednost.",
+    "AI primjenjujemo tamo gdje mjerljivo skraćuje posao: čitanje računa, ponuda i troškovnika, kategorizacija i povezivanje s projektima. Čovjek samo potvrdi.",
   alternates: { canonical: "https://briksygroup.com/ai" },
   openGraph: {
-    title: "AI u poslovanju — Implementacija i automatizacija",
-    description: "AI rješenja koja automatiziraju repetitivne zadatke i ubrzavaju obradu dokumenata u vašoj firmi.",
+    title: "AI u poslovanju — Obrada dokumenata i automatizacija",
+    description: "AI tamo gdje mjerljivo skraćuje posao. Čovjek samo potvrdi.",
     url: "https://briksygroup.com/ai",
   },
 };
+
+const useCases = [
+  { title: "Ulazni računi", desc: "AI pročita račun, prepozna dobavljača i stavke, poveže ih s projektom. Vi potvrdite." },
+  { title: "Ponude i troškovnici", desc: "Uvoz iz PDF-a ili Excela u strukturirane stavke, spremno za usporedbu." },
+  { title: "Kategorizacija", desc: "Dokumenti se sami razvrstavaju po projektu, odjelu ili vrsti troška." },
+  { title: "Obavijesti i odobrenja", desc: "Odobrenja i upozorenja idu ljudima koji ih trebaju, bez mailova." },
+];
+
+const flow = [
+  { n: "200 PDF-ova mjesečno", d: "stižu mailom od dobavljača" },
+  { n: "AI ih pročita", d: "izvuče podatke, prepozna dobavljača" },
+  { n: "Poveže dokument", d: "s projektom ili odjelom" },
+  { n: "Čovjek potvrdi", d: "jedan klik umjesto prepisivanja" },
+];
+
+const faq = [
+  {
+    q: "Gdje AI stvarno štedi vrijeme?",
+    a: "Na repetitivnim zadacima s puno dokumenata: unos računa, uvoz ponuda, razvrstavanje i povezivanje. Tamo posao od sati postaje potvrda od nekoliko sekundi.",
+  },
+  {
+    q: "Trebamo li tehničko znanje?",
+    a: "Ne. AI je ugrađen u sustav koji već koristite. Zaposlenik vidi prijedlog i potvrdi ga ili ispravi.",
+  },
+  {
+    q: "Hoće li AI zamijeniti zaposlenike?",
+    a: "Ne. Preuzima prepisivanje i razvrstavanje, a ljudi se bave onim što zahtijeva odluku, pregovaranje i kontakt.",
+  },
+  {
+    q: "Koliko košta?",
+    a: "Ovisi o opsegu. Počinjemo razgovorom i dijagnozom koja pokaže gdje AI donosi najveću uštedu, pa tek onda dajemo prijedlog s okvirnom procjenom.",
+  },
+];
 
 export default function AIPage() {
   const jsonLd = {
@@ -27,93 +60,46 @@ export default function AIPage() {
       },
       {
         "@type": "Service",
-        name: "AI implementacija u poslovanju",
+        name: "AI obrada dokumenata i automatizacija",
         provider: { "@id": "https://briksygroup.com/#organization" },
-        description: "Implementacija umjetne inteligencije u poslovne procese — automatizacija repetitivnih zadataka, pametna analitika, obrada dokumenata.",
+        description: "Primjena AI-ja u poslovne procese: čitanje dokumenata, kategorizacija, povezivanje s projektima i automatizacija odobrenja.",
         areaServed: { "@type": "Country", name: "Croatia" },
         serviceType: "AI implementacija",
       },
       {
         "@type": "FAQPage",
-        mainEntity: [
-          { "@type": "Question", name: "Koje su prednosti AI u poslovanju?", acceptedAnswer: { "@type": "Answer", text: "AI automatizira repetitivne zadatke poput unosa podataka i kategorizacije dokumenata, pruža pametnu analitiku koja prepoznaje obrasce i predviđa trendove, te ubrzava obradu dokumenata sa sati na sekunde. Rezultat je manje ručnog rada, manje grešaka i brže donošenje odluka." } },
-          { "@type": "Question", name: "Koliko košta implementacija AI-ja?", acceptedAnswer: { "@type": "Answer", text: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." } },
-          { "@type": "Question", name: "Trebam li tehničko znanje za korištenje AI?", acceptedAnswer: { "@type": "Answer", text: "Ne. Naša AI rješenja dizajnirana su za korištenje bez tehničkog predznanja. Svaka implementacija uključuje kompletnu obuku vašeg tima i podršku dok se ne osjećate sigurno u korištenju." } },
-          { "@type": "Question", name: "Hoće li AI zamijeniti moje zaposlenike?", acceptedAnswer: { "@type": "Answer", text: "Ne. AI ne zamjenjuje ljude — pomaže im. Preuzima dosadne, repetitivne zadatke kako bi se vaši zaposlenici mogli fokusirati na ono što zahtijeva kreativnost, pregovaranje i ljudski kontakt." } },
-        ],
+        mainEntity: faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       },
     ],
   };
-
-  const useCases = [
-    {
-      title: "Automatizacija zadataka",
-      desc: "Unos podataka, kategorizacija dokumenata, kreiranje izvještaja — AI preuzima poslove koji oduzimaju sate dnevno.",
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
-      ),
-    },
-    {
-      title: "Pametna analitika",
-      desc: "AI prepoznaje obrasce u vašim podacima, predviđa kašnjenja i identificira rizične troškove.",
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Obrada dokumenata",
-      desc: "AI čita ugovore, kategorizira poštu po prioritetu i generira sažetke — posao od sati završava u sekundama.",
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Integracija u postojeće sustave",
-      desc: "Ne trebate mijenjati način rada. AI se uklapa u vaše postojeće alate — bez nove krivulje učenja.",
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-        </svg>
-      ),
-    },
-  ];
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Hero */}
-      <section className="border-b border-border bg-slate-50 pt-16">
-        <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-medium uppercase tracking-widest text-accent">
-              Umjetna inteligencija u poslovanju
-            </p>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-              Gdje AI stvarno štedi vrijeme
-              — i gdje se novac samo baca.
+      <section className="bg-white pt-16">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent">AI u poslovanju</p>
+            <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+              AI obrada dokumenata i automatizacija procesa.
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted">
-              Pomažemo vam identificirati gdje AI donosi stvarnu vrijednost
-              i implementiramo ga na način koji vaši zaposlenici zaista mogu koristiti.
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+              Ne prodajemo AI. Prodajemo uklonjen posao. Proces koji je trajao sate
+              svodi se na potvrdu jednog čovjeka.
             </p>
           </div>
 
           <AnimateOnScroll>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {useCases.map((item) => (
-                <div key={item.title} className="group rounded-2xl border border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
-                    {item.icon}
-                  </div>
-                  <h3 className="mt-4 font-semibold">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {useCases.map((u) => (
+                <div key={u.title} className="rounded-2xl bg-slate-50 p-7">
+                  <h3 className="text-lg font-semibold">{u.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{u.desc}</p>
                 </div>
               ))}
             </div>
@@ -121,69 +107,40 @@ export default function AIPage() {
         </div>
       </section>
 
-      {/* Kako u praksi */}
-      <section className="border-b border-border bg-white py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-                Kako izgleda AI implementacija u praksi?
-              </h2>
-              <p className="mt-4 leading-relaxed text-muted">
-                Počinjemo s identificiranjem najrepetitivnijih procesa. Zatim
-                postavljamo AI rješenja koja se uklapaju u vaš postojeći tok rada.
-                Svaka implementacija uključuje obuku tima i mjerenje rezultata.
-              </p>
-              <p className="mt-3 leading-relaxed text-muted">
-                AI nije čarobni štapić — ali na pravom mjestu drastično smanjuje
-                ručni rad i eliminira ponavljajuće greške.
-              </p>
-            </div>
-            <AnimateOnScroll>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { n: "AI", d: "Analiza podataka i odluke" },
-                  { n: "NLP", d: "Obrada dokumenata i teksta" },
-                  { n: "OCR", d: "Digitalizacija papira" },
-                  { n: "24/7", d: "Sustavi rade non-stop" },
-                ].map((s) => (
-                  <div key={s.n} className="rounded-xl border border-border p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                    <div className="text-2xl font-bold text-accent">{s.n}</div>
-                    <div className="mt-1 text-xs text-muted">{s.d}</div>
-                  </div>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          </div>
+      <section className="bg-gradient-to-br from-accent to-blue-800 py-24 text-white md:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-200">Primjer iz prakse</p>
+          <h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            Dobivate 200 PDF-ova mjesečno?
+          </h2>
+          <AnimateOnScroll>
+            <ol className="mt-14 grid gap-10 md:grid-cols-4 md:gap-8">
+              {flow.map((f, i) => (
+                <li key={f.n} className="border-t border-white/25 pt-6">
+                  <span className="text-sm font-semibold text-blue-200">0{i + 1}</span>
+                  <h3 className="mt-3 text-xl font-semibold leading-snug">{f.n}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-blue-100">{f.d}</p>
+                </li>
+              ))}
+            </ol>
+          </AnimateOnScroll>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="border-b border-border bg-white py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-2">
-              <p className="text-sm font-medium uppercase tracking-widest text-accent">
-                Česta pitanja
-              </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-                Sve o AI implementaciji.
+      <section className="bg-white py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">Česta pitanja</p>
+              <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+                Ono što nas najčešće pitaju.
               </h2>
-              <p className="mt-3 text-muted">
-                Imate dodatnih pitanja? Javite nam se — odgovaramo u roku od 24 sata.
-              </p>
             </div>
-
-            <div className="divide-y divide-border lg:col-span-3">
-              {[
-                { q: "Koje su prednosti AI u poslovanju?", a: "AI automatizira repetitivne zadatke poput unosa podataka i kategorizacije dokumenata, pruža pametnu analitiku koja prepoznaje obrasce i predviđa trendove, te ubrzava obradu dokumenata sa sati na sekunde. Rezultat je manje ručnog rada, manje grešaka i brže donošenje odluka." },
-                { q: "Koliko košta implementacija AI-ja?", a: "Cijena ovisi o opsegu implementacije. Počinjemo s besplatnom analizom koja identificira gdje AI donosi najveću vrijednost. ROI je tipično brz — automatizacija jednog repetitivnog procesa često uštedi dovoljno vremena da pokrije troškove implementacije u kratkom roku." },
-                { q: "Trebam li tehničko znanje za korištenje AI?", a: "Ne. Naša AI rješenja dizajnirana su za korištenje bez tehničkog predznanja. Svaka implementacija uključuje kompletnu obuku vašeg tima i podršku dok se ne osjećate sigurno u korištenju." },
-                { q: "Hoće li AI zamijeniti moje zaposlenike?", a: "Ne. AI ne zamjenjuje ljude — pomaže im. Preuzima dosadne, repetitivne zadatke kako bi se vaši zaposlenici mogli fokusirati na ono što zahtijeva kreativnost, pregovaranje i ljudski kontakt." },
-              ].map((item) => (
-                <div key={item.q} className="py-5 first:pt-0 last:pb-0">
-                  <h3 className="font-semibold">{item.q}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.a}</p>
+            <div className="divide-y divide-border lg:col-span-8">
+              {faq.map((f) => (
+                <div key={f.q} className="py-6 first:pt-0 last:pb-0">
+                  <h3 className="text-lg font-semibold">{f.q}</h3>
+                  <p className="mt-2 leading-relaxed text-muted">{f.a}</p>
                 </div>
               ))}
             </div>
@@ -191,23 +148,7 @@ export default function AIPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-slate-50 py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Spremni za AI u vašem poslovanju?
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-lg text-muted">
-            Upoznajemo vaše procese i identificiramo gdje AI donosi najveću vrijednost.
-          </p>
-          <Link
-            href="/kontakt"
-            className="mt-6 inline-flex rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
-          >
-            Kontaktirajte nas
-          </Link>
-        </div>
-      </section>
+      <CTASection />
     </>
   );
 }

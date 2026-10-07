@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
 // Ažurirati datum kad se sadržaj stranice stvarno promijeni
-const LAST_CONTENT_UPDATE = new Date("2026-09-10");
+const LAST_CONTENT_UPDATE = new Date("2026-10-07");
+const PRIVACY_UPDATE = new Date("2026-09-10");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://briksygroup.com";
@@ -57,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/privatnost`,
-      lastModified: LAST_CONTENT_UPDATE,
+      lastModified: PRIVACY_UPDATE,
       changeFrequency: "yearly",
       priority: 0.3,
     },

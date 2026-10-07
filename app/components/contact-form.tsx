@@ -1,9 +1,11 @@
 "use client";
 
 import { submitInquiry } from "@/lib/actions/inquiries";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 type FormData = {
+  name: string;
   company: string;
   phone: string;
   email: string;
@@ -12,9 +14,25 @@ type FormData = {
 };
 
 export default function ContactForm() {
+  return (
+    <Suspense fallback={<ContactFormInner topic="" />}>
+      <ContactFormWithParams />
+    </Suspense>
+  );
+}
+
+function ContactFormWithParams() {
+  const params = useSearchParams();
+  const topic = params.get("tema") === "briksy-demo" ? "briksy-demo" : "";
+  return <ContactFormInner topic={topic} />;
+}
+
+function ContactFormInner({ topic }: { topic: string }) {
+  const isDemo = topic === "briksy-demo";
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<FormData>({
+    name: "",
     company: "",
     phone: "",
     email: "",
@@ -27,7 +45,7 @@ export default function ContactForm() {
   }
 
   function canSubmit() {
-    return data.company !== "" && data.email !== "" && data.phone !== "";
+    return data.name !== "" && data.company !== "" && data.email !== "" && data.phone !== "";
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -37,11 +55,8 @@ export default function ContactForm() {
     setError(null);
 
     const fd = new window.FormData();
-    fd.append("company", data.company);
-    fd.append("phone", data.phone);
-    fd.append("email", data.email);
-    fd.append("message", data.message);
-    fd.append("website", data.website);
+    (Object.keys(data) as (keyof FormData)[]).forEach((key) => fd.append(key, data[key]));
+    fd.append("topic", topic);
 
     const result = await submitInquiry(fd);
     if (result?.error) {
@@ -49,89 +64,112 @@ export default function ContactForm() {
       setStatus("error");
     } else {
       setStatus("success");
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "kontakt",
+          event_label: isDemo ? "briksy-demo" : "sastanak",
+        });
+      }
     }
   }
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-green-200 bg-gradient-to-b from-green-50 to-white p-10 text-center">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-          <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
+      <div className="animate-fade-in-up rounded-3xl bg-white p-10 text-center shadow-sm ring-1 ring-black/5 sm:p-14">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
         </div>
-        <h3 className="text-xl font-bold text-foreground">Poruka je poslana!</h3>
-        <p className="mx-auto mt-3 max-w-sm text-muted">
-          Javit ćemo vam se u roku od 24 sata na <strong className="text-foreground">{data.email}</strong>. Hvala na povjerenju.
+        <h3 className="mt-6 text-2xl font-bold tracking-tight md:text-3xl">Hvala, zahtjev je zaprimljen.</h3>
+        <p className="mx-auto mt-3 max-w-md leading-relaxed text-muted">
+          Javit ćemo vam se u roku od jednog radnog dana na{" "}
+          <span className="font-medium text-foreground">{data.email}</span> i dogovoriti termin
+          {isDemo ? " za demo Briksyja" : " sastanka"} koji vama odgovara.
         </p>
       </div>
     );
   }
 
   const inputClass =
-    "w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent focus:ring-2 focus:ring-accent/20";
+    "w-full rounded-xl border border-border bg-slate-50 px-4 py-3.5 text-base text-foreground outline-none transition-all placeholder:text-gray-400 focus:border-accent focus:bg-white focus:ring-4 focus:ring-accent/10";
+  const labelClass = "mb-2 block text-sm font-medium text-foreground";
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8">
-      <h3 className="text-lg font-semibold text-foreground">Javite nam se</h3>
-      <p className="mt-1 text-sm text-muted">Odgovaramo u roku od 24 sata.</p>
-
+    <form onSubmit={handleSubmit} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-10">
+      {isDemo && (
+        <div className="mb-6 flex items-center gap-3 rounded-xl bg-accent/5 px-4 py-3 text-sm ring-1 ring-accent/15">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+          <span>
+            <span className="font-semibold text-foreground">Demo Briksyja.</span>{" "}
+            <span className="text-muted">Pokazat ćemo vam sustav na primjeru vaše firme.</span>
+          </span>
+        </div>
+      )}
       {error && (
-        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+        <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
           {error}
         </div>
       )}
 
-      <div className="mt-6 space-y-4">
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-foreground">
-            Naziv firme
-          </label>
+          <label htmlFor="name" className={labelClass}>Ime i prezime</label>
+          <input
+            id="name"
+            type="text"
+            required
+            autoComplete="name"
+            value={data.name}
+            onChange={(e) => update("name", e.target.value)}
+            className={inputClass}
+            placeholder="Ivan Horvat"
+          />
+        </div>
+        <div>
+          <label htmlFor="company" className={labelClass}>Firma</label>
           <input
             id="company"
             type="text"
             required
+            autoComplete="organization"
             value={data.company}
             onChange={(e) => update("company", e.target.value)}
             className={inputClass}
-            placeholder="Vaša firma d.o.o."
+            placeholder="Firma d.o.o."
           />
         </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-foreground">
-              Broj telefona
-            </label>
-            <input
-              id="phone"
-              type="tel"
-              required
-              value={data.phone}
-              onChange={(e) => update("phone", e.target.value)}
-              className={inputClass}
-              placeholder="+385 ..."
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              value={data.email}
-              onChange={(e) => update("email", e.target.value)}
-              className={inputClass}
-              placeholder="ivan@firma.hr"
-            />
-          </div>
-        </div>
-
         <div>
-          <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">
-            Poruka <span className="text-muted">(opcionalno)</span>
+          <label htmlFor="email" className={labelClass}>Email</label>
+          <input
+            id="email"
+            type="email"
+            required
+            autoComplete="email"
+            value={data.email}
+            onChange={(e) => update("email", e.target.value)}
+            className={inputClass}
+            placeholder="ivan@firma.hr"
+          />
+        </div>
+        <div>
+          <label htmlFor="phone" className={labelClass}>Telefon</label>
+          <input
+            id="phone"
+            type="tel"
+            required
+            autoComplete="tel"
+            value={data.phone}
+            onChange={(e) => update("phone", e.target.value)}
+            className={inputClass}
+            placeholder="+385 ..."
+          />
+        </div>
+        <div className="sm:col-span-2">
+          <label htmlFor="message" className={labelClass}>
+            Poruka <span className="font-normal text-muted">(opcionalno)</span>
           </label>
           <textarea
             id="message"
@@ -139,28 +177,39 @@ export default function ContactForm() {
             value={data.message}
             onChange={(e) => update("message", e.target.value)}
             className={inputClass}
-            placeholder="Kako vam možemo pomoći?"
+            placeholder={isDemo ? "Ukratko, koliko gradilišta vodite i što vas najviše zanima?" : "Ukratko, gdje vam trenutno najviše zapinje?"}
           />
         </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={!canSubmit() || status === "loading"}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:opacity-40"
-      >
-        {status === "loading" ? (
-          <>
-            <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-            </svg>
-            Šaljem...
-          </>
-        ) : (
-          "Pošaljite poruku"
-        )}
-      </button>
+      <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+        <p className="text-xs text-muted">
+          Javimo se u roku od jednog radnog dana.{" "}
+          <a href="/privatnost" className="text-accent hover:underline">Politika privatnosti</a>
+        </p>
+        <button
+          type="submit"
+          disabled={!canSubmit() || status === "loading"}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
+        >
+          {status === "loading" ? (
+            <>
+              <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              Šaljem...
+            </>
+          ) : (
+            <>
+              {isDemo ? "Zatražite demo" : "Zatražite sastanak"}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </>
+          )}
+        </button>
+      </div>
 
       {/* Honeypot — hidden from real users */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
@@ -175,15 +224,6 @@ export default function ContactForm() {
           onChange={(e) => update("website", e.target.value)}
         />
       </div>
-
-      <p className="mt-5 text-center text-xs text-muted">
-        Vaši podaci su sigurni — koristimo ih isključivo kako bismo vam se
-        javili. Više u{" "}
-        <a href="/privatnost" className="text-accent hover:underline">
-          politici privatnosti
-        </a>
-        .
-      </p>
     </form>
   );
 }

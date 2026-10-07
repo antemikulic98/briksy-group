@@ -133,7 +133,7 @@ export default function StudijaSlucajaPage() {
               </p>
               <div className="mt-8 flex gap-4">
                 <Link
-                  href="/kontakt"
+                  href="/kontakt?tema=briksy-demo"
                   className="inline-flex items-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
                 >
                   Zatražite demo
@@ -331,7 +331,7 @@ export default function StudijaSlucajaPage() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
-              href="/kontakt"
+              href="/kontakt?tema=briksy-demo"
               className="inline-flex items-center justify-center rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-white hover:bg-accent-dark"
             >
               Zatražite demo

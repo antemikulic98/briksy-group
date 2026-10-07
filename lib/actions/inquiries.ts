@@ -32,6 +32,7 @@ export async function submitInquiry(formData: FormData) {
     message: (formData.get("message") as string) || undefined,
     website: (formData.get("website") as string) || undefined,
   };
+  const topic = formData.get("topic") === "briksy-demo" ? "briksy-demo" : null;
 
   // Honeypot check
   if (raw.website) {
@@ -58,19 +59,24 @@ export async function submitInquiry(formData: FormData) {
         industry: data.industry || null,
         companySize: data.companySize || null,
         budget: data.budget || null,
-        message: data.message || null,
+        message: topic
+          ? `[Briksy demo] ${data.message || ""}`.trim()
+          : data.message || null,
       },
     });
 
     await sendEmail({
       to: "info@briksygroup.com",
-      subject: `Nova prijava: ${escapeHtml(data.company)}`,
+      subject: `${topic ? "Zahtjev za Briksy demo" : "Zahtjev za sastanak"}: ${escapeHtml(data.company)}`,
       html: `
-        <h2>Nova prijava za kontakt</h2>
+        <h2>${topic ? "Zahtjev za Briksy demo" : "Zahtjev za sastanak"} s web stranice</h2>
+        ${data.name ? `<p><strong>Ime:</strong> ${escapeHtml(data.name)}</p>` : ""}
         <p><strong>Firma:</strong> ${escapeHtml(data.company)}</p>
         <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
         <p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>
-        ${data.message ? `<p><strong>Poruka:</strong></p><p>${escapeHtml(data.message)}</p>` : ""}
+        ${data.industry ? `<p><strong>Djelatnost:</strong> ${escapeHtml(data.industry)}</p>` : ""}
+        ${data.companySize ? `<p><strong>Broj zaposlenih:</strong> ${escapeHtml(data.companySize)}</p>` : ""}
+        ${data.message ? `<p><strong>Gdje zapinje:</strong></p><p>${escapeHtml(data.message)}</p>` : ""}
       `,
     });
 
